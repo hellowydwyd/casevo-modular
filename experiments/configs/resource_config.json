@@ -1,0 +1,60 @@
+{
+    "experiment_name": "resource_allocation_negotiation",
+    "description": "多智能体资源分配协商实验",
+    
+    "baseline": {
+        "num_agents": 50,
+        "total_resources": 1000,
+        "max_rounds": 10,
+        "use_collaborative": false,
+        "convergence_threshold": 0.05,
+        "convergence_rounds": 2
+    },
+    
+    "optimized_collaborative": {
+        "num_agents": 50,
+        "total_resources": 1000,
+        "max_rounds": 10,
+        "use_collaborative": true,
+        "decision_mode": "hybrid",
+        "convergence_threshold": 0.05,
+        "convergence_rounds": 2
+    },
+    
+    "stress_test": {
+        "num_agents": 100,
+        "total_resources": 1500,
+        "max_rounds": 15,
+        "use_collaborative": true,
+        "decision_mode": "distributed"
+    },
+    
+    "evaluation_metrics": [
+        "negotiation_rounds",
+        "gini_coefficient",
+        "average_satisfaction",
+        "minimum_satisfaction",
+        "utilization_rate",
+        "convergence_speed"
+    ],
+    
+    "priority_distribution": {
+        "critical": 0.1,
+        "high": 0.2,
+        "normal": 0.5,
+        "low": 0.2
+    },
+    
+    "need_ranges": {
+        "critical": {"min": [25, 35], "desired": [35, 50]},
+        "high": {"min": [20, 30], "desired": [30, 40]},
+        "normal": {"min": [15, 25], "desired": [25, 35]},
+        "low": {"min": [10, 20], "desired": [20, 30]}
+    },
+    
+    "run_settings": {
+        "num_runs": 10,
+        "random_seeds": [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
+    }
+}
+

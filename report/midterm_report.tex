@@ -1,0 +1,496 @@
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+
+% 页面设置
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=2.5cm,headheight=15pt}
+
+% 页眉页脚设置
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{人工智能与社会课程大作业}
+\fancyhead[R]{中期报告}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 超链接设置
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% 标题格式设置
+\titleformat{\section}{\Large\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+% 代码样式
+\lstset{
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red!70!black},
+    showstringspaces=false,
+    tabsize=4
+}
+
+% Python 代码样式
+\lstdefinestyle{python}{
+    language=Python,
+    morekeywords={self, True, False, None, async, await, with, as},
+}
+
+% 文档信息
+\title{\textbf{\Huge 人工智能与社会课程\\[0.3cm]大作业中期报告}\\[1cm]
+\Large 基于 Casevo 框架的智能体决策能力优化研究}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\vspace{0.5cm}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}rl@{}}
+\textbf{小组成员：} & \large 王宇东（组长）、陈文远 \\
+\textbf{提交日期：} & \large \today \\
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{abstract}
+\noindent
+本中期报告总结了"基于 Casevo 框架的智能体决策能力优化研究"项目的当前进展。截至目前，我们已完成四个核心优化模块的开发，包括增强型思维链、高级记忆管理、协同决策和决策评估模块，并成功运行了选举投票、资源分配和信息传播三个实验场景的完整对比实验。
+
+实验结果表明，在选举模拟场景中，gpt-4o 模型以 51.5\% 的 Biden 支持率几乎完美复现了 2020 年美国大选结果（实际为 51.3\%），偏差仅为 0.2\%。在推理机制对比实验中，Tree of Thought（ToT）相比 Chain of Thought（CoT）在中间派选民的决策一致性上提升了 10\%。此外，LLM 驱动的资源分配协商产生了更公平的分配方案，基尼系数相比规则型基线降低了 9.4\%。本报告详细记录了系统实现细节、实验配置和结果分析。
+
+\vspace{0.5em}
+\noindent\textbf{关键词：}大语言模型；多智能体系统；社会模拟；思维链；决策优化
+\end{abstract}
+
+\newpage
+\setcounter{page}{1}
+\tableofcontents
+\newpage
+
+%========================================
+\section{项目概述}
+%========================================
+
+\subsection{研究目标}
+
+本项目旨在对 Casevo（Cognitive Agents and Social Evolution Simulator）框架进行系统性优化，提升智能体在复杂社会模拟场景中的决策质量和适应性。研究聚焦于四个核心优化方向：首先，在推理机制层面，将原有的线性思维链（Chain of Thought, CoT）扩展为树状思维（Tree of Thought, ToT），支持多路径探索和分支评估；其次，在记忆管理层面，引入上下文感知检索、时间衰减权重和智能遗忘机制，提升记忆检索的相关性；第三，在反思机制层面，设计基于置信度的自适应反思触发策略，使智能体能够在决策不确定时主动进行深度思考；最后，在协同决策层面，构建支持分布式协商和集中式聚合的多智能体决策框架。
+
+\subsection{总体进度}
+
+\begin{table}[H]
+\centering
+\caption{项目进度总览}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+\textbf{阶段} & \textbf{任务} & \textbf{计划周次} & \textbf{完成度} \\
+\midrule
+第一阶段 & 文献调研与方案设计 & 第6--7周 & 100\% \\
+第二阶段 & 核心模块开发 & 第8--11周 & 100\% \\
+第三阶段 & 实验设计与数据采集 & 第12--14周 & 80\% \\
+第四阶段 & 对比实验与分析 & 第15--16周 & 进行中 \\
+第五阶段 & 报告撰写 & 第17周 & 待开始 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%========================================
+\section{系统实现}
+%========================================
+
+\subsection{系统架构}
+
+图~\ref{fig:architecture} 展示了优化后的 Casevo 框架整体架构，包含四个核心优化模块及其交互关系。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/system.jpg}
+\caption{优化后的 Casevo 框架架构图}
+\label{fig:architecture}
+\end{figure}
+
+\subsection{模块开发完成情况}
+
+根据 Proposal 的技术路线，我们已完成以下核心模块的开发：
+
+\begin{table}[H]
+\centering
+\caption{核心模块开发状态}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{模块名称} & \textbf{文件路径} & \textbf{状态} \\
+\midrule
+增强型思维链 (ToT) & \texttt{enhanced\_chain.py} & $\checkmark$ 完成 \\
+高级记忆管理 & \texttt{advanced\_memory.py} & $\checkmark$ 完成 \\
+协同决策框架 & \texttt{collaborative\_decision.py} & $\checkmark$ 完成 \\
+决策质量评估 & \texttt{decision\_evaluator.py} & $\checkmark$ 完成 \\
+OpenAI LLM 接口 & \texttt{llm\_openai.py} & $\checkmark$ 完成 \\
+\bottomrule
+\end{tabular}
+\\[0.3em]
+\small\textit{注：所有模块位于 \texttt{src/casevo/} 目录下}
+\end{table}
+
+\subsection{Tree of Thought 实现}
+
+树状思维模块的设计目标是支持多路径探索和分支评估，其实现包含四个核心类。\texttt{ToTNode} 类作为思维树的基本节点，负责存储当前路径的状态信息和累积评分。\texttt{ToTStep} 类实现分支生成逻辑，在每个决策点调用 LLM 生成多个候选思维路径。\texttt{EvaluatorStep} 类负责评估各分支的质量并执行剪枝操作，保留最具潜力的探索方向。\texttt{TreeOfThought} 类作为顶层控制器，整合上述组件，实现完整的探索、评估和回溯流程。
+
+\subsection{高级记忆系统}
+
+记忆系统的优化涵盖四个关键特性。在时间衰减机制方面，记忆的重要性权重随时间推移呈指数衰减，其数学表达式为 $w(t) = e^{-\lambda(t_{now} - t_{create})}$，其中 $\lambda$ 为衰减系数，$t_{now}$ 和 $t_{create}$ 分别表示当前时间和记忆创建时间。在检索策略方面，系统采用上下文感知检索机制，综合考虑语义相似度、时间相关性和情境匹配度三个维度进行记忆召回。此外，系统实现了智能遗忘功能，当记忆数量超过预设阈值时，自动识别并删除低重要性记忆，以维持记忆库的高效运作。最后，记忆压缩机制能够自动合并语义相似的记忆条目，有效减少存储冗余。
+
+\subsection{Prompt 模板}
+
+为支持各种决策场景，我们设计了以下 Jinja2 模板：
+
+\begin{table}[H]
+\centering
+\caption{Prompt 模板列表}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{模板文件} & \textbf{用途} \\
+\midrule
+\texttt{tot\_generate.j2} & ToT 分支生成，要求 LLM 输出多个候选方案 \\
+\texttt{tot\_evaluate.j2} & ToT 分支评估，对候选方案进行打分 \\
+\texttt{reflect\_dynamic.j2} & 动态反思，基于置信度触发深度思考 \\
+\texttt{negotiate.j2} & 多智能体协商，生成协商策略和立场调整 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{核心代码示例}
+
+以下展示 Tree of Thought 模块的核心实现逻辑：
+
+\begin{lstlisting}[style=python, caption={ToT 分支生成与评估核心代码}, label={lst:tot}]
+class TreeOfThought:
+    def __init__(self, llm, max_branches=3, max_depth=3):
+        self.llm = llm
+        self.max_branches = max_branches
+        self.max_depth = max_depth
+    
+    def explore(self, question: str, context: dict) -> str:
+        """执行树状思维探索"""
+        root = ToTNode(state=context, depth=0)
+        best_path = self._dfs_explore(root, question)
+        return best_path.final_answer
+    
+    def _dfs_explore(self, node: ToTNode, question: str):
+        if node.depth >= self.max_depth:
+            return node
+        
+        # 生成多个候选分支
+        branches = self._generate_branches(node, question)
+        
+        # 评估并剪枝
+        scored = [(b, self._evaluate(b, question)) for b in branches]
+        scored.sort(key=lambda x: x[1], reverse=True)
+        
+        # 递归探索最优分支
+        best = scored[0][0]
+        return self._dfs_explore(best, question)
+\end{lstlisting}
+
+%========================================
+\section{实验设计与结果}
+%========================================
+
+\subsection{实验场景概述}
+
+根据 Proposal 规划，我们设计了三个实验场景：
+
+\begin{table}[H]
+\centering
+\caption{实验场景配置}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}lcl>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{场景} & \textbf{智能体数} & \textbf{轮次} & \textbf{评估指标} \\
+\midrule
+选举投票 & 101 & 6 & 投票分布、与真实选举偏差 \\
+资源分配 & 30 & 4 & 基尼系数、满足率、收敛速度 \\
+信息传播 & 50 & 6 & 判断准确率、虚假信息识别率 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+%----------------------------------------
+\subsection{实验一：选举投票模拟}
+%----------------------------------------
+
+\subsubsection{实验配置}
+
+本实验构建了包含 101 位选民智能体的选举模拟系统。智能体间的社交网络采用 Watts-Strogatz 小世界网络模型，平均度数设置为 4，重连概率为 0.3。选民的政治画像基于 Pew Research Center 的政治类型学研究，涵盖 9 类不同政治倾向的选民群体。实验共进行 6 轮辩论模拟，议题依次为经济政策、边境安全、疫情应对、法律秩序、宗教自由和对华贸易。为评估不同 LLM 的模拟能力，实验分别使用 gpt-4o-mini 和 gpt-4o 两个模型进行对比测试。
+
+\subsubsection{实验结果}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/fig_model_comparison.png}
+\caption{不同模型的选举模拟结果对比}
+\label{fig:model-comparison}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{选举模拟最终投票结果（101 位选民）}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{模型} & \textbf{Biden 票数} & \textbf{Trump 票数} & \textbf{Biden 得票率} \\
+\midrule
+gpt-4o-mini & 59 & 42 & 58.4\% \\
+gpt-4o & 52 & 46 & \textbf{51.5\%} \\
+2020 真实结果 & --- & --- & 51.3\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+实验结果揭示了若干重要发现。gpt-4o 模型的模拟结果（Biden 得票率 51.5\%）与 2020 年真实选举结果（51.3\%）仅相差 0.2 个百分点，展现出卓越的模拟精度。相比之下，gpt-4o-mini 模型存在约 7\% 的 Biden 偏向，这可能与较小模型在角色扮演任务中的中立性不足有关。值得注意的是，在两个模型的模拟中，立场坚定的保守派群体（如虔诚基督徒、农村白人男性）均始终保持对 Trump 的支持，体现了 LLM 对不同政治画像的准确把握。
+
+\subsubsection{投票演变过程}
+
+图~\ref{fig:vote-evolution} 展示了 gpt-4o 模型在 6 轮辩论中的投票变化趋势。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figure/fig_vote_evolution.png}
+\caption{gpt-4o 模型投票演变过程}
+\label{fig:vote-evolution}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{各轮投票变化数据（gpt-4o 模型）}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}clccc@{}}
+\toprule
+\textbf{轮次} & \textbf{议题} & \textbf{Biden} & \textbf{Trump} & \textbf{Undecided} \\
+\midrule
+初始 & --- & 35 & 33 & 33 \\
+R1 & 经济政策 & 43 & 32 & 26 \\
+R2 & 边境安全 & 46 & 41 & 14 \\
+R3 & 疫情应对 & 49 & 44 & 8 \\
+R4 & 法律秩序 & 52 & 46 & 3 \\
+R5 & 宗教自由 & 53 & 46 & 2 \\
+R6 & 中国贸易 & 52 & 46 & 3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%----------------------------------------
+\subsection{实验二：CoT vs ToT 推理对比}
+%----------------------------------------
+
+\subsubsection{实验配置}
+
+本实验旨在对比两种推理机制的决策质量差异。实验设置 30 位选民智能体，进行 3 轮辩论模拟。对比方法包括 Chain of Thought（CoT，线性推理）和 Tree of Thought（ToT，树状推理）两种策略。评估指标采用决策一致性，即相同政治倾向的选民群体在投票选择上的一致程度。
+
+\subsubsection{实验结果}
+
+\begin{table}[H]
+\centering
+\caption{CoT vs ToT 对比结果}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{评估指标} & \textbf{CoT（线性推理）} & \textbf{ToT（树状推理）} \\
+\midrule
+Biden 最终票数 & 18 & 19 \\
+Trump 最终票数 & 12 & 11 \\
+Liberal 一致性 & 100\% & 100\% \\
+Conservative 一致性 & 100\% & 100\% \\
+Moderate 一致性 & 90\% & \textbf{100\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+实验结果表明，ToT 机制在中间派（Moderate）选民的决策一致性上实现了 10\% 的显著提升，从 CoT 的 90\% 提高至 100\%。这一改进源于 ToT 的多路径探索能力，使智能体能够更全面地考虑经济、社会、安全等不同维度的因素后做出决策。对于立场坚定的自由派（Liberal）和保守派（Conservative）选民，两种推理机制的表现相当，均达到 100\% 的一致性，表明这两类群体的决策受推理深度的影响较小。
+
+%----------------------------------------
+\subsection{实验三：资源分配协商}
+%----------------------------------------
+
+\subsubsection{实验配置}
+
+本实验模拟了多主体资源分配协商场景。实验构建了包含 30 个智能体的系统，智能体角色涵盖医院、学校、工厂、办公楼和居民区等不同类型的资源需求方。系统中可分配的总资源量为 600 单位，最大协商轮数限制为 4 轮。实验对比了规则型协商策略与 LLM 驱动协商策略的分配效果差异。
+
+\subsubsection{实验结果}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figure/fig_resource_comparison.png}
+\caption{资源分配方案公平性对比}
+\label{fig:resource-comparison}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{资源分配对比结果}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{评估指标} & \textbf{规则型基线} & \textbf{LLM 驱动} \\
+\midrule
+协商轮数 & 2 & 4 \\
+基尼系数 & 0.329 & \textbf{0.298} \\
+平均满足率 & 84.9\% & \textbf{87.2\%} \\
+最低满足率 & 43.8\% & \textbf{52.1\%} \\
+资源利用率 & 98.2\% & 99.5\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+实验数据显示，LLM 驱动的协商策略在公平性指标上显著优于规则型基线。基尼系数从 0.329 降至 0.298，降幅达 9.4\%，表明资源分配更加均衡。平均满足率和最低满足率分别提升至 87.2\% 和 52.1\%，后者相比基线提升了 19\%。这一结果表明 LLM 能够理解不同角色的紧迫性和优先级，在协商过程中为医院等关键机构分配更多资源，同时保障弱势群体的基本需求。
+
+%----------------------------------------
+\subsection{实验四：信息传播与判断}
+%----------------------------------------
+
+\subsubsection{实验配置}
+
+本实验探究 LLM 驱动的智能体在社交网络信息传播场景中的判断能力。实验构建了包含 50 个智能体的社交网络，智能体类型包括普通用户、怀疑者、易信者和影响者四类。网络拓扑采用 Barabási-Albert 无标度网络模型，以模拟真实社交网络的度分布特征。实验向网络中注入 8 条信息，其中 5 条为真实信息，3 条为虚假信息，共进行 6 轮传播模拟。
+
+\subsubsection{实验结果}
+
+\begin{table}[H]
+\centering
+\caption{信息传播对比结果}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{评估指标} & \textbf{规则型基线} & \textbf{LLM 驱动} \\
+\midrule
+整体判断准确率 & 80.0\% & 80.0\% \\
+虚假信息识别率 & 0.0\% & 0.0\% \\
+传播轮数 & 4 & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+本实验中两种方法的表现相当，均未能有效识别虚假信息。分析表明，这一结果主要源于实验参数设置的局限性：初始传播者数量较少（仅 5 个）且虚假信息的可信度设置偏低，导致虚假信息在传播初期即被抑制，未能形成有效扩散。后续研究需调整初始传播者比例和信息可信度参数，以更充分地验证 LLM 在虚假信息识别方面的潜在优势。
+
+%----------------------------------------
+\subsection{案例分析：智能体推理过程}
+%----------------------------------------
+
+以下展示一位中间派选民（Moderate）在 CoT 推理下的决策过程：
+
+\begin{tcolorbox}[
+    colback=blue!5!white,
+    colframe=blue!50!black,
+    title={\textbf{Voter \#4} — 中间派选民（Swing Suburban）},
+    fonttitle=\bfseries,
+    boxrule=0.5pt,
+    arc=2mm
+]
+\small
+\textbf{背景}：郊区居民，关心医疗费用和就业问题\\[0.3em]
+\textbf{初始立场}：Undecided
+
+\tcblower
+\textbf{【步骤1-分析辩论】}\\
+这场辩论中，Biden 强调种族正义和尊重所有权利，而 Trump 则专注于法律与秩序和社区安全。
+
+\textbf{【步骤2-评估候选人】}\\
+Biden 的优点在于他对社会正义的关注，可能有助于实现更平等的医疗和就业机会；Trump 的优点在于他强调的法律与秩序可能会让某些社区感到更加安全。
+
+\textbf{【步骤3-考虑个人议题】}\\
+对于我关心的医疗费用和就业问题，Biden 似乎更有可能推动相关的改革和政策。
+
+\textbf{【步骤4-最终决定】}\\
+\textcolor{blue}{\textbf{Biden}}
+\end{tcolorbox}
+
+%========================================
+\section{与 Proposal 对照分析}
+%========================================
+
+\subsection{完成度对照}
+
+\begin{table}[H]
+\centering
+\caption{Proposal 计划与实际完成度对照}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright}Xcc>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Proposal 内容} & \textbf{计划} & \textbf{实际} & \textbf{备注} \\
+\midrule
+多层次推理机制 (ToT) & $\checkmark$ & $\checkmark$ & 已实现并验证 \\
+记忆检索优化 & $\checkmark$ & $\checkmark$ & 上下文感知、时间衰减 \\
+反思机制优化 & $\checkmark$ & $\checkmark$ & 置信度触发 \\
+协同决策机制 & $\checkmark$ & $\checkmark$ & 分布式+集中式 \\
+选举实验 (101人, 6轮) & $\checkmark$ & $\checkmark$ & 偏差仅 0.2\% \\
+资源分配实验 (50人) & $\checkmark$ & $\checkmark$ & 30人版本 \\
+信息传播实验 (200节点) & $\checkmark$ & $\triangle$ & 50人版本 \\
+CoT vs ToT 对比 & $\checkmark$ & $\checkmark$ & 新增实验 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{偏差与调整}
+
+相较于 Proposal 的原定计划，实际执行过程中进行了若干调整。在实验规模方面，为有效控制 API 调用成本，资源分配实验的智能体数量从计划的 50 个缩减至 30 个，信息传播实验从 200 个节点缩减至 50 个。在实验内容方面，新增了 CoT 与 ToT 推理机制的直接对比实验，以更精确地验证 Proposal 中关于树状思维优越性的核心假设。此外，实验还引入了 gpt-4o 与 gpt-4o-mini 的多模型对比测试，发现模型能力的差异对模拟结果具有显著影响，这一发现为后续研究中的模型选择提供了重要参考。
+
+%========================================
+\section{主要发现与结论}
+%========================================
+
+\subsection{核心发现}
+
+本研究获得了四项核心发现。首先，实验证明 LLM 能够有效模拟人类投票行为，gpt-4o 模型在选举模拟中实现了与真实选举仅 0.2\% 的偏差，充分验证了 LLM 驱动社会模拟的可行性和准确性。其次，Tree of Thought 推理机制显著提升了决策一致性，通过多路径探索使中间派选民的决策更加稳定，一致性从 CoT 的 90\% 提升至 100\%。第三，LLM 驱动的协商策略能够产生更公平的资源分配方案，这得益于 LLM 对不同角色紧迫性和优先级的深度理解，最终产生基尼系数更低、最低满足率更高的分配结果。最后，研究发现不同规模的 LLM 在角色扮演任务中表现差异显著，gpt-4o 相比 gpt-4o-mini 展现出更强的中立性和准确性。
+
+\subsection{待解决问题}
+
+当前研究仍存在若干待解决的问题。在实验设计层面，信息传播实验的参数配置需要进一步优化，以确保虚假信息具有足够的传播机会，从而更准确地评估 LLM 的判断能力。在系统可扩展性层面，大规模实验（超过 100 个智能体）的 API 调用成本控制仍是一个挑战，需要探索批量处理、缓存机制等优化策略。在框架集成层面，ToT 模块与现有 Casevo 框架的深度集成工作尚待完成，以实现更便捷的调用接口和更高效的运行性能。
+
+%========================================
+\section{下一步计划}
+%========================================
+
+后续研究将从四个方向推进。在实验优化方面，计划调整信息传播实验的初始传播者比例和信息可信度参数，以提升实验的区分度和说服力。在规模验证方面，将选举模拟场景的智能体数量扩展至 200 个以上，系统性验证框架的可扩展性和稳定性。在框架集成方面，将完成 ToT 模块与 Casevo Agent 基类的深度集成工作，提供统一的调用接口。在成果输出方面，将整理所有实验数据和分析结论，按照学术论文规范撰写最终研究报告。
+
+\vspace{1cm}
+\begin{center}
+\rule{10cm}{0.5pt}\\[0.5cm]
+\textit{报告完成于 \today}
+\end{center}
+
+\end{document}
+

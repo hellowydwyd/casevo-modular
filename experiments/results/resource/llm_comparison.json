@@ -1,0 +1,670 @@
+{
+  "baseline": {
+    "num_agents": 30,
+    "total_resources": 600,
+    "use_llm": false,
+    "rounds": 2,
+    "allocation_history": [
+      {
+        "round": 0,
+        "total_requests": 643,
+        "changes": 0,
+        "scarcity_ratio": 1.0716666666666668
+      },
+      {
+        "round": 1,
+        "total_requests": 643,
+        "changes": 0,
+        "scarcity_ratio": 1.0716666666666668
+      }
+    ],
+    "fairness_metrics": {
+      "gini": 0.32920203735144304,
+      "avg_fulfillment": 0.8495216251737386,
+      "min_fulfillment": 0.4375,
+      "total_allocated": 589
+    },
+    "agent_details": [
+      {
+        "id": 0,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 29,
+        "final_request": 29,
+        "allocated": 38,
+        "fulfillment": 1.3103448275862069,
+        "reasoning_sample": null
+      },
+      {
+        "id": 1,
+        "role": "school",
+        "priority": "high",
+        "desired": 22,
+        "final_request": 22,
+        "allocated": 22,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 2,
+        "role": "office",
+        "priority": "normal",
+        "desired": 20,
+        "final_request": 20,
+        "allocated": 13,
+        "fulfillment": 0.65,
+        "reasoning_sample": null
+      },
+      {
+        "id": 3,
+        "role": "office",
+        "priority": "normal",
+        "desired": 18,
+        "final_request": 18,
+        "allocated": 12,
+        "fulfillment": 0.6666666666666666,
+        "reasoning_sample": null
+      },
+      {
+        "id": 4,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 31,
+        "final_request": 31,
+        "allocated": 41,
+        "fulfillment": 1.3225806451612903,
+        "reasoning_sample": null
+      },
+      {
+        "id": 5,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 26,
+        "final_request": 26,
+        "allocated": 34,
+        "fulfillment": 1.3076923076923077,
+        "reasoning_sample": null
+      },
+      {
+        "id": 6,
+        "role": "school",
+        "priority": "high",
+        "desired": 28,
+        "final_request": 28,
+        "allocated": 28,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 7,
+        "role": "office",
+        "priority": "normal",
+        "desired": 18,
+        "final_request": 18,
+        "allocated": 12,
+        "fulfillment": 0.6666666666666666,
+        "reasoning_sample": null
+      },
+      {
+        "id": 8,
+        "role": "school",
+        "priority": "high",
+        "desired": 30,
+        "final_request": 30,
+        "allocated": 30,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 9,
+        "role": "office",
+        "priority": "normal",
+        "desired": 16,
+        "final_request": 16,
+        "allocated": 10,
+        "fulfillment": 0.625,
+        "reasoning_sample": null
+      },
+      {
+        "id": 10,
+        "role": "school",
+        "priority": "high",
+        "desired": 29,
+        "final_request": 29,
+        "allocated": 29,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 11,
+        "role": "school",
+        "priority": "high",
+        "desired": 20,
+        "final_request": 20,
+        "allocated": 20,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 12,
+        "role": "office",
+        "priority": "normal",
+        "desired": 12,
+        "final_request": 12,
+        "allocated": 8,
+        "fulfillment": 0.6666666666666666,
+        "reasoning_sample": null
+      },
+      {
+        "id": 13,
+        "role": "office",
+        "priority": "normal",
+        "desired": 15,
+        "final_request": 15,
+        "allocated": 10,
+        "fulfillment": 0.6666666666666666,
+        "reasoning_sample": null
+      },
+      {
+        "id": 14,
+        "role": "school",
+        "priority": "high",
+        "desired": 23,
+        "final_request": 23,
+        "allocated": 23,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 15,
+        "role": "residential",
+        "priority": "low",
+        "desired": 20,
+        "final_request": 20,
+        "allocated": 9,
+        "fulfillment": 0.45,
+        "reasoning_sample": null
+      },
+      {
+        "id": 16,
+        "role": "school",
+        "priority": "high",
+        "desired": 26,
+        "final_request": 26,
+        "allocated": 26,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 17,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 30,
+        "final_request": 30,
+        "allocated": 40,
+        "fulfillment": 1.3333333333333333,
+        "reasoning_sample": null
+      },
+      {
+        "id": 18,
+        "role": "office",
+        "priority": "normal",
+        "desired": 10,
+        "final_request": 10,
+        "allocated": 6,
+        "fulfillment": 0.6,
+        "reasoning_sample": null
+      },
+      {
+        "id": 19,
+        "role": "office",
+        "priority": "normal",
+        "desired": 18,
+        "final_request": 18,
+        "allocated": 12,
+        "fulfillment": 0.6666666666666666,
+        "reasoning_sample": null
+      },
+      {
+        "id": 20,
+        "role": "school",
+        "priority": "high",
+        "desired": 26,
+        "final_request": 26,
+        "allocated": 26,
+        "fulfillment": 1.0,
+        "reasoning_sample": null
+      },
+      {
+        "id": 21,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 29,
+        "final_request": 29,
+        "allocated": 38,
+        "fulfillment": 1.3103448275862069,
+        "reasoning_sample": null
+      },
+      {
+        "id": 22,
+        "role": "residential",
+        "priority": "low",
+        "desired": 24,
+        "final_request": 24,
+        "allocated": 11,
+        "fulfillment": 0.4583333333333333,
+        "reasoning_sample": null
+      },
+      {
+        "id": 23,
+        "role": "residential",
+        "priority": "low",
+        "desired": 20,
+        "final_request": 20,
+        "allocated": 9,
+        "fulfillment": 0.45,
+        "reasoning_sample": null
+      },
+      {
+        "id": 24,
+        "role": "office",
+        "priority": "normal",
+        "desired": 11,
+        "final_request": 11,
+        "allocated": 7,
+        "fulfillment": 0.6363636363636364,
+        "reasoning_sample": null
+      },
+      {
+        "id": 25,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 28,
+        "final_request": 28,
+        "allocated": 37,
+        "fulfillment": 1.3214285714285714,
+        "reasoning_sample": null
+      },
+      {
+        "id": 26,
+        "role": "office",
+        "priority": "normal",
+        "desired": 11,
+        "final_request": 11,
+        "allocated": 7,
+        "fulfillment": 0.6363636363636364,
+        "reasoning_sample": null
+      },
+      {
+        "id": 27,
+        "role": "residential",
+        "priority": "low",
+        "desired": 16,
+        "final_request": 16,
+        "allocated": 7,
+        "fulfillment": 0.4375,
+        "reasoning_sample": null
+      },
+      {
+        "id": 28,
+        "role": "factory",
+        "priority": "normal",
+        "desired": 22,
+        "final_request": 22,
+        "allocated": 14,
+        "fulfillment": 0.6363636363636364,
+        "reasoning_sample": null
+      },
+      {
+        "id": 29,
+        "role": "office",
+        "priority": "normal",
+        "desired": 15,
+        "final_request": 15,
+        "allocated": 10,
+        "fulfillment": 0.6666666666666666,
+        "reasoning_sample": null
+      }
+    ]
+  },
+  "llm": {
+    "num_agents": 30,
+    "total_resources": 600,
+    "use_llm": true,
+    "rounds": 4,
+    "allocation_history": [
+      {
+        "round": 0,
+        "total_requests": 624,
+        "changes": 8,
+        "scarcity_ratio": 1.04
+      },
+      {
+        "round": 1,
+        "total_requests": 637,
+        "changes": 8,
+        "scarcity_ratio": 1.0616666666666668
+      },
+      {
+        "round": 2,
+        "total_requests": 638,
+        "changes": 16,
+        "scarcity_ratio": 1.0633333333333332
+      },
+      {
+        "round": 3,
+        "total_requests": 650,
+        "changes": 15,
+        "scarcity_ratio": 1.0833333333333333
+      }
+    ],
+    "fairness_metrics": {
+      "gini": 0.37302668938103345,
+      "avg_fulfillment": 0.8289295981742301,
+      "min_fulfillment": 0.3,
+      "total_allocated": 587
+    },
+    "agent_details": [
+      {
+        "id": 0,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 29,
+        "final_request": 29,
+        "allocated": 37,
+        "fulfillment": 1.2758620689655173,
+        "reasoning_sample": "【协商策略】考虑到医院在急救和重症救治中的关键角色，以及当前资源供需的紧迫性，我决定维持申请数量以满足最低的期望需求，同时也考虑到整体公平。 \n\n【申请数量】29"
+      },
+      {
+        "id": 1,
+        "role": "school",
+        "priority": "high",
+        "desired": 22,
+        "final_request": 22,
+        "allocated": 21,
+        "fulfillment": 0.9545454545454546,
+        "reasoning_sample": "【协商策略】考虑到学校在基础教育中的重要性和当前资源的紧张情况，我决定保持申请数量在期望需求范围内，同时考虑到其他参与者的需求，尽量争取到22个单位资源，以满足学生的基本教育需求。  \n【申请数量】22"
+      },
+      {
+        "id": 2,
+        "role": "office",
+        "priority": "normal",
+        "desired": 20,
+        "final_request": 20,
+        "allocated": 12,
+        "fulfillment": 0.6,
+        "reasoning_sample": "【协商策略】考虑到当前资源供需紧张、其他参与者的优先级以及自身的需求，我决定申请一个能够平衡自身需求与整体公平的数量，以确保日常运营并支持社会整体运转。\n\n【申请数量】20"
+      },
+      {
+        "id": 3,
+        "role": "office",
+        "priority": "normal",
+        "desired": 18,
+        "final_request": 18,
+        "allocated": 11,
+        "fulfillment": 0.6111111111111112,
+        "reasoning_sample": "【协商策略】考虑到当前资源供需紧张以及其他参与者的优先级，我决定申请接近我期望的数量，以保障日常运营的基本需求，同时也体现出对其他参与者的合理性考虑。\n\n【申请数量】18"
+      },
+      {
+        "id": 4,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 31,
+        "final_request": 40,
+        "allocated": 51,
+        "fulfillment": 1.6451612903225807,
+        "reasoning_sample": "【协商策略】考虑到医院在急救和重症救治中的关键角色，以及当前资源缺口的紧迫性，我决定申请最大可用量，以确保能够满足患者的需求，同时也希望在整体公平中体现出医院的优先级。 \n\n【申请数量】40"
+      },
+      {
+        "id": 5,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 26,
+        "final_request": 26,
+        "allocated": 33,
+        "fulfillment": 1.2692307692307692,
+        "reasoning_sample": "【协商策略】考虑到医院的关键性需求和当前资源供需的紧迫性，我决定申请接近我的期望需求，以确保能够有效救治急救和重症患者，同时尽量考虑整体资源分配的公平性。  \n【申请数量】26"
+      },
+      {
+        "id": 6,
+        "role": "school",
+        "priority": "high",
+        "desired": 28,
+        "final_request": 28,
+        "allocated": 27,
+        "fulfillment": 0.9642857142857143,
+        "reasoning_sample": "【协商策略】考虑到学校的教育职能对社会的重要性和紧迫性，以及当前资源供需的紧张局面，我决定保持申请量在期望需求28单位，以确保基础教育的稳定性，同时反映出对其他参与者申请的合理性和公平性。  \n【申请数量】28"
+      },
+      {
+        "id": 7,
+        "role": "office",
+        "priority": "normal",
+        "desired": 18,
+        "final_request": 17,
+        "allocated": 11,
+        "fulfillment": 0.6111111111111112,
+        "reasoning_sample": "【协商策略】在当前资源供需比例紧张的情况下，考虑到其他参与者的优先级和需求，我决定申请17单位，以确保满足自身的基本运营需求，同时不影响其他更高优先级机构的资源分配。  \n【申请数量】17"
+      },
+      {
+        "id": 8,
+        "role": "school",
+        "priority": "high",
+        "desired": 30,
+        "final_request": 30,
+        "allocated": 29,
+        "fulfillment": 0.9666666666666667,
+        "reasoning_sample": "【协商策略】考虑到学校在基础教育中的重要性和迫切需求，同时当前资源供需比例不平衡，我决定申请我的期望需求30单位，以确保满足学生的教育需求，同时考虑到其他参与者的优先级和需求。 \n\n【申请数量】30"
+      },
+      {
+        "id": 9,
+        "role": "office",
+        "priority": "normal",
+        "desired": 16,
+        "final_request": 16,
+        "allocated": 10,
+        "fulfillment": 0.625,
+        "reasoning_sample": "【协商策略】考虑到社会对办公楼的正常运营需求，尤其是在当前资源紧张的情况下，我将申请与我的期望需求相符的16单位，以平衡自身需求和其他参与者的合理性，同时促进整体公平。\n\n【申请数量】16"
+      },
+      {
+        "id": 10,
+        "role": "school",
+        "priority": "high",
+        "desired": 29,
+        "final_request": 29,
+        "allocated": 28,
+        "fulfillment": 0.9655172413793104,
+        "reasoning_sample": "【协商策略】考虑到学校在基础教育中的重要性和所需资源的紧迫性，以及当前资源供需比例的不平衡，我决定申请接近我的期望需求，以确保能够提供稳定的教育服务，同时也考虑到其他参与者的需求。  \n【申请数量】29"
+      },
+      {
+        "id": 11,
+        "role": "school",
+        "priority": "high",
+        "desired": 20,
+        "final_request": 25,
+        "allocated": 24,
+        "fulfillment": 1.2,
+        "reasoning_sample": "【协商策略】鉴于学校的教育需求对社会的重要性和紧迫性，我决定申请25单位，以平衡自身的需求与整体资源的合理分配，同时考虑到其他参与者的优先级和当前资源的供需状况。  \n【申请数量】25"
+      },
+      {
+        "id": 12,
+        "role": "office",
+        "priority": "normal",
+        "desired": 12,
+        "final_request": 12,
+        "allocated": 7,
+        "fulfillment": 0.5833333333333334,
+        "reasoning_sample": "【协商策略】鉴于当前资源缺口和其他参与者的需求，我决定申请 12 单位资源，以满足我的期望需求，同时考虑到自身优先级和社会整体公平性。\n\n【申请数量】12"
+      },
+      {
+        "id": 13,
+        "role": "office",
+        "priority": "normal",
+        "desired": 15,
+        "final_request": 15,
+        "allocated": 9,
+        "fulfillment": 0.6,
+        "reasoning_sample": "【协商策略】考虑到当前资源供需比例和其他参与者的优先级，我决定保持我的申请在期望需求的水平，同时兼顾整体公平，确保自身运营正常。  \n【申请数量】15"
+      },
+      {
+        "id": 14,
+        "role": "school",
+        "priority": "high",
+        "desired": 23,
+        "final_request": 23,
+        "allocated": 22,
+        "fulfillment": 0.9565217391304348,
+        "reasoning_sample": "【协商策略】考虑到学校在基础教育中的重要性和当前资源的短缺，我决定申请23单位，以满足我们的期望需求，同时在保障自身需求的基础上，考虑到其他参与者的优先级和需求合理性。 \n\n【申请数量】23"
+      },
+      {
+        "id": 15,
+        "role": "residential",
+        "priority": "low",
+        "desired": 20,
+        "final_request": 20,
+        "allocated": 9,
+        "fulfillment": 0.45,
+        "reasoning_sample": "【协商策略】考虑到当前资源供需的紧张状况以及其他参与者的优先级，我将申请接近我的期望需求，以确保居民社区的基本保障，同时不影响其他更高优先级机构的需求。  \n【申请数量】20"
+      },
+      {
+        "id": 16,
+        "role": "school",
+        "priority": "high",
+        "desired": 26,
+        "final_request": 26,
+        "allocated": 25,
+        "fulfillment": 0.9615384615384616,
+        "reasoning_sample": "【协商策略】考虑到学校在基础教育中的重要性和当前资源缺口，我决定申请26单位，以满足我们的期望需求，同时在资源紧张的情况下保持公平。 \n【申请数量】26"
+      },
+      {
+        "id": 17,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 30,
+        "final_request": 39,
+        "allocated": 50,
+        "fulfillment": 1.6666666666666667,
+        "reasoning_sample": "【协商策略】考虑到医院在急诊和重症救治中的关键角色，我将申请最大可用的39单位，以满足最低和期望需求，并确保在高资源缺口的情况下，保障患者的及时救治。同时，我也会考虑到其他参与者的需求，力求在整体公平的基础上争取所需资源。\n\n【申请数量】39"
+      },
+      {
+        "id": 18,
+        "role": "office",
+        "priority": "normal",
+        "desired": 10,
+        "final_request": 6,
+        "allocated": 3,
+        "fulfillment": 0.3,
+        "reasoning_sample": "【协商策略】鉴于当前资源缺口和其他参与者的高优先级需求，我将申请与上轮相同的6单位资源，以确保基本运营需求的同时，考虑到整体资源的公平分配和其他更紧急机构的需求。\n\n【申请数量】6"
+      },
+      {
+        "id": 19,
+        "role": "office",
+        "priority": "normal",
+        "desired": 18,
+        "final_request": 18,
+        "allocated": 11,
+        "fulfillment": 0.6111111111111112,
+        "reasoning_sample": "【协商策略】在保障办公室正常运营的同时，我考虑到整体资源供需的紧张，倾向于申请接近期望需求的数量，以确保办公环境的稳定，同时也顾及其他参与者的需求。  \n【申请数量】18"
+      },
+      {
+        "id": 20,
+        "role": "school",
+        "priority": "high",
+        "desired": 26,
+        "final_request": 26,
+        "allocated": 25,
+        "fulfillment": 0.9615384615384616,
+        "reasoning_sample": "【协商策略】考虑到学校对基础教育的重要性以及当前资源供应的紧张状况，我决定申请26单位，以满足期望需求并尽量保证其他参与者的需求得到公平对待。 \n\n【申请数量】26"
+      },
+      {
+        "id": 21,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 29,
+        "final_request": 29,
+        "allocated": 37,
+        "fulfillment": 1.2758620689655173,
+        "reasoning_sample": "【协商策略】考虑到医院的关键职责和资源的紧迫性，我将申请接近我的期望需求，以确保能够有效应对急诊和重症救治的需要，同时也考虑到其他参与者的需求和资源的公平分配。  \n【申请数量】29"
+      },
+      {
+        "id": 22,
+        "role": "residential",
+        "priority": "low",
+        "desired": 24,
+        "final_request": 20,
+        "allocated": 9,
+        "fulfillment": 0.375,
+        "reasoning_sample": "【协商策略】考虑到居民社区的基本保障需求虽优先级较低，但在当前资源紧张的情况下，我希望通过合理的申请量来确保最低需求得到满足，同时兼顾其他参与者的紧迫性和公平性。根据上轮获得的10单位，我决定申请一个相对保守的数量，以便在整体资源分配中体现出协作精神。\n\n【申请数量】20"
+      },
+      {
+        "id": 23,
+        "role": "residential",
+        "priority": "low",
+        "desired": 20,
+        "final_request": 16,
+        "allocated": 7,
+        "fulfillment": 0.35,
+        "reasoning_sample": "【协商策略】考虑到当前资源供需不平衡和其他参与者的优先级，我决定维持我的申请在最低需求的基础上，争取更高的申请量，以确保居民的基本生活保障，同时考虑到整体公平性。  \n【申请数量】16"
+      },
+      {
+        "id": 24,
+        "role": "office",
+        "priority": "normal",
+        "desired": 11,
+        "final_request": 11,
+        "allocated": 7,
+        "fulfillment": 0.6363636363636364,
+        "reasoning_sample": "【协商策略】在当前资源紧张的情况下，我将申请11单位，以满足我的期望需求，同时考虑到其他参与者的优先级和需求合理性，努力在保障自身需求的同时促进整体公平。\n\n【申请数量】11"
+      },
+      {
+        "id": 25,
+        "role": "hospital",
+        "priority": "critical",
+        "desired": 28,
+        "final_request": 30,
+        "allocated": 38,
+        "fulfillment": 1.3571428571428572,
+        "reasoning_sample": "【协商策略】考虑到医院的紧迫性和对社会的重要性，同时也要确保资源分配的公平性，我决定申请一个接近期望需求的数量，以确保能够有效应对急救和重症救治的需求，同时考虑到整体资源的分配情况。\n\n【申请数量】30"
+      },
+      {
+        "id": 26,
+        "role": "office",
+        "priority": "normal",
+        "desired": 11,
+        "final_request": 10,
+        "allocated": 6,
+        "fulfillment": 0.5454545454545454,
+        "reasoning_sample": "【协商策略】考虑到我方的需求处于正常优先级，而当前资源缺口较大，我会申请10单位，以平衡自身需求和其他参与者的需求，促进整体公平。  \n【申请数量】10"
+      },
+      {
+        "id": 27,
+        "role": "residential",
+        "priority": "low",
+        "desired": 16,
+        "final_request": 12,
+        "allocated": 5,
+        "fulfillment": 0.3125,
+        "reasoning_sample": "【协商策略】考虑到自身的优先级较低以及资源缺口的情况，我希望在满足最低需求的基础上，争取增加一些资源，以确保居民社区的基本生活需求得到保障，同时也考虑到其他优先级更高的参与者的情况。 \n\n【申请数量】12"
+      },
+      {
+        "id": 28,
+        "role": "factory",
+        "priority": "normal",
+        "desired": 22,
+        "final_request": 22,
+        "allocated": 14,
+        "fulfillment": 0.6363636363636364,
+        "reasoning_sample": "【协商策略】鉴于当前资源供需比例紧张及其他参与者的优先级，我决定申请22单位，以满足我们的期望需求，同时考虑到其他参与者的迫切需求和公平性。  \n【申请数量】22"
+      },
+      {
+        "id": 29,
+        "role": "office",
+        "priority": "normal",
+        "desired": 15,
+        "final_request": 15,
+        "allocated": 9,
+        "fulfillment": 0.6,
+        "reasoning_sample": "【协商策略】考虑到其他参与者的优先级和需求情况，我将保持在期望需求的水平申请资源，以确保我们的日常运营不受影响，同时也为其他更高优先级的参与者留出资源空间。  \n【申请数量】15"
+      }
+    ]
+  }
+}

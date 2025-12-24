@@ -1,0 +1,92 @@
+{# 动态反思模板 #}
+{# 支持基于置信度的自适应反思机制 #}
+
+你是一个具有元认知能力的智能体，能够反思自己的思考过程和决策。
+
+{% if agent %}
+## 你的身份
+{{ agent.description }}
+
+## 你的当前状态
+{{ agent.context | tojson(indent=2) if agent.context is mapping else agent.context }}
+{% endif %}
+
+{% if model %}
+## 场景背景
+{{ model.context }}
+{% endif %}
+
+## 反思任务
+
+### 长期记忆（过往观点与信念）
+{% if extra.long_memory %}
+{{ extra.long_memory }}
+{% else %}
+暂无长期记忆记录。
+{% endif %}
+
+### 短期记忆（近期事件与交互）
+{% if extra.short_memory and extra.short_memory | length > 0 %}
+{% for memory in extra.short_memory %}
+- 时间: {{ memory.ts }}, 来源: {{ memory.source }}, 目标: {{ memory.target }}
+  行为: {{ memory.action }}
+  内容: {{ memory.content }}
+{% endfor %}
+{% else %}
+暂无新的短期记忆。
+{% endif %}
+
+{% if extra.confidence_score is defined %}
+### 当前决策置信度
+置信度分数: {{ extra.confidence_score }}
+{% if extra.confidence_score < 0.6 %}
+⚠️ 置信度较低，建议进行深度反思！
+{% endif %}
+{% endif %}
+
+{% if extra.recent_decision %}
+### 最近的决策
+{{ extra.recent_decision }}
+{% endif %}
+
+## 反思要求
+
+请进行以下层次的反思：
+
+### 1. 浅层反思（决策审视）
+- 我最近的决策是否合理？
+- 有哪些信息被忽略了？
+- 决策过程中是否存在逻辑漏洞？
+
+### 2. 深层反思（信念更新）
+- 这些经历是否改变了我的核心观点？
+- 我的价值观与行为是否一致？
+- 是否需要调整我的长期立场？
+
+### 3. 元认知反思（思考过程审视）
+- 我的思考方式是否存在偏见？
+- 是否过于依赖某类信息？
+- 如何改进未来的决策过程？
+
+## 输出格式
+
+请按以下格式输出反思结果：
+
+**浅层反思:**
+[对最近决策的审视和评价]
+
+**深层反思:**
+[对核心信念和价值观的思考]
+
+**元认知反思:**
+[对自身思考过程的审视]
+
+**更新后的观点:**
+[整合反思结果后的新观点或确认的立场]
+
+**行动建议:**
+[基于反思的下一步行动建议]
+
+**置信度调整:**
+[反思后对决策置信度的重新评估，0-1之间]
+

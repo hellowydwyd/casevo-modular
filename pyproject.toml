@@ -1,0 +1,72 @@
+[project]
+name = "casevo"
+version = "0.4.0"
+description = "Cognitive agents and social evolution simulator with enhanced decision-making capabilities"
+authors = [
+    {name = "Zexun Jiang", email = "jiangzx2023@cuc.edu.cn"},
+]
+dependencies = [
+    "mesa==2.4.0",
+    "chromadb>=0.5.0",
+    "networkx>=3.0",
+    "jinja2>=3.0.0",
+    "requests>=2.28.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["agent-based-modeling", "multi-agent", "simulation", "LLM", "social-simulation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+experiments = [
+    "matplotlib>=3.7.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/hellowydwyd/casevo-modular"
+Documentation = "https://github.com/hellowydwyd/casevo-modular#readme"
+Repository = "https://github.com/hellowydwyd/casevo-modular"
+Issues = "https://github.com/hellowydwyd/casevo-modular/issues"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.build]
+includes = ["src/casevo"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

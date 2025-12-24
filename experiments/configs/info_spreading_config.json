@@ -1,0 +1,75 @@
+{
+    "experiment_name": "information_spreading_dynamics",
+    "description": "社交网络虚假信息传播实验",
+    
+    "baseline": {
+        "num_agents": 200,
+        "initial_infected": 0.1,
+        "false_info_ratio": 0.3,
+        "use_enhanced_evaluation": false,
+        "num_rounds": 20
+    },
+    
+    "optimized_enhanced": {
+        "num_agents": 200,
+        "initial_infected": 0.1,
+        "false_info_ratio": 0.3,
+        "use_enhanced_evaluation": true,
+        "num_rounds": 20,
+        "critical_thinking_boost": 0.1
+    },
+    
+    "high_false_ratio": {
+        "num_agents": 200,
+        "initial_infected": 0.15,
+        "false_info_ratio": 0.5,
+        "use_enhanced_evaluation": true,
+        "num_rounds": 25
+    },
+    
+    "evaluation_metrics": [
+        "false_belief_ratio",
+        "overall_accuracy",
+        "spread_velocity",
+        "containment_rate",
+        "agent_type_accuracy"
+    ],
+    
+    "agent_type_distribution": {
+        "normal": 0.6,
+        "skeptic": 0.15,
+        "gullible": 0.15,
+        "influencer": 0.1
+    },
+    
+    "network_settings": {
+        "type": "barabasi_albert",
+        "attachment": 3,
+        "edge_weight_range": [0.3, 0.7]
+    },
+    
+    "agent_attributes": {
+        "skeptic": {
+            "critical_thinking": [0.7, 0.95],
+            "spread_tendency": [0.2, 0.4]
+        },
+        "gullible": {
+            "critical_thinking": [0.2, 0.4],
+            "spread_tendency": [0.5, 0.8]
+        },
+        "influencer": {
+            "critical_thinking": [0.4, 0.7],
+            "spread_tendency": [0.7, 0.95]
+        },
+        "normal": {
+            "critical_thinking": [0.4, 0.6],
+            "spread_tendency": [0.4, 0.6]
+        }
+    },
+    
+    "run_settings": {
+        "num_runs": 10,
+        "random_seeds": [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
+    }
+}
+

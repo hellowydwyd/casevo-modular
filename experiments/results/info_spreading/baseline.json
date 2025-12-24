@@ -1,0 +1,546 @@
+{
+  "baseline": {
+    "spread_history": [
+      {
+        "total_agents": 200,
+        "total_info_received": 20,
+        "total_believed_true": 0,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 0
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 34,
+        "total_believed_true": 21,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 1
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 40,
+        "total_believed_true": 30,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 2
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 52,
+        "total_believed_true": 34,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 3
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 72,
+        "total_believed_true": 48,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 4
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 140,
+        "total_believed_true": 95,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 5
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 174,
+        "total_believed_true": 145,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 6
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 204,
+        "total_believed_true": 185,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 7
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 217,
+        "total_believed_true": 202,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 8
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 237,
+        "total_believed_true": 216,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 9
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 259,
+        "total_believed_true": 241,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 10
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 264,
+        "total_believed_true": 253,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 11
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 275,
+        "total_believed_true": 256,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 12
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 281,
+        "total_believed_true": 268,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 13
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 285,
+        "total_believed_true": 275,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 14
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 295,
+        "total_believed_true": 276,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 15
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 297,
+        "total_believed_true": 284,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 16
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 301,
+        "total_believed_true": 287,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 17
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 316,
+        "total_believed_true": 291,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 18
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 339,
+        "total_believed_true": 294,
+        "total_believed_false": 8,
+        "false_info_spread_count": 6,
+        "false_belief_ratio": 0.026402640264026403,
+        "round": 19
+      }
+    ],
+    "final_statistics": {
+      "total_agents": 200,
+      "total_info_received": 354,
+      "total_believed_true": 299,
+      "total_believed_false": 24,
+      "false_info_spread_count": 12,
+      "false_belief_ratio": 0.07407407407407407
+    },
+    "accuracy_statistics": {
+      "overall_accuracy": 0.8704999999999999,
+      "accuracy_by_type": {
+        "normal": 0.8984615384615384,
+        "skeptic": 0.8289473684210525,
+        "gullible": 0.7919354838709678,
+        "influencer": 0.85
+      },
+      "min_accuracy": 0.0,
+      "max_accuracy": 1.0
+    },
+    "network_stats": {
+      "nodes": 200,
+      "edges": 591,
+      "avg_degree": 5.91,
+      "avg_clustering": 0.08465970061144745
+    },
+    "information_pool": {
+      "info_1": {
+        "info_id": "info_1",
+        "content": "真实信息_1: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.6038568618702423,
+        "spread_count": 12
+      },
+      "info_2": {
+        "info_id": "info_2",
+        "content": "虚假信息_2: 这是未经证实的说法...",
+        "true_type": "false",
+        "source_credibility": 0.5121386036388794,
+        "spread_count": 0
+      },
+      "info_3": {
+        "info_id": "info_3",
+        "content": "真实信息_3: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.8723876524406483,
+        "spread_count": 73
+      },
+      "info_4": {
+        "info_id": "info_4",
+        "content": "真实信息_4: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.7995264505300645,
+        "spread_count": 25
+      },
+      "info_5": {
+        "info_id": "info_5",
+        "content": "真实信息_5: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.8280822165044049,
+        "spread_count": 11
+      },
+      "info_6": {
+        "info_id": "info_6",
+        "content": "真实信息_6: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.6394824700745366,
+        "spread_count": 5
+      },
+      "info_7": {
+        "info_id": "info_7",
+        "content": "真实信息_7: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.6105486783984465,
+        "spread_count": 7
+      },
+      "info_8": {
+        "info_id": "info_8",
+        "content": "虚假信息_8: 这是未经证实的说法...",
+        "true_type": "false",
+        "source_credibility": 0.4072302361603971,
+        "spread_count": 12
+      }
+    },
+    "config": {
+      "use_enhanced_evaluation": false,
+      "num_agents": 200,
+      "num_rounds": 20
+    }
+  },
+  "optimized": {
+    "spread_history": [
+      {
+        "total_agents": 200,
+        "total_info_received": 20,
+        "total_believed_true": 0,
+        "total_believed_false": 0,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0,
+        "round": 0
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 52,
+        "total_believed_true": 23,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.1111111111111111,
+        "round": 1
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 67,
+        "total_believed_true": 50,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.05555555555555555,
+        "round": 2
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 87,
+        "total_believed_true": 63,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.04477611940298507,
+        "round": 3
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 121,
+        "total_believed_true": 90,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.031914893617021274,
+        "round": 4
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 149,
+        "total_believed_true": 118,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.02459016393442623,
+        "round": 5
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 209,
+        "total_believed_true": 160,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.018292682926829267,
+        "round": 6
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 248,
+        "total_believed_true": 206,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.014285714285714285,
+        "round": 7
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 287,
+        "total_believed_true": 242,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.012195121951219513,
+        "round": 8
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 348,
+        "total_believed_true": 300,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.009868421052631578,
+        "round": 9
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 386,
+        "total_believed_true": 347,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.008547008547008548,
+        "round": 10
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 438,
+        "total_believed_true": 380,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.0078125,
+        "round": 11
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 488,
+        "total_believed_true": 438,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.006787330316742082,
+        "round": 12
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 538,
+        "total_believed_true": 482,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.006172839506172839,
+        "round": 13
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 574,
+        "total_believed_true": 527,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.005649717514124294,
+        "round": 14
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 624,
+        "total_believed_true": 565,
+        "total_believed_false": 3,
+        "false_info_spread_count": 0,
+        "false_belief_ratio": 0.005272407732864675,
+        "round": 15
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 646,
+        "total_believed_true": 606,
+        "total_believed_false": 12,
+        "false_info_spread_count": 1,
+        "false_belief_ratio": 0.01938610662358643,
+        "round": 16
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 653,
+        "total_believed_true": 618,
+        "total_believed_false": 13,
+        "false_info_spread_count": 2,
+        "false_belief_ratio": 0.020569620253164556,
+        "round": 17
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 665,
+        "total_believed_true": 623,
+        "total_believed_false": 13,
+        "false_info_spread_count": 2,
+        "false_belief_ratio": 0.02040816326530612,
+        "round": 18
+      },
+      {
+        "total_agents": 200,
+        "total_info_received": 682,
+        "total_believed_true": 626,
+        "total_believed_false": 25,
+        "false_info_spread_count": 7,
+        "false_belief_ratio": 0.03834355828220859,
+        "round": 19
+      }
+    ],
+    "final_statistics": {
+      "total_agents": 200,
+      "total_info_received": 689,
+      "total_believed_true": 626,
+      "total_believed_false": 33,
+      "false_info_spread_count": 9,
+      "false_belief_ratio": 0.05
+    },
+    "accuracy_statistics": {
+      "overall_accuracy": 0.9404166666666665,
+      "accuracy_by_type": {
+        "normal": 0.9569321533923304,
+        "skeptic": 0.8166666666666667,
+        "gullible": 0.9604166666666667,
+        "influencer": 0.9639639639639639
+      },
+      "min_accuracy": 0.3333333333333333,
+      "max_accuracy": 1.0
+    },
+    "network_stats": {
+      "nodes": 200,
+      "edges": 591,
+      "avg_degree": 5.91,
+      "avg_clustering": 0.08206589957195139
+    },
+    "information_pool": {
+      "info_1": {
+        "info_id": "info_1",
+        "content": "真实信息_1: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.7967839359172879,
+        "spread_count": 30
+      },
+      "info_2": {
+        "info_id": "info_2",
+        "content": "虚假信息_2: 这是未经证实的说法...",
+        "true_type": "false",
+        "source_credibility": 0.3666991349648366,
+        "spread_count": 0
+      },
+      "info_3": {
+        "info_id": "info_3",
+        "content": "真实信息_3: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.781476919736651,
+        "spread_count": 97
+      },
+      "info_4": {
+        "info_id": "info_4",
+        "content": "真实信息_4: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.89387399400135,
+        "spread_count": 59
+      },
+      "info_5": {
+        "info_id": "info_5",
+        "content": "真实信息_5: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.7763796372137839,
+        "spread_count": 74
+      },
+      "info_6": {
+        "info_id": "info_6",
+        "content": "真实信息_6: 这是经过验证的事实...",
+        "true_type": "true",
+        "source_credibility": 0.8846572573748581,
+        "spread_count": 84
+      },
+      "info_7": {
+        "info_id": "info_7",
+        "content": "虚假信息_7: 这是未经证实的说法...",
+        "true_type": "false",
+        "source_credibility": 0.5153277956775826,
+        "spread_count": 2
+      },
+      "info_8": {
+        "info_id": "info_8",
+        "content": "虚假信息_8: 这是未经证实的说法...",
+        "true_type": "false",
+        "source_credibility": 0.4467152357272086,
+        "spread_count": 7
+      }
+    },
+    "config": {
+      "use_enhanced_evaluation": true,
+      "num_agents": 200,
+      "num_rounds": 20
+    }
+  }
+}
