@@ -5,10 +5,39 @@ OpenAI LLM 接口实现
 """
 
 import json
+import time
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from typing import List, Dict, Any
 
 from casevo.llm.interface import LLM_INTERFACE
+
+
+def create_session_with_retry(retries: int = 3, backoff_factor: float = 0.5) -> requests.Session:
+    """创建带有重试机制的 requests session"""
+    session = requests.Session()
+    retry = Retry(
+        total=retries,
+        read=retries,
+        connect=retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["POST", "GET"]
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
+
+
+# 全局详细日志开关
+VERBOSE_LOGGING = True
+
+def set_verbose_logging(enabled: bool):
+    """设置是否启用详细日志"""
+    global VERBOSE_LOGGING
+    VERBOSE_LOGGING = enabled
 
 
 class OpenAIEmbeddingFunction:
@@ -19,14 +48,25 @@ class OpenAIEmbeddingFunction:
     """
     
     def __init__(self, api_key: str, 
-                 base_url: str = "https://api.openai.com",
+                 base_url: str = "https://api.whatai.cc",
                  model: str = "text-embedding-ada-002"):
         self.api_key = api_key
         self.base_url = base_url.rstrip('/')
         self.model = model
+        self._session = create_session_with_retry(retries=3, backoff_factor=1.0)
+        self._last_request_time = 0
+        self._min_interval = 0.2  # 最小请求间隔（秒）
+        self._call_count = 0
     
     def __call__(self, input: List[str]) -> List[List[float]]:
         """获取文本嵌入"""
+        self._call_count += 1
+        
+        # 请求限速
+        elapsed = time.time() - self._last_request_time
+        if elapsed < self._min_interval:
+            time.sleep(self._min_interval - elapsed)
+        
         url = f"{self.base_url}/v1/embeddings"
         
         headers = {
@@ -34,20 +74,35 @@ class OpenAIEmbeddingFunction:
             "Content-Type": "application/json"
         }
         
+        # 截断过长的文本
+        truncated_input = [text[:500] + "..." if len(text) > 500 else text for text in input]
+        
         data = {
             "input": input,
             "model": self.model
         }
         
+        if VERBOSE_LOGGING:
+            preview = truncated_input[0][:50] + "..." if len(truncated_input[0]) > 50 else truncated_input[0]
+            print(f"        [嵌入 #{self._call_count}] {len(input)} 条文本, 预览: \"{preview}\"")
+        
         try:
-            response = requests.post(url, headers=headers, json=data, timeout=60)
+            start_time = time.time()
+            self._last_request_time = time.time()
+            response = self._session.post(url, headers=headers, json=data, timeout=60)
             response.raise_for_status()
             result = response.json()
             
             embeddings = sorted(result["data"], key=lambda x: x["index"])
+            elapsed_time = time.time() - start_time
+            
+            if VERBOSE_LOGGING:
+                tokens = result.get("usage", {}).get("total_tokens", "?")
+                print(f"        [嵌入 #{self._call_count}] ✓ 成功, {elapsed_time:.2f}s, {tokens} tokens")
+            
             return [item["embedding"] for item in embeddings]
         except Exception as e:
-            print(f"获取嵌入失败: {e}")
+            print(f"        [嵌入 #{self._call_count}] ✗ 失败: {e}")
             return [[0.0] * 1536 for _ in input]
     
     def name(self) -> str:
@@ -80,7 +135,7 @@ class OpenAILLM(LLM_INTERFACE):
     
     def __init__(self, 
                  api_key: str,
-                 base_url: str = "https://api.openai.com",
+                 base_url: str = "https://api.whatai.cc",
                  model: str = "gpt-4o-mini",
                  embedding_model: str = "text-embedding-ada-002",
                  temperature: float = 0.7,
@@ -106,6 +161,12 @@ class OpenAILLM(LLM_INTERFACE):
         self.max_tokens = max_tokens
         self.timeout = timeout
         
+        # 创建带重试的 session
+        self._session = create_session_with_retry(retries=3, backoff_factor=1.0)
+        self._last_request_time = 0
+        self._min_interval = 0.3  # 最小请求间隔（秒）
+        self._call_count = 0
+        
         self._embedding_function = OpenAIEmbeddingFunction(
             api_key=api_key,
             base_url=base_url,
@@ -114,6 +175,13 @@ class OpenAILLM(LLM_INTERFACE):
     
     def send_message(self, prompt: str, json_flag: bool = False) -> str:
         """发送消息给 LLM"""
+        self._call_count += 1
+        
+        # 请求限速
+        elapsed = time.time() - self._last_request_time
+        if elapsed < self._min_interval:
+            time.sleep(self._min_interval - elapsed)
+        
         url = f"{self.base_url}/v1/chat/completions"
         
         headers = {
@@ -133,22 +201,40 @@ class OpenAILLM(LLM_INTERFACE):
         if json_flag:
             data["response_format"] = {"type": "json_object"}
         
+        # 详细日志
+        if VERBOSE_LOGGING:
+            preview = prompt[:80].replace('\n', ' ') + "..." if len(prompt) > 80 else prompt.replace('\n', ' ')
+            print(f"        [LLM #{self._call_count}] 发送请求, 预览: \"{preview}\"")
+        
         try:
-            response = requests.post(
+            start_time = time.time()
+            self._last_request_time = time.time()
+            response = self._session.post(
                 url, headers=headers, json=data, timeout=self.timeout
             )
             response.raise_for_status()
             result = response.json()
-            return result["choices"][0]["message"]["content"]
+            content = result["choices"][0]["message"]["content"]
+            elapsed_time = time.time() - start_time
+            
+            if VERBOSE_LOGGING:
+                usage = result.get("usage", {})
+                tokens_in = usage.get("prompt_tokens", "?")
+                tokens_out = usage.get("completion_tokens", "?")
+                resp_preview = content[:60].replace('\n', ' ') + "..." if len(content) > 60 else content.replace('\n', ' ')
+                print(f"        [LLM #{self._call_count}] ✓ 成功, {elapsed_time:.2f}s, {tokens_in}→{tokens_out} tokens")
+                print(f"        [LLM #{self._call_count}] 回复: \"{resp_preview}\"")
+            
+            return content
             
         except requests.exceptions.Timeout:
-            print("请求超时")
+            print(f"        [LLM #{self._call_count}] ✗ 请求超时")
             return ""
         except requests.exceptions.HTTPError as e:
-            print(f"HTTP 错误: {e}")
+            print(f"        [LLM #{self._call_count}] ✗ HTTP 错误: {e}")
             return ""
         except Exception as e:
-            print(f"发送消息失败: {e}")
+            print(f"        [LLM #{self._call_count}] ✗ 发送失败: {e}")
             return ""
     
     def send_embedding(self, text_list: List[str]) -> List[List[float]]:
@@ -192,35 +278,23 @@ class OpenAILLM(LLM_INTERFACE):
             return ""
 
 
-# API 密钥配置
-MODEL_API_KEYS = {
-    "gpt-4o": "sk-LxHyQAmGfoMXPLS2qxQs9lUWTjlkYJU48IHnFCk3VFtZ442I",
-    "gpt-4o-2024-05-13": "sk-LxHyQAmGfoMXPLS2qxQs9lUWTjlkYJU48IHnFCk3VFtZ442I",
-    "gpt-4o-2024-08-06": "sk-LxHyQAmGfoMXPLS2qxQs9lUWTjlkYJU48IHnFCk3VFtZ442I",
-    "gpt-4o-mini": "sk-ABRLKFX1TiP8DUJOSXqmNQUU9khYM6Mjr7RP4R2RpTzySIi2",
-    "gpt-4o-mini-2024-07-18": "sk-ABRLKFX1TiP8DUJOSXqmNQUU9khYM6Mjr7RP4R2RpTzySIi2",
-    "gpt-3.5-turbo": "sk-ABRLKFX1TiP8DUJOSXqmNQUU9khYM6Mjr7RP4R2RpTzySIi2",
-    "gpt-3.5-turbo-0125": "sk-ABRLKFX1TiP8DUJOSXqmNQUU9khYM6Mjr7RP4R2RpTzySIi2",
-}
+# API 配置 - 从环境变量读取
+import os
 
-DEFAULT_BASE_URL = "https://api.whatai.cc"
-DEFAULT_MODEL = "gpt-4o-mini"
-DEFAULT_API_KEY = MODEL_API_KEYS[DEFAULT_MODEL]
+DEFAULT_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+DEFAULT_API_KEY = os.getenv("OPENAI_API_KEY", "")
 
 
 def get_api_key_for_model(model: str) -> str:
-    """获取指定模型对应的 API 密钥"""
-    if model in MODEL_API_KEYS:
-        return MODEL_API_KEYS[model]
-    
-    if model.startswith("gpt-4o-mini"):
-        return MODEL_API_KEYS["gpt-4o-mini"]
-    elif model.startswith("gpt-4o"):
-        return MODEL_API_KEYS["gpt-4o"]
-    elif model.startswith("gpt-3.5"):
-        return MODEL_API_KEYS["gpt-3.5-turbo"]
-    
-    return DEFAULT_API_KEY
+    """获取 API 密钥（从环境变量）"""
+    api_key = os.getenv("OPENAI_API_KEY", "")
+    if not api_key:
+        raise ValueError(
+            "未设置 OPENAI_API_KEY 环境变量。请在 .env 文件中设置或导出环境变量。\n"
+            "例如: export OPENAI_API_KEY='your-api-key'"
+        )
+    return api_key
 
 
 def create_default_llm(model: str = None) -> OpenAILLM:

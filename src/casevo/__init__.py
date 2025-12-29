@@ -21,7 +21,7 @@ from casevo.core import (
     AgentBase,
     ModelBase,
     VariableNetwork,
-    OrederTypeActivation,
+    OrderTypeActivation,
     BaseComponent,
     BaseAgentComponent,
     BaseModelComponent,
@@ -124,13 +124,6 @@ from casevo.utils import (
 )
 
 # ============================================================
-# 向后兼容别名
-# ============================================================
-# 保持旧版本 API 兼容
-MemeoryFactory = MemoryFactory
-
-
-# ============================================================
 # 导出列表
 # ============================================================
 __all__ = [
@@ -138,7 +131,7 @@ __all__ = [
     "AgentBase",
     "ModelBase",
     "VariableNetwork",
-    "OrederTypeActivation",
+    "OrderTypeActivation",
     "BaseComponent",
     "BaseAgentComponent",
     "BaseModelComponent",
@@ -159,7 +152,6 @@ __all__ = [
     "Memory",
     "MemoryItem",
     "MemoryFactory",
-    "MemeoryFactory",  # 兼容别名
     "AdvancedMemory",
     "AdvancedMemoryFactory",
     "AdvancedMemoryItem",

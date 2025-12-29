@@ -5,14 +5,14 @@ Casevo 核心模块
 """
 
 from casevo.core.agent import AgentBase
-from casevo.core.model import ModelBase, VariableNetwork, OrederTypeActivation
+from casevo.core.model import ModelBase, VariableNetwork, OrderTypeActivation
 from casevo.core.component import BaseComponent, BaseAgentComponent, BaseModelComponent
 
 __all__ = [
     "AgentBase",
     "ModelBase",
     "VariableNetwork",
-    "OrederTypeActivation",
+    "OrderTypeActivation",
     "BaseComponent",
     "BaseAgentComponent",
     "BaseModelComponent",

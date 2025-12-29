@@ -105,3 +105,9 @@ class TestBaseModelComponent:
         assert component.model.llm is not None
         assert component.model.grid is not None
 
+
+
+
+
+
+

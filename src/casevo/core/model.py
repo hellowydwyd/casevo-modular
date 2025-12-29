@@ -10,10 +10,10 @@ from casevo.memory.base import MemoryFactory
 from casevo.prompt import PromptFactory
 
 
-class OrederTypeActivation(mesa.time.RandomActivationByType):
+class OrderTypeActivation(mesa.time.RandomActivationByType):
     """按类型顺序激活的调度器"""
     
-    def add_timestemp(self):
+    def add_timestamp(self):
         self.time += 1
         self.steps += 1
 
@@ -54,7 +54,7 @@ class ModelBase(mesa.Model):
     
         # Agent 调度器
         if type_schedule:
-            self.schedule = OrederTypeActivation(self)
+            self.schedule = OrderTypeActivation(self)
         else:
             self.schedule = mesa.time.RandomActivation(self)
         

@@ -1,30 +1,60 @@
 {
     "experiment_name": "information_spreading_dynamics",
-    "description": "社交网络虚假信息传播实验",
+    "description": "社交网络虚假信息传播实验（含消融实验）",
     
-    "baseline": {
-        "num_agents": 200,
+    "baseline_cot": {
+        "num_agents": 50,
         "initial_infected": 0.1,
         "false_info_ratio": 0.3,
         "use_enhanced_evaluation": false,
-        "num_rounds": 20
+        "use_tot": false,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": false,
+        "num_rounds": 10
     },
     
-    "optimized_enhanced": {
-        "num_agents": 200,
+    "optimized_tot_only": {
+        "num_agents": 50,
         "initial_infected": 0.1,
         "false_info_ratio": 0.3,
         "use_enhanced_evaluation": true,
-        "num_rounds": 20,
-        "critical_thinking_boost": 0.1
+        "use_tot": true,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": false,
+        "num_rounds": 10
     },
     
-    "high_false_ratio": {
-        "num_agents": 200,
-        "initial_infected": 0.15,
-        "false_info_ratio": 0.5,
+    "ablation_tot_memory": {
+        "num_agents": 50,
+        "initial_infected": 0.1,
+        "false_info_ratio": 0.3,
         "use_enhanced_evaluation": true,
-        "num_rounds": 25
+        "use_tot": true,
+        "use_enhanced_memory": true,
+        "use_dynamic_reflection": false,
+        "num_rounds": 10
+    },
+    
+    "ablation_tot_reflection": {
+        "num_agents": 50,
+        "initial_infected": 0.1,
+        "false_info_ratio": 0.3,
+        "use_enhanced_evaluation": true,
+        "use_tot": true,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": true,
+        "num_rounds": 10
+    },
+    
+    "optimized_full": {
+        "num_agents": 50,
+        "initial_infected": 0.1,
+        "false_info_ratio": 0.3,
+        "use_enhanced_evaluation": true,
+        "use_tot": true,
+        "use_enhanced_memory": true,
+        "use_dynamic_reflection": true,
+        "num_rounds": 10
     },
     
     "evaluation_metrics": [
@@ -68,8 +98,8 @@
     },
     
     "run_settings": {
-        "num_runs": 10,
-        "random_seeds": [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
+        "num_runs": 3,
+        "base_seed": 42,
+        "random_seeds": [42, 43, 44]
     }
 }
-

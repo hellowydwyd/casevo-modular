@@ -1,0 +1,2170 @@
+{
+  "experiment": "info",
+  "group": "baseline_cot",
+  "results": {
+    "num_runs": 3,
+    "avg_false_belief_ratio": 0.11604938271604938,
+    "avg_accuracy": 0.6066666666666667,
+    "spread_history": [
+      [
+        {
+          "total_agents": 50,
+          "total_info_received": 5,
+          "total_believed_true": 0,
+          "total_believed_false": 0,
+          "total_rejected_true": 0,
+          "total_rejected_false": 0,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.0,
+          "containment_rate": 0,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 0
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 8,
+          "total_believed_true": 1,
+          "total_believed_false": 1,
+          "total_rejected_true": 2,
+          "total_rejected_false": 1,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 1,
+          "false_belief_ratio": 0.3333333333333333,
+          "containment_rate": 0.5,
+          "total_spread_count": 1,
+          "false_spread_ratio": 0.0,
+          "round": 1
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 8,
+          "total_believed_true": 1,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 1,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 1,
+          "false_belief_ratio": 0.3333333333333333,
+          "containment_rate": 0.5,
+          "total_spread_count": 1,
+          "false_spread_ratio": 0.0,
+          "round": 2
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 10,
+          "total_believed_true": 1,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 1,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 1,
+          "false_belief_ratio": 0.3333333333333333,
+          "containment_rate": 0.5,
+          "total_spread_count": 1,
+          "false_spread_ratio": 0.0,
+          "round": 3
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 12,
+          "total_believed_true": 4,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 1,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 2,
+          "false_belief_ratio": 0.16666666666666666,
+          "containment_rate": 0.5,
+          "total_spread_count": 2,
+          "false_spread_ratio": 0.0,
+          "round": 4
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 12,
+          "total_believed_true": 5,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 1,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 2,
+          "false_belief_ratio": 0.14285714285714285,
+          "containment_rate": 0.5,
+          "total_spread_count": 2,
+          "false_spread_ratio": 0.0,
+          "round": 5
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 14,
+          "total_believed_true": 5,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 1,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 2,
+          "false_belief_ratio": 0.14285714285714285,
+          "containment_rate": 0.5,
+          "total_spread_count": 2,
+          "false_spread_ratio": 0.0,
+          "round": 6
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 14,
+          "total_believed_true": 5,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 2,
+          "false_belief_ratio": 0.14285714285714285,
+          "containment_rate": 0.75,
+          "total_spread_count": 2,
+          "false_spread_ratio": 0.0,
+          "round": 7
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 14,
+          "total_believed_true": 5,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 2,
+          "false_belief_ratio": 0.14285714285714285,
+          "containment_rate": 0.75,
+          "total_spread_count": 2,
+          "false_spread_ratio": 0.0,
+          "round": 8
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 16,
+          "total_believed_true": 5,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 2,
+          "false_belief_ratio": 0.14285714285714285,
+          "containment_rate": 0.75,
+          "total_spread_count": 2,
+          "false_spread_ratio": 0.0,
+          "round": 9
+        }
+      ],
+      [
+        {
+          "total_agents": 50,
+          "total_info_received": 5,
+          "total_believed_true": 0,
+          "total_believed_false": 0,
+          "total_rejected_true": 0,
+          "total_rejected_false": 0,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.0,
+          "containment_rate": 0,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 0
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 5,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 2,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.6666666666666666,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 1
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 5,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 2,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.6666666666666666,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 2
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 7,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 2,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.6666666666666666,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 3
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 7,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 4,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.8,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 4
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 7,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 4,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.8,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 5
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 9,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 4,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.8,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 6
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 9,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 6,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.8571428571428571,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 7
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 9,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 6,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.8571428571428571,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 8
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 11,
+          "total_believed_true": 2,
+          "total_believed_false": 1,
+          "total_rejected_true": 0,
+          "total_rejected_false": 6,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.25,
+          "containment_rate": 0.8571428571428571,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 9
+        }
+      ],
+      [
+        {
+          "total_agents": 50,
+          "total_info_received": 5,
+          "total_believed_true": 0,
+          "total_believed_false": 0,
+          "total_rejected_true": 0,
+          "total_rejected_false": 0,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.0,
+          "containment_rate": 0,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 0
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 5,
+          "total_believed_true": 0,
+          "total_believed_false": 1,
+          "total_rejected_true": 1,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.5,
+          "containment_rate": 0.75,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 1
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 5,
+          "total_believed_true": 0,
+          "total_believed_false": 1,
+          "total_rejected_true": 1,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.5,
+          "containment_rate": 0.75,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 2
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 7,
+          "total_believed_true": 0,
+          "total_believed_false": 1,
+          "total_rejected_true": 1,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.5,
+          "containment_rate": 0.75,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0,
+          "round": 3
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 26,
+          "total_believed_true": 8,
+          "total_believed_false": 1,
+          "total_rejected_true": 1,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 4,
+          "false_belief_ratio": 0.1,
+          "containment_rate": 0.75,
+          "total_spread_count": 4,
+          "false_spread_ratio": 0.0,
+          "round": 4
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 28,
+          "total_believed_true": 22,
+          "total_believed_false": 1,
+          "total_rejected_true": 1,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 6,
+          "false_belief_ratio": 0.041666666666666664,
+          "containment_rate": 0.75,
+          "total_spread_count": 6,
+          "false_spread_ratio": 0.0,
+          "round": 5
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 30,
+          "total_believed_true": 23,
+          "total_believed_false": 1,
+          "total_rejected_true": 1,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 7,
+          "false_belief_ratio": 0.04,
+          "containment_rate": 0.75,
+          "total_spread_count": 7,
+          "false_spread_ratio": 0.0,
+          "round": 6
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 30,
+          "total_believed_true": 23,
+          "total_believed_false": 1,
+          "total_rejected_true": 3,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 7,
+          "false_belief_ratio": 0.04,
+          "containment_rate": 0.75,
+          "total_spread_count": 7,
+          "false_spread_ratio": 0.0,
+          "round": 7
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 30,
+          "total_believed_true": 23,
+          "total_believed_false": 1,
+          "total_rejected_true": 3,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 7,
+          "false_belief_ratio": 0.04,
+          "containment_rate": 0.75,
+          "total_spread_count": 7,
+          "false_spread_ratio": 0.0,
+          "round": 8
+        },
+        {
+          "total_agents": 50,
+          "total_info_received": 32,
+          "total_believed_true": 23,
+          "total_believed_false": 1,
+          "total_rejected_true": 3,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 7,
+          "false_belief_ratio": 0.04,
+          "containment_rate": 0.75,
+          "total_spread_count": 7,
+          "false_spread_ratio": 0.0,
+          "round": 9
+        }
+      ]
+    ],
+    "evaluation_metrics": [
+      {
+        "decision_quality": {
+          "total_decisions": 0,
+          "unique_agents": 0,
+          "accuracy": 0.5,
+          "consistency": 1.0,
+          "confidence_calibration": 0.5,
+          "avg_confidence": 0,
+          "avg_reasoning_quality": 0
+        },
+        "reasoning_ability": {
+          "total_reasoning_episodes": 16,
+          "cot_count": 16,
+          "tot_count": 0,
+          "depth_stats": {
+            "avg_depth": 2,
+            "max_depth": 2,
+            "min_depth": 2,
+            "std_depth": 0.0
+          },
+          "diversity_stats": {
+            "avg_branches": 1,
+            "max_branches": 1,
+            "diversity_index": 0.5,
+            "pruning_rate": 0.0
+          },
+          "coherence_score": 0.5
+        },
+        "computational_efficiency": {
+          "call_statistics": {
+            "total_calls": 16,
+            "successful_calls": 16,
+            "failed_calls": 0,
+            "avg_duration_ms": 1925.3463000059128,
+            "min_duration_ms": 1213.3948802947998,
+            "max_duration_ms": 3136.0204219818115,
+            "std_duration_ms": 529.2912866346692,
+            "total_duration_ms": 30805.540800094604,
+            "total_tokens_in": 0,
+            "total_tokens_out": 0
+          },
+          "memory_statistics": {
+            "snapshots": 0,
+            "avg_memory_mb": 0,
+            "peak_memory_mb": 0
+          },
+          "call_records": [
+            {
+              "call_id": "cot_info_eval_5_info_2",
+              "duration_ms": 1508.1887245178223,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_39_info_1",
+              "duration_ms": 3136.0204219818115,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_21_info_2",
+              "duration_ms": 2025.693655014038,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_40_info_1",
+              "duration_ms": 2173.676013946533,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_42_info_1",
+              "duration_ms": 2346.186637878418,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_8_info_1",
+              "duration_ms": 1213.3948802947998,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_24_info_1",
+              "duration_ms": 1540.747880935669,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_41_info_1",
+              "duration_ms": 1529.625654220581,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_38_info_3",
+              "duration_ms": 1535.5265140533447,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_10_info_3",
+              "duration_ms": 2961.2693786621094,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_23_info_3",
+              "duration_ms": 1897.529125213623,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_48_info_3",
+              "duration_ms": 1785.6090068817139,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_1_info_4",
+              "duration_ms": 1489.7129535675049,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_14_info_4",
+              "duration_ms": 2090.3728008270264,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_29_info_5",
+              "duration_ms": 1763.4949684143066,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_24_info_5",
+              "duration_ms": 1808.4921836853027,
+              "success": true
+            }
+          ]
+        },
+        "social_effects": {}
+      },
+      {
+        "decision_quality": {
+          "total_decisions": 0,
+          "unique_agents": 0,
+          "accuracy": 0.5,
+          "consistency": 1.0,
+          "confidence_calibration": 0.5,
+          "avg_confidence": 0,
+          "avg_reasoning_quality": 0
+        },
+        "reasoning_ability": {
+          "total_reasoning_episodes": 11,
+          "cot_count": 11,
+          "tot_count": 0,
+          "depth_stats": {
+            "avg_depth": 2,
+            "max_depth": 2,
+            "min_depth": 2,
+            "std_depth": 0.0
+          },
+          "diversity_stats": {
+            "avg_branches": 1,
+            "max_branches": 1,
+            "diversity_index": 0.5,
+            "pruning_rate": 0.0
+          },
+          "coherence_score": 0.5
+        },
+        "computational_efficiency": {
+          "call_statistics": {
+            "total_calls": 11,
+            "successful_calls": 11,
+            "failed_calls": 0,
+            "avg_duration_ms": 1758.623860099099,
+            "min_duration_ms": 1367.5241470336914,
+            "max_duration_ms": 2283.0164432525635,
+            "std_duration_ms": 334.9340898606181,
+            "total_duration_ms": 19344.862461090088,
+            "total_tokens_in": 0,
+            "total_tokens_out": 0
+          },
+          "memory_statistics": {
+            "snapshots": 0,
+            "avg_memory_mb": 0,
+            "peak_memory_mb": 0
+          },
+          "call_records": [
+            {
+              "call_id": "cot_info_eval_16_info_2",
+              "duration_ms": 1457.5903415679932,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_21_info_1",
+              "duration_ms": 1798.4342575073242,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_9_info_2",
+              "duration_ms": 1642.7254676818848,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_41_info_1",
+              "duration_ms": 1623.6581802368164,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_47_info_2",
+              "duration_ms": 1435.3108406066895,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_11_info_3",
+              "duration_ms": 1436.126470565796,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_10_info_3",
+              "duration_ms": 2283.0164432525635,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_27_info_4",
+              "duration_ms": 1367.5241470336914,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_30_info_4",
+              "duration_ms": 2014.108657836914,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_37_info_5",
+              "duration_ms": 2157.788038253784,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_18_info_5",
+              "duration_ms": 2128.579616546631,
+              "success": true
+            }
+          ]
+        },
+        "social_effects": {}
+      },
+      {
+        "decision_quality": {
+          "total_decisions": 0,
+          "unique_agents": 0,
+          "accuracy": 0.5,
+          "consistency": 1.0,
+          "confidence_calibration": 0.5,
+          "avg_confidence": 0,
+          "avg_reasoning_quality": 0
+        },
+        "reasoning_ability": {
+          "total_reasoning_episodes": 32,
+          "cot_count": 32,
+          "tot_count": 0,
+          "depth_stats": {
+            "avg_depth": 2,
+            "max_depth": 2,
+            "min_depth": 2,
+            "std_depth": 0.0
+          },
+          "diversity_stats": {
+            "avg_branches": 1,
+            "max_branches": 1,
+            "diversity_index": 0.5,
+            "pruning_rate": 0.0
+          },
+          "coherence_score": 0.5
+        },
+        "computational_efficiency": {
+          "call_statistics": {
+            "total_calls": 32,
+            "successful_calls": 32,
+            "failed_calls": 0,
+            "avg_duration_ms": 1952.717736363411,
+            "min_duration_ms": 1181.8974018096924,
+            "max_duration_ms": 2883.5232257843018,
+            "std_duration_ms": 441.5639104683275,
+            "total_duration_ms": 62486.96756362915,
+            "total_tokens_in": 0,
+            "total_tokens_out": 0
+          },
+          "memory_statistics": {
+            "snapshots": 0,
+            "avg_memory_mb": 0,
+            "peak_memory_mb": 0
+          },
+          "call_records": [
+            {
+              "call_id": "cot_info_eval_44_info_2",
+              "duration_ms": 1745.3453540802002,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_3_info_2",
+              "duration_ms": 2005.1400661468506,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_5_info_2",
+              "duration_ms": 2141.566514968872,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_11_info_2",
+              "duration_ms": 1909.980297088623,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_2_info_1",
+              "duration_ms": 1561.4140033721924,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_12_info_3",
+              "duration_ms": 1745.593786239624,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_2_info_3",
+              "duration_ms": 1702.4831771850586,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_20_info_3",
+              "duration_ms": 2040.4789447784424,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_44_info_3",
+              "duration_ms": 2855.217218399048,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_24_info_3",
+              "duration_ms": 2638.714551925659,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_46_info_3",
+              "duration_ms": 2078.3631801605225,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_0_info_3",
+              "duration_ms": 1883.744239807129,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_13_info_3",
+              "duration_ms": 2278.4059047698975,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_10_info_3",
+              "duration_ms": 1986.2060546875,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_26_info_3",
+              "duration_ms": 1181.8974018096924,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_37_info_3",
+              "duration_ms": 1350.4998683929443,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_27_info_3",
+              "duration_ms": 1705.8665752410889,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_3_info_3",
+              "duration_ms": 1523.3018398284912,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_34_info_3",
+              "duration_ms": 2107.069492340088,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_15_info_3",
+              "duration_ms": 1554.3439388275146,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_30_info_3",
+              "duration_ms": 1651.129961013794,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_1_info_3",
+              "duration_ms": 1776.946783065796,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_7_info_3",
+              "duration_ms": 2835.8051776885986,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_8_info_3",
+              "duration_ms": 1606.299877166748,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_38_info_3",
+              "duration_ms": 1884.2816352844238,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_40_info_3",
+              "duration_ms": 2614.042043685913,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_4_info_3",
+              "duration_ms": 2158.3151817321777,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_49_info_3",
+              "duration_ms": 1887.2780799865723,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_23_info_4",
+              "duration_ms": 1399.0302085876465,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_49_info_4",
+              "duration_ms": 1574.970006942749,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_40_info_5",
+              "duration_ms": 2219.712972640991,
+              "success": true
+            },
+            {
+              "call_id": "cot_info_eval_46_info_5",
+              "duration_ms": 2883.5232257843018,
+              "success": true
+            }
+          ]
+        },
+        "social_effects": {}
+      }
+    ],
+    "raw_results": [
+      {
+        "spread_history": [
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 0,
+            "total_rejected_true": 0,
+            "total_rejected_false": 0,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "containment_rate": 0,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 0
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 8,
+            "total_believed_true": 1,
+            "total_believed_false": 1,
+            "total_rejected_true": 2,
+            "total_rejected_false": 1,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 1,
+            "false_belief_ratio": 0.3333333333333333,
+            "containment_rate": 0.5,
+            "total_spread_count": 1,
+            "false_spread_ratio": 0.0,
+            "round": 1
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 8,
+            "total_believed_true": 1,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 1,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 1,
+            "false_belief_ratio": 0.3333333333333333,
+            "containment_rate": 0.5,
+            "total_spread_count": 1,
+            "false_spread_ratio": 0.0,
+            "round": 2
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 10,
+            "total_believed_true": 1,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 1,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 1,
+            "false_belief_ratio": 0.3333333333333333,
+            "containment_rate": 0.5,
+            "total_spread_count": 1,
+            "false_spread_ratio": 0.0,
+            "round": 3
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 12,
+            "total_believed_true": 4,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 1,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 2,
+            "false_belief_ratio": 0.16666666666666666,
+            "containment_rate": 0.5,
+            "total_spread_count": 2,
+            "false_spread_ratio": 0.0,
+            "round": 4
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 12,
+            "total_believed_true": 5,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 1,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 2,
+            "false_belief_ratio": 0.14285714285714285,
+            "containment_rate": 0.5,
+            "total_spread_count": 2,
+            "false_spread_ratio": 0.0,
+            "round": 5
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 14,
+            "total_believed_true": 5,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 1,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 2,
+            "false_belief_ratio": 0.14285714285714285,
+            "containment_rate": 0.5,
+            "total_spread_count": 2,
+            "false_spread_ratio": 0.0,
+            "round": 6
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 14,
+            "total_believed_true": 5,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 2,
+            "false_belief_ratio": 0.14285714285714285,
+            "containment_rate": 0.75,
+            "total_spread_count": 2,
+            "false_spread_ratio": 0.0,
+            "round": 7
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 14,
+            "total_believed_true": 5,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 2,
+            "false_belief_ratio": 0.14285714285714285,
+            "containment_rate": 0.75,
+            "total_spread_count": 2,
+            "false_spread_ratio": 0.0,
+            "round": 8
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 16,
+            "total_believed_true": 5,
+            "total_believed_false": 1,
+            "total_rejected_true": 5,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 2,
+            "false_belief_ratio": 0.14285714285714285,
+            "containment_rate": 0.75,
+            "total_spread_count": 2,
+            "false_spread_ratio": 0.0,
+            "round": 9
+          }
+        ],
+        "final_statistics": {
+          "total_agents": 50,
+          "total_info_received": 16,
+          "total_believed_true": 7,
+          "total_believed_false": 1,
+          "total_rejected_true": 5,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 2,
+          "false_belief_ratio": 0.1111111111111111,
+          "containment_rate": 0.75,
+          "total_spread_count": 2,
+          "false_spread_ratio": 0.0
+        },
+        "accuracy_statistics": {
+          "overall_accuracy": 0.54,
+          "accuracy_by_type": {
+            "normal": 0.5689655172413793,
+            "skeptic": 0.2857142857142857,
+            "gullible": 0.7222222222222222,
+            "influencer": 0.4
+          },
+          "min_accuracy": 0.0,
+          "max_accuracy": 1.0
+        },
+        "network_stats": {
+          "nodes": 50,
+          "edges": 141,
+          "avg_degree": 5.64,
+          "avg_clustering": 0.28329557628474045
+        },
+        "information_pool": {
+          "info_1": {
+            "info_id": "info_1",
+            "content": "[消息 #1] 中国人民银行公告：数字人民币试点城市已扩展至26个",
+            "true_type": "true",
+            "source_credibility": 0.47636112828912464,
+            "spread_count": 1
+          },
+          "info_2": {
+            "info_id": "info_2",
+            "content": "[消息 #2] 专家警告：5G信号塔辐射会干扰人体免疫系统，导致癌症发病率上升",
+            "true_type": "false",
+            "source_credibility": 0.47770388224686233,
+            "spread_count": 0
+          },
+          "info_3": {
+            "info_id": "info_3",
+            "content": "[消息 #3] 教育部统计：2024年全国高考报名人数达到1342万人，创历史新高",
+            "true_type": "true",
+            "source_credibility": 0.7232556619745449,
+            "spread_count": 1
+          },
+          "info_4": {
+            "info_id": "info_4",
+            "content": "[消息 #4] 研究发现：每天饮用苏打水可以有效预防新冠病毒感染",
+            "true_type": "false",
+            "source_credibility": 0.710637470775019,
+            "spread_count": 0
+          },
+          "info_5": {
+            "info_id": "info_5",
+            "content": "[消息 #5] 国际能源署统计，可再生能源发电量首次超过煤电",
+            "true_type": "true",
+            "source_credibility": 0.5427840808594064,
+            "spread_count": 0
+          }
+        },
+        "evaluation_metrics": {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 16,
+            "cot_count": 16,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 2,
+              "max_depth": 2,
+              "min_depth": 2,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.5,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 16,
+              "successful_calls": 16,
+              "failed_calls": 0,
+              "avg_duration_ms": 1925.3463000059128,
+              "min_duration_ms": 1213.3948802947998,
+              "max_duration_ms": 3136.0204219818115,
+              "std_duration_ms": 529.2912866346692,
+              "total_duration_ms": 30805.540800094604,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_info_eval_5_info_2",
+                "duration_ms": 1508.1887245178223,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_39_info_1",
+                "duration_ms": 3136.0204219818115,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_21_info_2",
+                "duration_ms": 2025.693655014038,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_40_info_1",
+                "duration_ms": 2173.676013946533,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_42_info_1",
+                "duration_ms": 2346.186637878418,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_8_info_1",
+                "duration_ms": 1213.3948802947998,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_24_info_1",
+                "duration_ms": 1540.747880935669,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_41_info_1",
+                "duration_ms": 1529.625654220581,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_38_info_3",
+                "duration_ms": 1535.5265140533447,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_10_info_3",
+                "duration_ms": 2961.2693786621094,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_23_info_3",
+                "duration_ms": 1897.529125213623,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_48_info_3",
+                "duration_ms": 1785.6090068817139,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_1_info_4",
+                "duration_ms": 1489.7129535675049,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_14_info_4",
+                "duration_ms": 2090.3728008270264,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_29_info_5",
+                "duration_ms": 1763.4949684143066,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_24_info_5",
+                "duration_ms": 1808.4921836853027,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        },
+        "metrics_summary": {
+          "decision_quality_score": 0.5,
+          "reasoning_ability_score": 0.4600000000000001,
+          "computational_efficiency_score": 1.0,
+          "social_effects_score": 0.5,
+          "overall_score": 0.48666666666666664,
+          "overall_score_with_efficiency": 0.615
+        },
+        "misinformation_resistance": 0.625,
+        "spread_velocity": {
+          "avg_velocity": 0.6666666666666666,
+          "max_velocity": 3,
+          "min_velocity": 0,
+          "velocity_std": 1.118033988749895,
+          "velocity_trend": "decelerating",
+          "per_round_velocity": [
+            2,
+            0,
+            0,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "avg_false_velocity": 0.1111111111111111,
+          "max_false_velocity": 1,
+          "false_velocity_ratio": 0.16666666666666666
+        },
+        "config": {
+          "num_agents": 50,
+          "use_enhanced_evaluation": false,
+          "num_rounds": 10,
+          "false_info_ratio": 0.3,
+          "use_tot": false,
+          "use_enhanced_memory": false,
+          "use_dynamic_reflection": false,
+          "description": "基线组：规则评估"
+        },
+        "tot_enabled": false,
+        "enhanced_memory_enabled": false,
+        "dynamic_reflection_enabled": false,
+        "random_seed": 42,
+        "memory_path": "experiments/results/comparisons\\memories\\20251228_194305_38720\\info_baseline_cot_run1"
+      },
+      {
+        "spread_history": [
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 0,
+            "total_rejected_true": 0,
+            "total_rejected_false": 0,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "containment_rate": 0,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 0
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 2,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.6666666666666666,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 1
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 2,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.6666666666666666,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 2
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 7,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 2,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.6666666666666666,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 3
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 7,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 4,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.8,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 4
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 7,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 4,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.8,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 5
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 9,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 4,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.8,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 6
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 9,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 6,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.8571428571428571,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 7
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 9,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 6,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.8571428571428571,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 8
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 11,
+            "total_believed_true": 2,
+            "total_believed_false": 1,
+            "total_rejected_true": 0,
+            "total_rejected_false": 6,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.25,
+            "containment_rate": 0.8571428571428571,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 9
+          }
+        ],
+        "final_statistics": {
+          "total_agents": 50,
+          "total_info_received": 11,
+          "total_believed_true": 3,
+          "total_believed_false": 1,
+          "total_rejected_true": 1,
+          "total_rejected_false": 6,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 0,
+          "false_belief_ratio": 0.2,
+          "containment_rate": 0.8571428571428571,
+          "total_spread_count": 0,
+          "false_spread_ratio": 0.0
+        },
+        "accuracy_statistics": {
+          "overall_accuracy": 0.57,
+          "accuracy_by_type": {
+            "normal": 0.6290322580645161,
+            "skeptic": 0.5,
+            "gullible": 0.375,
+            "influencer": 0.5
+          },
+          "min_accuracy": 0.0,
+          "max_accuracy": 1.0
+        },
+        "network_stats": {
+          "nodes": 50,
+          "edges": 141,
+          "avg_degree": 5.64,
+          "avg_clustering": 0.27322881999769866
+        },
+        "information_pool": {
+          "info_1": {
+            "info_id": "info_1",
+            "content": "[消息 #1] 中国人民银行公告：数字人民币试点城市已扩展至26个",
+            "true_type": "true",
+            "source_credibility": 0.7920324210723526,
+            "spread_count": 0
+          },
+          "info_2": {
+            "info_id": "info_2",
+            "content": "[消息 #2] 专家警告：5G信号塔辐射会干扰人体免疫系统，导致癌症发病率上升",
+            "true_type": "false",
+            "source_credibility": 0.5536027512106171,
+            "spread_count": 0
+          },
+          "info_3": {
+            "info_id": "info_3",
+            "content": "[消息 #3] 科学家证实：地球磁极将在2025年发生翻转，届时通讯系统将全面瘫痪",
+            "true_type": "false",
+            "source_credibility": 0.5949122996794343,
+            "spread_count": 0
+          },
+          "info_4": {
+            "info_id": "info_4",
+            "content": "[消息 #4] 最新研究：睡前玩手机可以改善睡眠质量，专家推荐每晚使用2小时",
+            "true_type": "false",
+            "source_credibility": 0.5117417222941946,
+            "spread_count": 0
+          },
+          "info_5": {
+            "info_id": "info_5",
+            "content": "[消息 #5] 交通运输部数据：高铁网络总里程突破4.5万公里",
+            "true_type": "true",
+            "source_credibility": 0.5617586204353048,
+            "spread_count": 0
+          }
+        },
+        "evaluation_metrics": {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 11,
+            "cot_count": 11,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 2,
+              "max_depth": 2,
+              "min_depth": 2,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.5,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 11,
+              "successful_calls": 11,
+              "failed_calls": 0,
+              "avg_duration_ms": 1758.623860099099,
+              "min_duration_ms": 1367.5241470336914,
+              "max_duration_ms": 2283.0164432525635,
+              "std_duration_ms": 334.9340898606181,
+              "total_duration_ms": 19344.862461090088,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_info_eval_16_info_2",
+                "duration_ms": 1457.5903415679932,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_21_info_1",
+                "duration_ms": 1798.4342575073242,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_9_info_2",
+                "duration_ms": 1642.7254676818848,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_41_info_1",
+                "duration_ms": 1623.6581802368164,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_47_info_2",
+                "duration_ms": 1435.3108406066895,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_11_info_3",
+                "duration_ms": 1436.126470565796,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_10_info_3",
+                "duration_ms": 2283.0164432525635,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_27_info_4",
+                "duration_ms": 1367.5241470336914,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_30_info_4",
+                "duration_ms": 2014.108657836914,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_37_info_5",
+                "duration_ms": 2157.788038253784,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_18_info_5",
+                "duration_ms": 2128.579616546631,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        },
+        "metrics_summary": {
+          "decision_quality_score": 0.5,
+          "reasoning_ability_score": 0.4600000000000001,
+          "computational_efficiency_score": 1.0,
+          "social_effects_score": 0.5,
+          "overall_score": 0.48666666666666664,
+          "overall_score_with_efficiency": 0.615
+        },
+        "misinformation_resistance": 0.8181818181818182,
+        "spread_velocity": {
+          "avg_velocity": 0.3333333333333333,
+          "max_velocity": 3,
+          "min_velocity": 0,
+          "velocity_std": 1.0,
+          "velocity_trend": "decelerating",
+          "per_round_velocity": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "avg_false_velocity": 0.1111111111111111,
+          "max_false_velocity": 1,
+          "false_velocity_ratio": 0.3333333333333333
+        },
+        "config": {
+          "num_agents": 50,
+          "use_enhanced_evaluation": false,
+          "num_rounds": 10,
+          "false_info_ratio": 0.3,
+          "use_tot": false,
+          "use_enhanced_memory": false,
+          "use_dynamic_reflection": false,
+          "description": "基线组：规则评估"
+        },
+        "tot_enabled": false,
+        "enhanced_memory_enabled": false,
+        "dynamic_reflection_enabled": false,
+        "random_seed": 43,
+        "memory_path": "experiments/results/comparisons\\memories\\20251228_194305_38720\\info_baseline_cot_run2"
+      },
+      {
+        "spread_history": [
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 0,
+            "total_rejected_true": 0,
+            "total_rejected_false": 0,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "containment_rate": 0,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 0
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 1,
+            "total_rejected_true": 1,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.5,
+            "containment_rate": 0.75,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 1
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 1,
+            "total_rejected_true": 1,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.5,
+            "containment_rate": 0.75,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 2
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 7,
+            "total_believed_true": 0,
+            "total_believed_false": 1,
+            "total_rejected_true": 1,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 0,
+            "false_belief_ratio": 0.5,
+            "containment_rate": 0.75,
+            "total_spread_count": 0,
+            "false_spread_ratio": 0.0,
+            "round": 3
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 26,
+            "total_believed_true": 8,
+            "total_believed_false": 1,
+            "total_rejected_true": 1,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 4,
+            "false_belief_ratio": 0.1,
+            "containment_rate": 0.75,
+            "total_spread_count": 4,
+            "false_spread_ratio": 0.0,
+            "round": 4
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 28,
+            "total_believed_true": 22,
+            "total_believed_false": 1,
+            "total_rejected_true": 1,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 6,
+            "false_belief_ratio": 0.041666666666666664,
+            "containment_rate": 0.75,
+            "total_spread_count": 6,
+            "false_spread_ratio": 0.0,
+            "round": 5
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 30,
+            "total_believed_true": 23,
+            "total_believed_false": 1,
+            "total_rejected_true": 1,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 7,
+            "false_belief_ratio": 0.04,
+            "containment_rate": 0.75,
+            "total_spread_count": 7,
+            "false_spread_ratio": 0.0,
+            "round": 6
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 30,
+            "total_believed_true": 23,
+            "total_believed_false": 1,
+            "total_rejected_true": 3,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 7,
+            "false_belief_ratio": 0.04,
+            "containment_rate": 0.75,
+            "total_spread_count": 7,
+            "false_spread_ratio": 0.0,
+            "round": 7
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 30,
+            "total_believed_true": 23,
+            "total_believed_false": 1,
+            "total_rejected_true": 3,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 7,
+            "false_belief_ratio": 0.04,
+            "containment_rate": 0.75,
+            "total_spread_count": 7,
+            "false_spread_ratio": 0.0,
+            "round": 8
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 32,
+            "total_believed_true": 23,
+            "total_believed_false": 1,
+            "total_rejected_true": 3,
+            "total_rejected_false": 3,
+            "false_info_spread_count": 0,
+            "true_info_spread_count": 7,
+            "false_belief_ratio": 0.04,
+            "containment_rate": 0.75,
+            "total_spread_count": 7,
+            "false_spread_ratio": 0.0,
+            "round": 9
+          }
+        ],
+        "final_statistics": {
+          "total_agents": 50,
+          "total_info_received": 32,
+          "total_believed_true": 25,
+          "total_believed_false": 1,
+          "total_rejected_true": 3,
+          "total_rejected_false": 3,
+          "false_info_spread_count": 0,
+          "true_info_spread_count": 7,
+          "false_belief_ratio": 0.037037037037037035,
+          "containment_rate": 0.75,
+          "total_spread_count": 7,
+          "false_spread_ratio": 0.0
+        },
+        "accuracy_statistics": {
+          "overall_accuracy": 0.71,
+          "accuracy_by_type": {
+            "normal": 0.7051282051282052,
+            "skeptic": 0.6666666666666666,
+            "gullible": 0.7,
+            "influencer": 0.8333333333333334
+          },
+          "min_accuracy": 0.0,
+          "max_accuracy": 1.0
+        },
+        "network_stats": {
+          "nodes": 50,
+          "edges": 141,
+          "avg_degree": 5.64,
+          "avg_clustering": 0.2800634920634921
+        },
+        "information_pool": {
+          "info_1": {
+            "info_id": "info_1",
+            "content": "[消息 #1] 中国科学院研究团队在《自然》期刊发表论文，证实量子计算机实现算力突破",
+            "true_type": "true",
+            "source_credibility": 0.45446538389850816,
+            "spread_count": 0
+          },
+          "info_2": {
+            "info_id": "info_2",
+            "content": "[消息 #2] 网传消息：下周全国将实施为期一个月的交通管制，建议囤积物资",
+            "true_type": "false",
+            "source_credibility": 0.4159602524700379,
+            "spread_count": 0
+          },
+          "info_3": {
+            "info_id": "info_3",
+            "content": "[消息 #3] 世界卫生组织最新报告显示，全球疫苗接种覆盖率已达到65%，有效降低了重症率",
+            "true_type": "true",
+            "source_credibility": 0.8472753240687523,
+            "spread_count": 7
+          },
+          "info_4": {
+            "info_id": "info_4",
+            "content": "[消息 #4] 教育部统计：2024年全国高考报名人数达到1342万人，创历史新高",
+            "true_type": "true",
+            "source_credibility": 0.5065997764550099,
+            "spread_count": 0
+          },
+          "info_5": {
+            "info_id": "info_5",
+            "content": "[消息 #5] 世界卫生组织最新报告显示，全球疫苗接种覆盖率已达到65%，有效降低了重症率",
+            "true_type": "true",
+            "source_credibility": 0.7324178283247551,
+            "spread_count": 0
+          }
+        },
+        "evaluation_metrics": {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 32,
+            "cot_count": 32,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 2,
+              "max_depth": 2,
+              "min_depth": 2,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.5,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 32,
+              "successful_calls": 32,
+              "failed_calls": 0,
+              "avg_duration_ms": 1952.717736363411,
+              "min_duration_ms": 1181.8974018096924,
+              "max_duration_ms": 2883.5232257843018,
+              "std_duration_ms": 441.5639104683275,
+              "total_duration_ms": 62486.96756362915,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_info_eval_44_info_2",
+                "duration_ms": 1745.3453540802002,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_3_info_2",
+                "duration_ms": 2005.1400661468506,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_5_info_2",
+                "duration_ms": 2141.566514968872,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_11_info_2",
+                "duration_ms": 1909.980297088623,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_2_info_1",
+                "duration_ms": 1561.4140033721924,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_12_info_3",
+                "duration_ms": 1745.593786239624,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_2_info_3",
+                "duration_ms": 1702.4831771850586,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_20_info_3",
+                "duration_ms": 2040.4789447784424,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_44_info_3",
+                "duration_ms": 2855.217218399048,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_24_info_3",
+                "duration_ms": 2638.714551925659,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_46_info_3",
+                "duration_ms": 2078.3631801605225,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_0_info_3",
+                "duration_ms": 1883.744239807129,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_13_info_3",
+                "duration_ms": 2278.4059047698975,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_10_info_3",
+                "duration_ms": 1986.2060546875,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_26_info_3",
+                "duration_ms": 1181.8974018096924,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_37_info_3",
+                "duration_ms": 1350.4998683929443,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_27_info_3",
+                "duration_ms": 1705.8665752410889,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_3_info_3",
+                "duration_ms": 1523.3018398284912,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_34_info_3",
+                "duration_ms": 2107.069492340088,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_15_info_3",
+                "duration_ms": 1554.3439388275146,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_30_info_3",
+                "duration_ms": 1651.129961013794,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_1_info_3",
+                "duration_ms": 1776.946783065796,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_7_info_3",
+                "duration_ms": 2835.8051776885986,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_8_info_3",
+                "duration_ms": 1606.299877166748,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_38_info_3",
+                "duration_ms": 1884.2816352844238,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_40_info_3",
+                "duration_ms": 2614.042043685913,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_4_info_3",
+                "duration_ms": 2158.3151817321777,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_49_info_3",
+                "duration_ms": 1887.2780799865723,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_23_info_4",
+                "duration_ms": 1399.0302085876465,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_49_info_4",
+                "duration_ms": 1574.970006942749,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_40_info_5",
+                "duration_ms": 2219.712972640991,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_46_info_5",
+                "duration_ms": 2883.5232257843018,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        },
+        "metrics_summary": {
+          "decision_quality_score": 0.5,
+          "reasoning_ability_score": 0.4600000000000001,
+          "computational_efficiency_score": 1.0,
+          "social_effects_score": 0.5,
+          "overall_score": 0.48666666666666664,
+          "overall_score_with_efficiency": 0.615
+        },
+        "misinformation_resistance": 0.875,
+        "spread_velocity": {
+          "avg_velocity": 2.6666666666666665,
+          "max_velocity": 14,
+          "min_velocity": 0,
+          "velocity_std": 4.9749371855331,
+          "velocity_trend": "accelerating",
+          "per_round_velocity": [
+            1,
+            0,
+            0,
+            8,
+            14,
+            1,
+            0,
+            0,
+            0
+          ],
+          "avg_false_velocity": 0.1111111111111111,
+          "max_false_velocity": 1,
+          "false_velocity_ratio": 0.041666666666666664
+        },
+        "config": {
+          "num_agents": 50,
+          "use_enhanced_evaluation": false,
+          "num_rounds": 10,
+          "false_info_ratio": 0.3,
+          "use_tot": false,
+          "use_enhanced_memory": false,
+          "use_dynamic_reflection": false,
+          "description": "基线组：规则评估"
+        },
+        "tot_enabled": false,
+        "enhanced_memory_enabled": false,
+        "dynamic_reflection_enabled": false,
+        "random_seed": 44,
+        "memory_path": "experiments/results/comparisons\\memories\\20251228_194305_38720\\info_baseline_cot_run3"
+      }
+    ]
+  },
+  "timestamp": "20251228_194305_38720",
+  "base_seed": 42
+}

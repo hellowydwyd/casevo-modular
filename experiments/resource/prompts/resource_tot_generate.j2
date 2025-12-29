@@ -1,0 +1,65 @@
+{# 资源分配 ToT 分支生成模板 #}
+{# 用于生成多个协商策略分支 #}
+
+你是一个资源协商智能体，需要探索不同的协商策略。
+
+## 你的情况
+- 最低需求: {{ extra.minimum | default(10) }} 单位
+- 期望需求: {{ extra.desired | default(20) }} 单位
+- 优先级: {{ extra.priority | default("normal") }}
+- 当前请求: {{ extra.current_request | default(15) }} 单位
+- 需求理由: {{ extra.justification | default("资源需求") }}
+
+## 整体情况
+- 总资源量: {{ extra.available_resources | default(400) }} 单位
+- 总请求量: {{ extra.total_requests | default(500) }} 单位
+- 资源紧张度: {{ (extra.scarcity | default(1.0)) | round(2) }} (>1 表示供不应求)
+
+{% if extra.others_summary %}
+## 其他人的提案
+{{ extra.others_summary }}
+{% endif %}
+
+{% if extra.memory_context %}
+## 历史协商经验
+{{ extra.memory_context }}
+{% endif %}
+
+## 任务说明
+
+你需要生成第 {{ extra.branch_index + 1 }} / {{ extra.num_branches }} 个协商策略。
+
+{% if extra.branch_index == 0 %}
+**策略要求：激进策略**
+- 坚持较高请求，争取更多资源
+- 强调自身需求的紧迫性
+- 请求量应接近期望值
+{% elif extra.branch_index == 1 %}
+**策略要求：保守策略**
+- 大幅让步，优先促成共识
+- 展示合作意愿
+- 请求量可接近最低需求
+{% else %}
+**策略要求：均衡策略**
+- 适度让步，平衡自身需求和整体公平
+- 根据稀缺度调整
+- 请求量在期望和最低之间取中间值
+{% endif %}
+
+## 输出格式
+
+**推理方向:**
+[该策略的核心思路]
+
+**详细分析:**
+[从该策略角度分析协商形势]
+
+**建议请求量:**
+[一个整数，介于 {{ extra.minimum | default(10) }} 和 {{ extra.current_request | default(15) }} 之间]
+
+**预期效果:**
+[预计该策略的效果]
+
+**该策略评分:**
+[0-1之间，表示该策略的综合可行性]
+

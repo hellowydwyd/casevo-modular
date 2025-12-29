@@ -1,32 +1,61 @@
 {
     "experiment_name": "resource_allocation_negotiation",
-    "description": "多智能体资源分配协商实验",
+    "description": "多智能体资源分配协商实验（含消融实验）",
     
-    "baseline": {
-        "num_agents": 50,
-        "total_resources": 1000,
-        "max_rounds": 10,
+    "baseline_cot": {
+        "num_agents": 20,
+        "total_resources": 400,
+        "max_rounds": 5,
         "use_collaborative": false,
-        "convergence_threshold": 0.05,
-        "convergence_rounds": 2
+        "use_tot": false,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": false,
+        "convergence_threshold": 0.05
     },
     
-    "optimized_collaborative": {
-        "num_agents": 50,
-        "total_resources": 1000,
-        "max_rounds": 10,
+    "optimized_tot_only": {
+        "num_agents": 20,
+        "total_resources": 400,
+        "max_rounds": 5,
+        "use_collaborative": false,
+        "use_tot": true,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": false,
+        "convergence_threshold": 0.05
+    },
+    
+    "ablation_tot_memory": {
+        "num_agents": 20,
+        "total_resources": 400,
+        "max_rounds": 5,
+        "use_collaborative": false,
+        "use_tot": true,
+        "use_enhanced_memory": true,
+        "use_dynamic_reflection": false,
+        "convergence_threshold": 0.05
+    },
+    
+    "ablation_tot_reflection": {
+        "num_agents": 20,
+        "total_resources": 400,
+        "max_rounds": 5,
+        "use_collaborative": false,
+        "use_tot": true,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": true,
+        "convergence_threshold": 0.05
+    },
+    
+    "optimized_full": {
+        "num_agents": 20,
+        "total_resources": 400,
+        "max_rounds": 5,
         "use_collaborative": true,
+        "use_tot": true,
+        "use_enhanced_memory": true,
+        "use_dynamic_reflection": true,
         "decision_mode": "hybrid",
-        "convergence_threshold": 0.05,
-        "convergence_rounds": 2
-    },
-    
-    "stress_test": {
-        "num_agents": 100,
-        "total_resources": 1500,
-        "max_rounds": 15,
-        "use_collaborative": true,
-        "decision_mode": "distributed"
+        "convergence_threshold": 0.05
     },
     
     "evaluation_metrics": [
@@ -46,15 +75,16 @@
     },
     
     "need_ranges": {
-        "critical": {"min": [25, 35], "desired": [35, 50]},
-        "high": {"min": [20, 30], "desired": [30, 40]},
-        "normal": {"min": [15, 25], "desired": [25, 35]},
-        "low": {"min": [10, 20], "desired": [20, 30]}
+        "comment": "需求范围符合 Proposal 要求的 15-30 单位",
+        "critical": {"min": [22, 28], "desired": [28, 30]},
+        "high": {"min": [20, 25], "desired": [25, 30]},
+        "normal": {"min": [18, 22], "desired": [22, 28]},
+        "low": {"min": [15, 18], "desired": [18, 25]}
     },
     
     "run_settings": {
-        "num_runs": 10,
-        "random_seeds": [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
+        "num_runs": 3,
+        "base_seed": 42,
+        "random_seeds": [42, 43, 44]
     }
 }
-

@@ -2,6 +2,7 @@
 CoT vs ToT 推理机制对比实验
 
 对比线性思维链(CoT)和树状思维(ToT)在选举投票场景中的决策质量。
+使用真正的 TreeOfThought 模块进行多路径推理。
 """
 
 import mesa
@@ -16,9 +17,18 @@ import sys
 import time
 
 # 添加项目路径
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'src'))
+PROJECT_ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
+sys.path.insert(0, PROJECT_ROOT)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'src'))
 
-from casevo import create_llm, create_default_llm
+from casevo import (
+    create_llm, create_default_llm,
+    TreeOfThought, ToTStep, EvaluatorStep, SearchStrategy,
+    PromptFactory
+)
+
+# Prompt 模板目录
+PROMPTS_DIR = os.path.join(os.path.dirname(__file__), '..', '..', 'src', 'casevo', 'prompts')
 
 
 class VoteChoice(Enum):
@@ -110,7 +120,7 @@ class CoTVoterAgent(mesa.Agent):
 
 
 class ToTVoterAgent(mesa.Agent):
-    """Tree of Thought 选民智能体"""
+    """Tree of Thought 选民智能体（使用真正的 ToT 模块）"""
     
     def __init__(self, unique_id: int, model: 'ComparisonModel', profile: VoterProfile):
         super().__init__(unique_id, model)
@@ -118,58 +128,124 @@ class ToTVoterAgent(mesa.Agent):
         self.current_vote = profile.initial_preference
         self.reasoning_history: List[str] = []
         self.neighbors: List[int] = []
+        self.component_id = f"voter_{unique_id}"
+        self.description = f"{profile.name}, {profile.age}岁, {profile.political_leaning}"
+        self.context = {'key_issues': profile.key_issues}
+        
+        # ToT 实例（延迟初始化）
+        self._tot_instance: Optional[TreeOfThought] = None
+        self._tot_initialized = False
+    
+    def _init_tot(self):
+        """初始化 ToT 组件"""
+        if self._tot_initialized:
+            return
+        self._tot_initialized = True
+        
+        # 创建 PromptFactory
+        prompt_factory = PromptFactory(PROMPTS_DIR, self.model.llm)
+        
+        # 创建 ToT 步骤
+        thought_step = ToTStep(
+            step_id="vote_branch",
+            tar_prompt=prompt_factory.get_template("tot_generate.j2"),
+            num_branches=3
+        )
+        
+        # 创建评估步骤
+        evaluator_step = EvaluatorStep(
+            step_id="vote_evaluate",
+            tar_prompt=prompt_factory.get_template("tot_evaluate.j2"),
+            score_range=(0.0, 1.0)
+        )
+        
+        # 创建 ToT 实例
+        self._tot_instance = TreeOfThought(
+            agent=self,
+            thought_step=thought_step,
+            evaluator_step=evaluator_step,
+            max_depth=4,
+            beam_width=3,
+            pruning_threshold=0.3,
+            search_strategy=SearchStrategy.BEAM
+        )
     
     def make_decision_tot(self, debate_info: str, neighbor_opinions: List[str]) -> VoteChoice:
-        """使用 Tree of Thought (树状推理) 进行决策"""
+        """使用真正的 Tree of Thought 模块进行决策"""
         
-        prompt = f"""你是 {self.profile.name}，一位{self.profile.age}岁的美国选民。
-政治倾向: {self.profile.political_leaning}
+        # 初始化 ToT
+        self._init_tot()
+        
+        # 准备输入状态
+        initial_state = {
+            'question': f"作为 {self.profile.name}，我应该投票给谁？",
+            'voter_name': self.profile.name,
+            'voter_age': self.profile.age,
+            'political_leaning': self.profile.political_leaning,
+            'key_issues': self.profile.key_issues,
+            'current_preference': self.current_vote.value,
+            'debate_info': debate_info,
+            'neighbor_opinions': neighbor_opinions
+        }
+        
+        try:
+            # 运行 ToT
+            self._tot_instance.set_input(initial_state)
+            best_node = self._tot_instance.run()
+            result = self._tot_instance.get_output()
+            
+            # 记录推理路径
+            reasoning_path = result.get('reasoning_path', '')
+            self.reasoning_history.append(f"[ToT] 探索 {result.get('total_nodes_explored', 0)} 节点\n{reasoning_path}")
+            
+            # 解析最佳节点的决策
+            best_score = result.get('best_score', 0.5)
+            best_state = result.get('best_state', {})
+            
+            # 从最佳状态中提取决策
+            return self._extract_vote_from_state(best_state, best_score)
+            
+        except Exception as e:
+            print(f"  ToT Agent {self.unique_id} 错误: {e}")
+            # 回退到单次 LLM 调用
+            return self._fallback_decision(debate_info, neighbor_opinions)
+    
+    def _extract_vote_from_state(self, state: Dict, score: float) -> VoteChoice:
+        """从 ToT 状态中提取投票决策"""
+        response = str(state.get('last_response', ''))
+        response_lower = response.lower()
+        
+        # 尝试从响应中解析
+        if 'biden' in response_lower:
+            return VoteChoice.BIDEN
+        elif 'trump' in response_lower:
+            return VoteChoice.TRUMP
+        
+        # 根据分数和政治倾向决定
+        if self.profile.political_leaning == 'liberal':
+            return VoteChoice.BIDEN if score > 0.5 else VoteChoice.UNDECIDED
+        elif self.profile.political_leaning == 'conservative':
+            return VoteChoice.TRUMP if score > 0.5 else VoteChoice.UNDECIDED
+        else:
+            return VoteChoice.UNDECIDED
+    
+    def _fallback_decision(self, debate_info: str, neighbor_opinions: List[str]) -> VoteChoice:
+        """ToT 失败时的回退决策"""
+        prompt = f"""你是 {self.profile.name}，{self.profile.age}岁，政治倾向 {self.profile.political_leaning}。
 关注议题: {', '.join(self.profile.key_issues)}
-当前倾向: {self.current_vote.value}
 
-## 辩论内容
-{debate_info}
+辩论内容: {debate_info}
 
-## 邻居观点
-{chr(10).join(neighbor_opinions) if neighbor_opinions else '(无)'}
-
-## 任务
-请使用树状推理方式（Tree of Thought），探索多条思考路径后做出投票决定。
-
-按以下格式回答：
-
-【路径A - 经济优先】
-如果我主要考虑经济议题...→ 结论: Biden/Trump
-
-【路径B - 社会议题优先】
-如果我主要考虑社会议题...→ 结论: Biden/Trump
-
-【路径C - 个人价值观优先】
-如果我主要考虑{self.profile.key_issues[0]}...→ 结论: Biden/Trump
-
-【综合评估】
-三条路径结论: A=?, B=?, C=?
-加权考虑后...
-
-【最终决定】Biden / Trump / Undecided（只写一个）
-"""
+请直接回答：你投票给 Biden 还是 Trump？（只回答一个名字）"""
         
         try:
             response = self.model.llm.send_message(prompt)
-            self.reasoning_history.append(response)
-            return self._parse_vote(response)
-        except Exception as e:
-            print(f"  ToT Agent {self.unique_id} 错误: {e}")
-            return self.current_vote
-    
-    def _parse_vote(self, response: str) -> VoteChoice:
-        """解析投票结果"""
-        if '【最终决定】' in response:
-            final_part = response.split('【最终决定】')[-1].lower()
-            if 'biden' in final_part:
+            if 'biden' in response.lower():
                 return VoteChoice.BIDEN
-            elif 'trump' in final_part:
+            elif 'trump' in response.lower():
                 return VoteChoice.TRUMP
+        except:
+            pass
         return self.current_vote
 
 

@@ -1,0 +1,2489 @@
+{
+  "experiment": "resource",
+  "group": "baseline_cot",
+  "results": {
+    "num_runs": 3,
+    "avg_rounds": 3,
+    "std_rounds": 0.0,
+    "avg_gini": 0.07156962025316453,
+    "std_gini": 0.006926054947911037,
+    "avg_satisfaction": 0.503842940685046,
+    "allocation_history": [
+      [
+        {
+          "round": 0,
+          "total_requests": 452,
+          "available": 400,
+          "scarcity_ratio": 1.13,
+          "change_ratio": 0.09418837675350701,
+          "converged": false
+        },
+        {
+          "round": 1,
+          "total_requests": 428,
+          "available": 400,
+          "scarcity_ratio": 1.07,
+          "change_ratio": 0.05309734513274336,
+          "converged": false
+        },
+        {
+          "round": 2,
+          "total_requests": 419,
+          "available": 400,
+          "scarcity_ratio": 1.0475,
+          "change_ratio": 0.02102803738317757,
+          "converged": true
+        }
+      ],
+      [
+        {
+          "round": 0,
+          "total_requests": 474,
+          "available": 400,
+          "scarcity_ratio": 1.185,
+          "change_ratio": 0.08317214700193423,
+          "converged": false
+        },
+        {
+          "round": 1,
+          "total_requests": 447,
+          "available": 400,
+          "scarcity_ratio": 1.1175,
+          "change_ratio": 0.056962025316455694,
+          "converged": false
+        },
+        {
+          "round": 2,
+          "total_requests": 428,
+          "available": 400,
+          "scarcity_ratio": 1.07,
+          "change_ratio": 0.042505592841163314,
+          "converged": true
+        }
+      ],
+      [
+        {
+          "round": 0,
+          "total_requests": 451,
+          "available": 400,
+          "scarcity_ratio": 1.1275,
+          "change_ratio": 0.08704453441295547,
+          "converged": false
+        },
+        {
+          "round": 1,
+          "total_requests": 428,
+          "available": 400,
+          "scarcity_ratio": 1.07,
+          "change_ratio": 0.050997782705099776,
+          "converged": false
+        },
+        {
+          "round": 2,
+          "total_requests": 409,
+          "available": 400,
+          "scarcity_ratio": 1.0225,
+          "change_ratio": 0.04439252336448598,
+          "converged": true
+        }
+      ]
+    ],
+    "evaluation_metrics": [
+      {
+        "decision_quality": {
+          "total_decisions": 0,
+          "unique_agents": 0,
+          "accuracy": 0.5,
+          "consistency": 1.0,
+          "confidence_calibration": 0.5,
+          "avg_confidence": 0,
+          "avg_reasoning_quality": 0
+        },
+        "reasoning_ability": {
+          "total_reasoning_episodes": 60,
+          "cot_count": 60,
+          "tot_count": 0,
+          "depth_stats": {
+            "avg_depth": 3,
+            "max_depth": 3,
+            "min_depth": 3,
+            "std_depth": 0.0
+          },
+          "diversity_stats": {
+            "avg_branches": 1,
+            "max_branches": 1,
+            "diversity_index": 0.3333333333333333,
+            "pruning_rate": 0.0
+          },
+          "coherence_score": 0.5
+        },
+        "computational_efficiency": {
+          "call_statistics": {
+            "total_calls": 60,
+            "successful_calls": 60,
+            "failed_calls": 0,
+            "avg_duration_ms": 2526.4416297276816,
+            "min_duration_ms": 1838.9651775360107,
+            "max_duration_ms": 3888.700485229492,
+            "std_duration_ms": 435.58475994238,
+            "total_duration_ms": 151586.4977836609,
+            "total_tokens_in": 0,
+            "total_tokens_out": 0
+          },
+          "memory_statistics": {
+            "snapshots": 0,
+            "avg_memory_mb": 0,
+            "peak_memory_mb": 0
+          },
+          "call_records": [
+            {
+              "call_id": "cot_negotiation_agent_0_0",
+              "duration_ms": 1838.9651775360107,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_0",
+              "duration_ms": 2126.2683868408203,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_0",
+              "duration_ms": 2553.576707839966,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_0",
+              "duration_ms": 2200.5441188812256,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_0",
+              "duration_ms": 2301.7446994781494,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_0",
+              "duration_ms": 3052.834987640381,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_0",
+              "duration_ms": 2511.6069316864014,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_0",
+              "duration_ms": 3059.1068267822266,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_0",
+              "duration_ms": 2510.9193325042725,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_0",
+              "duration_ms": 2369.2829608917236,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_0",
+              "duration_ms": 2333.1899642944336,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_0",
+              "duration_ms": 2756.329298019409,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_0",
+              "duration_ms": 2642.0867443084717,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_0",
+              "duration_ms": 2048.175573348999,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_0",
+              "duration_ms": 2584.3350887298584,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_0",
+              "duration_ms": 2568.91131401062,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_0",
+              "duration_ms": 3702.9623985290527,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_0",
+              "duration_ms": 3414.1108989715576,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_0",
+              "duration_ms": 2446.376323699951,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_0",
+              "duration_ms": 2509.9823474884033,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_0_1",
+              "duration_ms": 2004.4960975646973,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_1",
+              "duration_ms": 2500.6632804870605,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_1",
+              "duration_ms": 2795.4204082489014,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_1",
+              "duration_ms": 2353.2721996307373,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_1",
+              "duration_ms": 2067.8646564483643,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_1",
+              "duration_ms": 2131.573438644409,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_1",
+              "duration_ms": 2389.1005516052246,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_1",
+              "duration_ms": 2575.324058532715,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_1",
+              "duration_ms": 1980.9412956237793,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_1",
+              "duration_ms": 2214.869737625122,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_1",
+              "duration_ms": 2404.553174972534,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_1",
+              "duration_ms": 2082.054853439331,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_1",
+              "duration_ms": 2604.135513305664,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_1",
+              "duration_ms": 3888.700485229492,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_1",
+              "duration_ms": 2556.071996688843,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_1",
+              "duration_ms": 2073.6353397369385,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_1",
+              "duration_ms": 2446.1615085601807,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_1",
+              "duration_ms": 2760.194778442383,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_1",
+              "duration_ms": 3034.3894958496094,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_1",
+              "duration_ms": 3414.464235305786,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_0_2",
+              "duration_ms": 2333.1453800201416,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_2",
+              "duration_ms": 3416.8872833251953,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_2",
+              "duration_ms": 2490.8530712127686,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_2",
+              "duration_ms": 2558.551073074341,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_2",
+              "duration_ms": 2384.9971294403076,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_2",
+              "duration_ms": 2308.6955547332764,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_2",
+              "duration_ms": 1884.6056461334229,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_2",
+              "duration_ms": 2642.136812210083,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_2",
+              "duration_ms": 2515.742540359497,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_2",
+              "duration_ms": 2732.1293354034424,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_2",
+              "duration_ms": 2352.238893508911,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_2",
+              "duration_ms": 2434.282064437866,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_2",
+              "duration_ms": 2007.1079730987549,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_2",
+              "duration_ms": 2351.2606620788574,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_2",
+              "duration_ms": 2405.9526920318604,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_2",
+              "duration_ms": 3382.399320602417,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_2",
+              "duration_ms": 2372.243881225586,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_2",
+              "duration_ms": 2794.3809032440186,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_2",
+              "duration_ms": 2203.1853199005127,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_2",
+              "duration_ms": 2206.505060195923,
+              "success": true
+            }
+          ]
+        },
+        "social_effects": {}
+      },
+      {
+        "decision_quality": {
+          "total_decisions": 0,
+          "unique_agents": 0,
+          "accuracy": 0.5,
+          "consistency": 1.0,
+          "confidence_calibration": 0.5,
+          "avg_confidence": 0,
+          "avg_reasoning_quality": 0
+        },
+        "reasoning_ability": {
+          "total_reasoning_episodes": 60,
+          "cot_count": 60,
+          "tot_count": 0,
+          "depth_stats": {
+            "avg_depth": 3,
+            "max_depth": 3,
+            "min_depth": 3,
+            "std_depth": 0.0
+          },
+          "diversity_stats": {
+            "avg_branches": 1,
+            "max_branches": 1,
+            "diversity_index": 0.3333333333333333,
+            "pruning_rate": 0.0
+          },
+          "coherence_score": 0.5
+        },
+        "computational_efficiency": {
+          "call_statistics": {
+            "total_calls": 60,
+            "successful_calls": 60,
+            "failed_calls": 0,
+            "avg_duration_ms": 2670.2318946520486,
+            "min_duration_ms": 1793.196678161621,
+            "max_duration_ms": 3799.168825149536,
+            "std_duration_ms": 485.3431409391584,
+            "total_duration_ms": 160213.91367912292,
+            "total_tokens_in": 0,
+            "total_tokens_out": 0
+          },
+          "memory_statistics": {
+            "snapshots": 0,
+            "avg_memory_mb": 0,
+            "peak_memory_mb": 0
+          },
+          "call_records": [
+            {
+              "call_id": "cot_negotiation_agent_0_0",
+              "duration_ms": 2842.902183532715,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_0",
+              "duration_ms": 2442.362070083618,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_0",
+              "duration_ms": 2449.3398666381836,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_0",
+              "duration_ms": 2367.1517372131348,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_0",
+              "duration_ms": 2351.6807556152344,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_0",
+              "duration_ms": 2814.30721282959,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_0",
+              "duration_ms": 3763.4201049804688,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_0",
+              "duration_ms": 3067.085027694702,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_0",
+              "duration_ms": 2387.4902725219727,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_0",
+              "duration_ms": 2907.181739807129,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_0",
+              "duration_ms": 3029.080867767334,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_0",
+              "duration_ms": 3762.4154090881348,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_0",
+              "duration_ms": 2361.3553047180176,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_0",
+              "duration_ms": 2405.362606048584,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_0",
+              "duration_ms": 2349.165678024292,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_0",
+              "duration_ms": 2771.4579105377197,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_0",
+              "duration_ms": 3205.9435844421387,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_0",
+              "duration_ms": 2379.164934158325,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_0",
+              "duration_ms": 2410.6860160827637,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_0",
+              "duration_ms": 2733.673334121704,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_0_1",
+              "duration_ms": 2442.8844451904297,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_1",
+              "duration_ms": 2536.7562770843506,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_1",
+              "duration_ms": 2072.9761123657227,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_1",
+              "duration_ms": 3516.122579574585,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_1",
+              "duration_ms": 1793.196678161621,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_1",
+              "duration_ms": 2710.9618186950684,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_1",
+              "duration_ms": 2266.4239406585693,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_1",
+              "duration_ms": 2148.8442420959473,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_1",
+              "duration_ms": 2122.861862182617,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_1",
+              "duration_ms": 2957.5464725494385,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_1",
+              "duration_ms": 2630.441188812256,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_1",
+              "duration_ms": 3195.072650909424,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_1",
+              "duration_ms": 2501.328468322754,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_1",
+              "duration_ms": 3286.7438793182373,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_1",
+              "duration_ms": 2206.1169147491455,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_1",
+              "duration_ms": 2610.4819774627686,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_1",
+              "duration_ms": 3799.168825149536,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_1",
+              "duration_ms": 1865.138292312622,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_1",
+              "duration_ms": 3392.3463821411133,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_1",
+              "duration_ms": 2684.7007274627686,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_0_2",
+              "duration_ms": 2872.2102642059326,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_2",
+              "duration_ms": 2249.7377395629883,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_2",
+              "duration_ms": 2927.9699325561523,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_2",
+              "duration_ms": 2758.4195137023926,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_2",
+              "duration_ms": 3512.894630432129,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_2",
+              "duration_ms": 2751.1792182922363,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_2",
+              "duration_ms": 2004.0526390075684,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_2",
+              "duration_ms": 2585.1166248321533,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_2",
+              "duration_ms": 1938.2107257843018,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_2",
+              "duration_ms": 3267.767906188965,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_2",
+              "duration_ms": 2668.7450408935547,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_2",
+              "duration_ms": 3014.6939754486084,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_2",
+              "duration_ms": 2874.9337196350098,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_2",
+              "duration_ms": 1813.4963512420654,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_2",
+              "duration_ms": 2428.8618564605713,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_2",
+              "duration_ms": 3125.783920288086,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_2",
+              "duration_ms": 2508.9316368103027,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_2",
+              "duration_ms": 2874.7594356536865,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_2",
+              "duration_ms": 2201.301097869873,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_2",
+              "duration_ms": 2293.5070991516113,
+              "success": true
+            }
+          ]
+        },
+        "social_effects": {}
+      },
+      {
+        "decision_quality": {
+          "total_decisions": 0,
+          "unique_agents": 0,
+          "accuracy": 0.5,
+          "consistency": 1.0,
+          "confidence_calibration": 0.5,
+          "avg_confidence": 0,
+          "avg_reasoning_quality": 0
+        },
+        "reasoning_ability": {
+          "total_reasoning_episodes": 60,
+          "cot_count": 60,
+          "tot_count": 0,
+          "depth_stats": {
+            "avg_depth": 3,
+            "max_depth": 3,
+            "min_depth": 3,
+            "std_depth": 0.0
+          },
+          "diversity_stats": {
+            "avg_branches": 1,
+            "max_branches": 1,
+            "diversity_index": 0.3333333333333333,
+            "pruning_rate": 0.0
+          },
+          "coherence_score": 0.5
+        },
+        "computational_efficiency": {
+          "call_statistics": {
+            "total_calls": 60,
+            "successful_calls": 60,
+            "failed_calls": 0,
+            "avg_duration_ms": 2496.4980483055115,
+            "min_duration_ms": 1831.8133354187012,
+            "max_duration_ms": 3842.65398979187,
+            "std_duration_ms": 407.73136824563096,
+            "total_duration_ms": 149789.8828983307,
+            "total_tokens_in": 0,
+            "total_tokens_out": 0
+          },
+          "memory_statistics": {
+            "snapshots": 0,
+            "avg_memory_mb": 0,
+            "peak_memory_mb": 0
+          },
+          "call_records": [
+            {
+              "call_id": "cot_negotiation_agent_0_0",
+              "duration_ms": 2920.191526412964,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_0",
+              "duration_ms": 2366.0688400268555,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_0",
+              "duration_ms": 3515.8400535583496,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_0",
+              "duration_ms": 2230.905532836914,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_0",
+              "duration_ms": 2861.072778701782,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_0",
+              "duration_ms": 3046.3902950286865,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_0",
+              "duration_ms": 2519.3002223968506,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_0",
+              "duration_ms": 2534.100294113159,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_0",
+              "duration_ms": 2242.351293563843,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_0",
+              "duration_ms": 3030.8876037597656,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_0",
+              "duration_ms": 1831.8133354187012,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_0",
+              "duration_ms": 2828.1872272491455,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_0",
+              "duration_ms": 2536.686897277832,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_0",
+              "duration_ms": 2517.921209335327,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_0",
+              "duration_ms": 2128.4985542297363,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_0",
+              "duration_ms": 2300.2984523773193,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_0",
+              "duration_ms": 2895.8494663238525,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_0",
+              "duration_ms": 2830.8138847351074,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_0",
+              "duration_ms": 2377.9244422912598,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_0",
+              "duration_ms": 2156.3193798065186,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_0_1",
+              "duration_ms": 2495.366334915161,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_1",
+              "duration_ms": 2284.251928329468,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_1",
+              "duration_ms": 2271.883010864258,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_1",
+              "duration_ms": 2649.271249771118,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_1",
+              "duration_ms": 2159.144878387451,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_1",
+              "duration_ms": 2074.565649032593,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_1",
+              "duration_ms": 2511.6991996765137,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_1",
+              "duration_ms": 2439.4655227661133,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_1",
+              "duration_ms": 2495.1610565185547,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_1",
+              "duration_ms": 1915.8673286437988,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_1",
+              "duration_ms": 2805.45711517334,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_1",
+              "duration_ms": 2964.287281036377,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_1",
+              "duration_ms": 2051.345109939575,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_1",
+              "duration_ms": 3842.65398979187,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_1",
+              "duration_ms": 2179.9731254577637,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_1",
+              "duration_ms": 2098.6690521240234,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_1",
+              "duration_ms": 1926.1655807495117,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_1",
+              "duration_ms": 2752.1896362304688,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_1",
+              "duration_ms": 2207.5095176696777,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_1",
+              "duration_ms": 2295.6340312957764,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_0_2",
+              "duration_ms": 1977.0777225494385,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_1_2",
+              "duration_ms": 3240.0145530700684,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_2_2",
+              "duration_ms": 3034.552574157715,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_3_2",
+              "duration_ms": 2837.7866744995117,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_4_2",
+              "duration_ms": 2538.372278213501,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_5_2",
+              "duration_ms": 2688.7967586517334,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_6_2",
+              "duration_ms": 2478.304147720337,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_7_2",
+              "duration_ms": 2963.761329650879,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_8_2",
+              "duration_ms": 2216.804265975952,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_9_2",
+              "duration_ms": 2386.955976486206,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_10_2",
+              "duration_ms": 2361.764907836914,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_11_2",
+              "duration_ms": 2236.9399070739746,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_12_2",
+              "duration_ms": 2043.5662269592285,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_13_2",
+              "duration_ms": 2257.314920425415,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_14_2",
+              "duration_ms": 2796.956777572632,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_15_2",
+              "duration_ms": 1940.4025077819824,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_16_2",
+              "duration_ms": 2324.9502182006836,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_17_2",
+              "duration_ms": 2959.2957496643066,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_18_2",
+              "duration_ms": 2171.4024543762207,
+              "success": true
+            },
+            {
+              "call_id": "cot_negotiation_agent_19_2",
+              "duration_ms": 2242.8810596466064,
+              "success": true
+            }
+          ]
+        },
+        "social_effects": {}
+      }
+    ],
+    "raw_results": [
+      {
+        "negotiation_rounds": 3,
+        "converged": true,
+        "allocation_history": [
+          {
+            "round": 0,
+            "total_requests": 452,
+            "available": 400,
+            "scarcity_ratio": 1.13,
+            "change_ratio": 0.09418837675350701,
+            "converged": false
+          },
+          {
+            "round": 1,
+            "total_requests": 428,
+            "available": 400,
+            "scarcity_ratio": 1.07,
+            "change_ratio": 0.05309734513274336,
+            "converged": false
+          },
+          {
+            "round": 2,
+            "total_requests": 419,
+            "available": 400,
+            "scarcity_ratio": 1.0475,
+            "change_ratio": 0.02102803738317757,
+            "converged": true
+          }
+        ],
+        "final_allocations": {
+          "agent_0": 24,
+          "agent_1": 20,
+          "agent_2": 15,
+          "agent_3": 23,
+          "agent_4": 22,
+          "agent_5": 22,
+          "agent_6": 20,
+          "agent_7": 19,
+          "agent_8": 19,
+          "agent_9": 23,
+          "agent_10": 17,
+          "agent_11": 18,
+          "agent_12": 22,
+          "agent_13": 18,
+          "agent_14": 22,
+          "agent_15": 18,
+          "agent_16": 20,
+          "agent_17": 20,
+          "agent_18": 22,
+          "agent_19": 16
+        },
+        "fairness_metrics": {
+          "gini_coefficient": 0.0685,
+          "average_satisfaction": 0.49605263157894736,
+          "minimum_satisfaction": 0.42105263157894735,
+          "maximum_satisfaction": 0.5,
+          "satisfaction_std": 0.0176531682434194,
+          "average_fulfillment_rate": 0.8029065761130978,
+          "allocation_variance": 6.2105263157894735,
+          "total_allocated": 400,
+          "utilization_rate": 1.0,
+          "priority_satisfaction": {
+            "critical": 0.5,
+            "high": 0.5,
+            "low": 0.5,
+            "normal": 0.4934210526315789
+          },
+          "convergence_round": 3,
+          "convergence_speed": 0.4
+        },
+        "evaluation_metrics": {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 60,
+            "cot_count": 60,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 3,
+              "max_depth": 3,
+              "min_depth": 3,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.3333333333333333,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 60,
+              "successful_calls": 60,
+              "failed_calls": 0,
+              "avg_duration_ms": 2526.4416297276816,
+              "min_duration_ms": 1838.9651775360107,
+              "max_duration_ms": 3888.700485229492,
+              "std_duration_ms": 435.58475994238,
+              "total_duration_ms": 151586.4977836609,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_negotiation_agent_0_0",
+                "duration_ms": 1838.9651775360107,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_0",
+                "duration_ms": 2126.2683868408203,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_0",
+                "duration_ms": 2553.576707839966,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_0",
+                "duration_ms": 2200.5441188812256,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_0",
+                "duration_ms": 2301.7446994781494,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_0",
+                "duration_ms": 3052.834987640381,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_0",
+                "duration_ms": 2511.6069316864014,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_0",
+                "duration_ms": 3059.1068267822266,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_0",
+                "duration_ms": 2510.9193325042725,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_0",
+                "duration_ms": 2369.2829608917236,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_0",
+                "duration_ms": 2333.1899642944336,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_0",
+                "duration_ms": 2756.329298019409,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_0",
+                "duration_ms": 2642.0867443084717,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_0",
+                "duration_ms": 2048.175573348999,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_0",
+                "duration_ms": 2584.3350887298584,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_0",
+                "duration_ms": 2568.91131401062,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_0",
+                "duration_ms": 3702.9623985290527,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_0",
+                "duration_ms": 3414.1108989715576,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_0",
+                "duration_ms": 2446.376323699951,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_0",
+                "duration_ms": 2509.9823474884033,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_0_1",
+                "duration_ms": 2004.4960975646973,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_1",
+                "duration_ms": 2500.6632804870605,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_1",
+                "duration_ms": 2795.4204082489014,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_1",
+                "duration_ms": 2353.2721996307373,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_1",
+                "duration_ms": 2067.8646564483643,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_1",
+                "duration_ms": 2131.573438644409,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_1",
+                "duration_ms": 2389.1005516052246,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_1",
+                "duration_ms": 2575.324058532715,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_1",
+                "duration_ms": 1980.9412956237793,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_1",
+                "duration_ms": 2214.869737625122,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_1",
+                "duration_ms": 2404.553174972534,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_1",
+                "duration_ms": 2082.054853439331,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_1",
+                "duration_ms": 2604.135513305664,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_1",
+                "duration_ms": 3888.700485229492,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_1",
+                "duration_ms": 2556.071996688843,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_1",
+                "duration_ms": 2073.6353397369385,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_1",
+                "duration_ms": 2446.1615085601807,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_1",
+                "duration_ms": 2760.194778442383,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_1",
+                "duration_ms": 3034.3894958496094,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_1",
+                "duration_ms": 3414.464235305786,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_0_2",
+                "duration_ms": 2333.1453800201416,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_2",
+                "duration_ms": 3416.8872833251953,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_2",
+                "duration_ms": 2490.8530712127686,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_2",
+                "duration_ms": 2558.551073074341,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_2",
+                "duration_ms": 2384.9971294403076,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_2",
+                "duration_ms": 2308.6955547332764,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_2",
+                "duration_ms": 1884.6056461334229,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_2",
+                "duration_ms": 2642.136812210083,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_2",
+                "duration_ms": 2515.742540359497,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_2",
+                "duration_ms": 2732.1293354034424,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_2",
+                "duration_ms": 2352.238893508911,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_2",
+                "duration_ms": 2434.282064437866,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_2",
+                "duration_ms": 2007.1079730987549,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_2",
+                "duration_ms": 2351.2606620788574,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_2",
+                "duration_ms": 2405.9526920318604,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_2",
+                "duration_ms": 3382.399320602417,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_2",
+                "duration_ms": 2372.243881225586,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_2",
+                "duration_ms": 2794.3809032440186,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_2",
+                "duration_ms": 2203.1853199005127,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_2",
+                "duration_ms": 2206.505060195923,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        },
+        "metrics_summary": {
+          "decision_quality_score": 0.5,
+          "reasoning_ability_score": 0.49,
+          "computational_efficiency_score": 0.9670973981420199,
+          "social_effects_score": 0.5,
+          "overall_score": 0.49666666666666665,
+          "overall_score_with_efficiency": 0.614274349535505
+        },
+        "config": {
+          "num_agents": 20,
+          "total_resources": 400,
+          "max_rounds": 5,
+          "use_collaborative": false,
+          "use_tot": false,
+          "use_enhanced_memory": false,
+          "use_dynamic_reflection": false,
+          "description": "基线组：原始 CoT 独立决策"
+        },
+        "tot_enabled": false,
+        "enhanced_memory_enabled": false,
+        "dynamic_reflection_enabled": false,
+        "collaborative_enabled": false,
+        "random_seed": 42,
+        "memory_path": "experiments/results/comparisons\\memories\\20251228_112527_25480\\resource_baseline_cot_run1"
+      },
+      {
+        "negotiation_rounds": 3,
+        "converged": true,
+        "allocation_history": [
+          {
+            "round": 0,
+            "total_requests": 474,
+            "available": 400,
+            "scarcity_ratio": 1.185,
+            "change_ratio": 0.08317214700193423,
+            "converged": false
+          },
+          {
+            "round": 1,
+            "total_requests": 447,
+            "available": 400,
+            "scarcity_ratio": 1.1175,
+            "change_ratio": 0.056962025316455694,
+            "converged": false
+          },
+          {
+            "round": 2,
+            "total_requests": 428,
+            "available": 400,
+            "scarcity_ratio": 1.07,
+            "change_ratio": 0.042505592841163314,
+            "converged": true
+          }
+        ],
+        "final_allocations": {
+          "agent_0": 19,
+          "agent_1": 18,
+          "agent_2": 18,
+          "agent_3": 22,
+          "agent_4": 18,
+          "agent_5": 22,
+          "agent_6": 21,
+          "agent_7": 23,
+          "agent_8": 21,
+          "agent_9": 22,
+          "agent_10": 17,
+          "agent_11": 18,
+          "agent_12": 18,
+          "agent_13": 20,
+          "agent_14": 21,
+          "agent_15": 17,
+          "agent_16": 25,
+          "agent_17": 22,
+          "agent_18": 25,
+          "agent_19": 13
+        },
+        "fairness_metrics": {
+          "gini_coefficient": 0.0794999999999999,
+          "average_satisfaction": 0.49047619047619045,
+          "minimum_satisfaction": 0.30952380952380953,
+          "maximum_satisfaction": 0.5,
+          "satisfaction_std": 0.04259177099999599,
+          "average_fulfillment_rate": 0.7846779310422489,
+          "allocation_variance": 8.736842105263158,
+          "total_allocated": 400,
+          "utilization_rate": 1.0,
+          "priority_satisfaction": {
+            "normal": 0.48095238095238096,
+            "low": 0.5,
+            "critical": 0.5,
+            "high": 0.5
+          },
+          "convergence_round": 3,
+          "convergence_speed": 0.4
+        },
+        "evaluation_metrics": {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 60,
+            "cot_count": 60,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 3,
+              "max_depth": 3,
+              "min_depth": 3,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.3333333333333333,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 60,
+              "successful_calls": 60,
+              "failed_calls": 0,
+              "avg_duration_ms": 2670.2318946520486,
+              "min_duration_ms": 1793.196678161621,
+              "max_duration_ms": 3799.168825149536,
+              "std_duration_ms": 485.3431409391584,
+              "total_duration_ms": 160213.91367912292,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_negotiation_agent_0_0",
+                "duration_ms": 2842.902183532715,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_0",
+                "duration_ms": 2442.362070083618,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_0",
+                "duration_ms": 2449.3398666381836,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_0",
+                "duration_ms": 2367.1517372131348,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_0",
+                "duration_ms": 2351.6807556152344,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_0",
+                "duration_ms": 2814.30721282959,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_0",
+                "duration_ms": 3763.4201049804688,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_0",
+                "duration_ms": 3067.085027694702,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_0",
+                "duration_ms": 2387.4902725219727,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_0",
+                "duration_ms": 2907.181739807129,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_0",
+                "duration_ms": 3029.080867767334,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_0",
+                "duration_ms": 3762.4154090881348,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_0",
+                "duration_ms": 2361.3553047180176,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_0",
+                "duration_ms": 2405.362606048584,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_0",
+                "duration_ms": 2349.165678024292,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_0",
+                "duration_ms": 2771.4579105377197,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_0",
+                "duration_ms": 3205.9435844421387,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_0",
+                "duration_ms": 2379.164934158325,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_0",
+                "duration_ms": 2410.6860160827637,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_0",
+                "duration_ms": 2733.673334121704,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_0_1",
+                "duration_ms": 2442.8844451904297,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_1",
+                "duration_ms": 2536.7562770843506,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_1",
+                "duration_ms": 2072.9761123657227,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_1",
+                "duration_ms": 3516.122579574585,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_1",
+                "duration_ms": 1793.196678161621,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_1",
+                "duration_ms": 2710.9618186950684,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_1",
+                "duration_ms": 2266.4239406585693,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_1",
+                "duration_ms": 2148.8442420959473,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_1",
+                "duration_ms": 2122.861862182617,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_1",
+                "duration_ms": 2957.5464725494385,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_1",
+                "duration_ms": 2630.441188812256,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_1",
+                "duration_ms": 3195.072650909424,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_1",
+                "duration_ms": 2501.328468322754,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_1",
+                "duration_ms": 3286.7438793182373,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_1",
+                "duration_ms": 2206.1169147491455,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_1",
+                "duration_ms": 2610.4819774627686,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_1",
+                "duration_ms": 3799.168825149536,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_1",
+                "duration_ms": 1865.138292312622,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_1",
+                "duration_ms": 3392.3463821411133,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_1",
+                "duration_ms": 2684.7007274627686,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_0_2",
+                "duration_ms": 2872.2102642059326,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_2",
+                "duration_ms": 2249.7377395629883,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_2",
+                "duration_ms": 2927.9699325561523,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_2",
+                "duration_ms": 2758.4195137023926,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_2",
+                "duration_ms": 3512.894630432129,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_2",
+                "duration_ms": 2751.1792182922363,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_2",
+                "duration_ms": 2004.0526390075684,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_2",
+                "duration_ms": 2585.1166248321533,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_2",
+                "duration_ms": 1938.2107257843018,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_2",
+                "duration_ms": 3267.767906188965,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_2",
+                "duration_ms": 2668.7450408935547,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_2",
+                "duration_ms": 3014.6939754486084,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_2",
+                "duration_ms": 2874.9337196350098,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_2",
+                "duration_ms": 1813.4963512420654,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_2",
+                "duration_ms": 2428.8618564605713,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_2",
+                "duration_ms": 3125.783920288086,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_2",
+                "duration_ms": 2508.9316368103027,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_2",
+                "duration_ms": 2874.7594356536865,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_2",
+                "duration_ms": 2201.301097869873,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_2",
+                "duration_ms": 2293.5070991516113,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        },
+        "metrics_summary": {
+          "decision_quality_score": 0.5,
+          "reasoning_ability_score": 0.49,
+          "computational_efficiency_score": 0.958110506584247,
+          "social_effects_score": 0.5,
+          "overall_score": 0.49666666666666665,
+          "overall_score_with_efficiency": 0.6120276266460618
+        },
+        "config": {
+          "num_agents": 20,
+          "total_resources": 400,
+          "max_rounds": 5,
+          "use_collaborative": false,
+          "use_tot": false,
+          "use_enhanced_memory": false,
+          "use_dynamic_reflection": false,
+          "description": "基线组：原始 CoT 独立决策"
+        },
+        "tot_enabled": false,
+        "enhanced_memory_enabled": false,
+        "dynamic_reflection_enabled": false,
+        "collaborative_enabled": false,
+        "random_seed": 43,
+        "memory_path": "experiments/results/comparisons\\memories\\20251228_112527_25480\\resource_baseline_cot_run2"
+      },
+      {
+        "negotiation_rounds": 3,
+        "converged": true,
+        "allocation_history": [
+          {
+            "round": 0,
+            "total_requests": 451,
+            "available": 400,
+            "scarcity_ratio": 1.1275,
+            "change_ratio": 0.08704453441295547,
+            "converged": false
+          },
+          {
+            "round": 1,
+            "total_requests": 428,
+            "available": 400,
+            "scarcity_ratio": 1.07,
+            "change_ratio": 0.050997782705099776,
+            "converged": false
+          },
+          {
+            "round": 2,
+            "total_requests": 409,
+            "available": 400,
+            "scarcity_ratio": 1.0225,
+            "change_ratio": 0.04439252336448598,
+            "converged": true
+          }
+        ],
+        "final_allocations": {
+          "agent_0": 18,
+          "agent_1": 20,
+          "agent_2": 18,
+          "agent_3": 20,
+          "agent_4": 21,
+          "agent_5": 20,
+          "agent_6": 16,
+          "agent_7": 22,
+          "agent_8": 25,
+          "agent_9": 18,
+          "agent_10": 16,
+          "agent_11": 18,
+          "agent_12": 18,
+          "agent_13": 20,
+          "agent_14": 22,
+          "agent_15": 23,
+          "agent_16": 20,
+          "agent_17": 23,
+          "agent_18": 17,
+          "agent_19": 20
+        },
+        "fairness_metrics": {
+          "gini_coefficient": 0.06670886075949367,
+          "average_satisfaction": 0.525,
+          "minimum_satisfaction": 0.5,
+          "maximum_satisfaction": 1.0,
+          "satisfaction_std": 0.11180339887498948,
+          "average_fulfillment_rate": 0.805506010697323,
+          "allocation_variance": 5.881578947368421,
+          "total_allocated": 395,
+          "utilization_rate": 0.9875,
+          "priority_satisfaction": {
+            "normal": 0.5,
+            "high": 0.5,
+            "low": 0.625,
+            "critical": 0.5
+          },
+          "convergence_round": 3,
+          "convergence_speed": 0.4
+        },
+        "evaluation_metrics": {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 60,
+            "cot_count": 60,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 3,
+              "max_depth": 3,
+              "min_depth": 3,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.3333333333333333,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 60,
+              "successful_calls": 60,
+              "failed_calls": 0,
+              "avg_duration_ms": 2496.4980483055115,
+              "min_duration_ms": 1831.8133354187012,
+              "max_duration_ms": 3842.65398979187,
+              "std_duration_ms": 407.73136824563096,
+              "total_duration_ms": 149789.8828983307,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_negotiation_agent_0_0",
+                "duration_ms": 2920.191526412964,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_0",
+                "duration_ms": 2366.0688400268555,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_0",
+                "duration_ms": 3515.8400535583496,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_0",
+                "duration_ms": 2230.905532836914,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_0",
+                "duration_ms": 2861.072778701782,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_0",
+                "duration_ms": 3046.3902950286865,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_0",
+                "duration_ms": 2519.3002223968506,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_0",
+                "duration_ms": 2534.100294113159,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_0",
+                "duration_ms": 2242.351293563843,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_0",
+                "duration_ms": 3030.8876037597656,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_0",
+                "duration_ms": 1831.8133354187012,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_0",
+                "duration_ms": 2828.1872272491455,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_0",
+                "duration_ms": 2536.686897277832,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_0",
+                "duration_ms": 2517.921209335327,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_0",
+                "duration_ms": 2128.4985542297363,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_0",
+                "duration_ms": 2300.2984523773193,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_0",
+                "duration_ms": 2895.8494663238525,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_0",
+                "duration_ms": 2830.8138847351074,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_0",
+                "duration_ms": 2377.9244422912598,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_0",
+                "duration_ms": 2156.3193798065186,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_0_1",
+                "duration_ms": 2495.366334915161,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_1",
+                "duration_ms": 2284.251928329468,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_1",
+                "duration_ms": 2271.883010864258,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_1",
+                "duration_ms": 2649.271249771118,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_1",
+                "duration_ms": 2159.144878387451,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_1",
+                "duration_ms": 2074.565649032593,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_1",
+                "duration_ms": 2511.6991996765137,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_1",
+                "duration_ms": 2439.4655227661133,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_1",
+                "duration_ms": 2495.1610565185547,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_1",
+                "duration_ms": 1915.8673286437988,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_1",
+                "duration_ms": 2805.45711517334,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_1",
+                "duration_ms": 2964.287281036377,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_1",
+                "duration_ms": 2051.345109939575,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_1",
+                "duration_ms": 3842.65398979187,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_1",
+                "duration_ms": 2179.9731254577637,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_1",
+                "duration_ms": 2098.6690521240234,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_1",
+                "duration_ms": 1926.1655807495117,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_1",
+                "duration_ms": 2752.1896362304688,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_1",
+                "duration_ms": 2207.5095176696777,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_1",
+                "duration_ms": 2295.6340312957764,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_0_2",
+                "duration_ms": 1977.0777225494385,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_2",
+                "duration_ms": 3240.0145530700684,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_2",
+                "duration_ms": 3034.552574157715,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_2",
+                "duration_ms": 2837.7866744995117,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_2",
+                "duration_ms": 2538.372278213501,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_2",
+                "duration_ms": 2688.7967586517334,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_2",
+                "duration_ms": 2478.304147720337,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_2",
+                "duration_ms": 2963.761329650879,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_2",
+                "duration_ms": 2216.804265975952,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_2",
+                "duration_ms": 2386.955976486206,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_2",
+                "duration_ms": 2361.764907836914,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_2",
+                "duration_ms": 2236.9399070739746,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_2",
+                "duration_ms": 2043.5662269592285,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_2",
+                "duration_ms": 2257.314920425415,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_2",
+                "duration_ms": 2796.956777572632,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_2",
+                "duration_ms": 1940.4025077819824,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_2",
+                "duration_ms": 2324.9502182006836,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_2",
+                "duration_ms": 2959.2957496643066,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_2",
+                "duration_ms": 2171.4024543762207,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_2",
+                "duration_ms": 2242.8810596466064,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        },
+        "metrics_summary": {
+          "decision_quality_score": 0.5,
+          "reasoning_ability_score": 0.49,
+          "computational_efficiency_score": 0.9689688719809055,
+          "social_effects_score": 0.5,
+          "overall_score": 0.49666666666666665,
+          "overall_score_with_efficiency": 0.6147422179952264
+        },
+        "config": {
+          "num_agents": 20,
+          "total_resources": 400,
+          "max_rounds": 5,
+          "use_collaborative": false,
+          "use_tot": false,
+          "use_enhanced_memory": false,
+          "use_dynamic_reflection": false,
+          "description": "基线组：原始 CoT 独立决策"
+        },
+        "tot_enabled": false,
+        "enhanced_memory_enabled": false,
+        "dynamic_reflection_enabled": false,
+        "collaborative_enabled": false,
+        "random_seed": 44,
+        "memory_path": "experiments/results/comparisons\\memories\\20251228_112527_25480\\resource_baseline_cot_run3"
+      }
+    ]
+  },
+  "timestamp": "20251228_112527_25480",
+  "base_seed": 42
+}

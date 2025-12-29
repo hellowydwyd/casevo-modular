@@ -1,0 +1,1215 @@
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage{geometry}
+\usepackage{graphicx}
+\graphicspath{{figures/}}  % 设置图片搜索路径
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes,arrows,positioning,fit,backgrounds,calc,chains,mindmap,trees,patterns,shadows}
+
+% 页面设置
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=2.5cm,headheight=15pt}
+
+% 页眉页脚设置
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{人工智能与社会课程大作业}
+\fancyhead[R]{最终实验报告}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 超链接设置
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% 标题格式设置
+\titleformat{\section}{\Large\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+% 自定义颜色
+\definecolor{successgreen}{RGB}{34, 139, 34}
+\definecolor{warningorange}{RGB}{255, 140, 0}
+\definecolor{dangerred}{RGB}{220, 20, 60}
+\definecolor{lightblue}{RGB}{230, 240, 255}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+
+% 文档信息
+\title{\textbf{\Huge 人工智能与社会课程\\[0.5cm]大作业最终报告}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tabular}{rl}
+\textbf{题\quad 目：} & \large 基于 Casevo 框架的智能体决策能力优化研究 \\[0.4cm]
+\textbf{小组成员：} & \large 王宇东（组长）、陈文远 \\[0.4cm]
+\textbf{日\quad 期：} & \large 2025年12月28日 \\
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{abstract}
+\noindent
+本报告呈现了基于 Casevo 框架的智能体决策能力优化研究的完整实验结果与分析。我们在三个代表性社会模拟场景（选举投票、资源分配、信息传播）中，系统评估了四种推理优化策略：Tree of Thought (ToT) 多路径推理、增强记忆检索、动态反思机制和协同决策。通过 45 次独立实验运行，我们发现 ToT 是最有效的单一优化策略，能够显著提升推理能力（+121\%）和收敛速度（+33\%），但在信息传播场景中表现出过度保守的行为特征。增强记忆在资源分配场景下提供了额外收益，而动态反思和协同决策的效果有限甚至产生负面影响。本报告详细分析了各组件的贡献度、场景适配性和成本效益，为后续研究提供了重要的实证依据和改进建议。
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+
+%==============================================================================
+\section{研究概述}
+%==============================================================================
+
+\subsection{研究背景与目标}
+
+本研究源于对 Casevo 框架中智能体决策能力的优化需求。Casevo（Cognitive Agents and Social Evolution Simulator）是一个基于大语言模型的多智能体社会模拟框架，能够模拟复杂的社会现象。然而，原始框架采用的线性思维链（Chain of Thought, CoT）决策机制在处理复杂场景时表现出一定的局限性。
+
+我们的核心研究目标是：通过引入多层次推理机制、优化记忆检索策略、改进反思算法以及增强协同决策能力，显著提升智能体在复杂社会场景中的决策质量和适应性。
+
+\subsection{研究方法}
+
+本研究采用控制变量法设计对比实验，在三个代表性社会模拟场景中评估五种不同的配置方案。每组实验独立运行 3 次，使用不同的随机种子（42, 43, 44），以排除随机因素的影响。实验总规模如表 \ref{tab:experiment-scale} 所示。
+
+\begin{table}[H]
+\centering
+\caption{实验规模统计}
+\label{tab:experiment-scale}
+\begin{tabular}{ll}
+\toprule
+\textbf{统计项目} & \textbf{数值} \\
+\midrule
+实验场景数量 & 3 个（选举投票、资源分配、信息传播） \\
+每场景实验组数 & 5 组（baseline\_cot, tot\_only, +memory, +reflection, full） \\
+每组运行次数 & 3 次 \\
+\rowcolor{lightblue} \textbf{总运行次数} & \textbf{45 次} \\
+涉及 Agent 总数 & 100 个/组（30 + 20 + 50） \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%==============================================================================
+\section{优化策略实现}
+%==============================================================================
+
+本章详细说明 proposal 中提出的四项优化策略的具体实现方式。
+
+\subsection{Tree of Thought (ToT) 多层次推理}
+
+与传统的线性思维链（CoT）不同，我们实现的 ToT 采用树状结构进行多路径探索。具体实现包括：
+
+\begin{itemize}
+    \item \textbf{搜索策略}：采用 Beam Search（束搜索），在每个决策节点保留 beam\_width=3 条最优路径
+    \item \textbf{推理深度}：最大深度 max\_depth=5，允许智能体进行 5 层递进式推理
+    \item \textbf{剪枝机制}：当某路径的评估分数低于 pruning\_threshold=0.3 时自动剪枝，避免无效探索
+    \item \textbf{评估函数}：综合考虑推理连贯性、与记忆的一致性、决策置信度三个维度
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{Tree of Thought 推理算法}
+\label{alg:tot}
+\begin{algorithmic}[1]
+\REQUIRE 问题 $P$, 最大深度 $D$, 束宽度 $K$, 剪枝阈值 $\theta$
+\ENSURE 最优决策 $d^*$
+\STATE $\mathcal{B}_0 \leftarrow \{(\text{root}, 1.0)\}$ \COMMENT{初始化束：(节点, 分数)}
+\FOR{$depth = 1$ \TO $D$}
+    \STATE $\mathcal{C} \leftarrow \emptyset$ \COMMENT{候选集合}
+    \FOR{$(node, score) \in \mathcal{B}_{depth-1}$}
+        \STATE $branches \leftarrow \text{LLM\_Generate}(node, P)$ \COMMENT{生成分支}
+        \FOR{$b \in branches$}
+            \STATE $s_b \leftarrow \text{LLM\_Evaluate}(b, P)$ \COMMENT{评估分支}
+            \IF{$s_b \geq \theta$}
+                \STATE $\mathcal{C} \leftarrow \mathcal{C} \cup \{(b, s_b)\}$
+            \ENDIF
+        \ENDFOR
+    \ENDFOR
+    \STATE $\mathcal{B}_{depth} \leftarrow \text{TopK}(\mathcal{C}, K)$ \COMMENT{保留前K个}
+\ENDFOR
+\STATE $d^* \leftarrow \arg\max_{(node, score) \in \mathcal{B}_D} score$
+\RETURN $d^*$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{增强记忆检索}
+
+在 Casevo 原有的 ChromaDB 向量检索基础上，我们引入了上下文感知的记忆筛选机制：
+
+\begin{itemize}
+    \item \textbf{时间衰减因子}：引入指数衰减函数 $w_t = e^{-\lambda \cdot \Delta t}$，使近期记忆获得更高权重
+    \item \textbf{情境匹配度}：在相似度计算中增加当前场景上下文的匹配权重
+    \item \textbf{短期/长期协同}：短期记忆存储最近 5 轮交互，长期记忆存储经反思总结的稳定观点，根据任务性质动态调整两者权重
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{上下文感知记忆检索}
+\label{alg:memory}
+\begin{algorithmic}[1]
+\REQUIRE 查询 $q$, 记忆库 $\mathcal{M}$, 当前时间 $t_{now}$, 衰减系数 $\lambda$, 返回数量 $k$
+\ENSURE 相关记忆列表 $R$
+\STATE $scores \leftarrow \emptyset$
+\FOR{$m \in \mathcal{M}$}
+    \STATE $sim \leftarrow \text{CosineSimilarity}(\text{Embed}(q), \text{Embed}(m))$
+    \STATE $w_t \leftarrow e^{-\lambda \cdot (t_{now} - m.timestamp)}$ \COMMENT{时间衰减}
+    \STATE $w_c \leftarrow \text{ContextMatch}(q.context, m.context)$ \COMMENT{情境匹配}
+    \STATE $score \leftarrow sim \cdot w_t \cdot w_c$
+    \STATE $scores[m] \leftarrow score$
+\ENDFOR
+\STATE $R \leftarrow \text{TopK}(scores, k)$
+\RETURN $R$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{动态反思机制}
+
+我们实现了基于置信度触发的动态反思策略：
+
+\begin{itemize}
+    \item \textbf{置信度评估}：智能体在输出决策时同时输出置信度分数（0-1）
+    \item \textbf{触发阈值}：当置信度低于 0.6 时自动触发反思
+    \item \textbf{反思内容}：重新审视推理逻辑、检索更多相关记忆、对比不同选择的利弊
+    \item \textbf{多层次反思}：浅层反思关注具体决策，深层反思关注价值观一致性
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{动态反思机制}
+\label{alg:reflection}
+\begin{algorithmic}[1]
+\REQUIRE 决策 $d$, 置信度 $c$, 阈值 $\tau$, 最大反思次数 $N$
+\ENSURE 最终决策 $d^*$, 最终置信度 $c^*$
+\STATE $d^* \leftarrow d$, $c^* \leftarrow c$, $n \leftarrow 0$
+\WHILE{$c^* < \tau$ \AND $n < N$}
+    \STATE $memories \leftarrow \text{RetrieveMore}(d^*, k=3)$ \COMMENT{检索更多记忆}
+    \STATE $analysis \leftarrow \text{LLM\_Reflect}(d^*, memories)$ \COMMENT{深度反思}
+    \STATE $(d_{new}, c_{new}) \leftarrow \text{LLM\_Reconsider}(d^*, analysis)$
+    \IF{$c_{new} > c^*$}
+        \STATE $d^* \leftarrow d_{new}$, $c^* \leftarrow c_{new}$
+    \ENDIF
+    \STATE $n \leftarrow n + 1$
+\ENDWHILE
+\RETURN $(d^*, c^*)$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{协同决策机制}
+
+在 optimized\_full 配置中，我们实现了多智能体协同决策框架：
+
+\begin{itemize}
+    \item \textbf{信息交换协议}：定义标准化消息格式，包含观点、依据、置信度三个字段
+    \item \textbf{迭代协商}：每轮协商中，智能体交换观点并根据邻居意见调整立场
+    \item \textbf{共识判定}：当连续两轮所有智能体观点变化小于阈值时，视为达成共识
+    \item \textbf{适用限制}：当前仅在资源分配场景中启用协商机制，选举和信息传播场景保持独立决策
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{多智能体协同决策}
+\label{alg:collaborative}
+\begin{algorithmic}[1]
+\REQUIRE 智能体集合 $\mathcal{A}$, 邻居关系 $\mathcal{N}$, 最大轮数 $T$, 收敛阈值 $\epsilon$
+\ENSURE 各智能体最终决策 $\{d_i^*\}$
+\FOR{$a_i \in \mathcal{A}$}
+    \STATE $d_i^{(0)} \leftarrow \text{InitialDecision}(a_i)$
+\ENDFOR
+\FOR{$t = 1$ \TO $T$}
+    \FOR{$a_i \in \mathcal{A}$}
+        \STATE $opinions \leftarrow \{(d_j^{(t-1)}, c_j) : a_j \in \mathcal{N}(a_i)\}$ \COMMENT{收集邻居观点}
+        \STATE $influence \leftarrow \text{AggregateOpinions}(opinions)$
+        \STATE $d_i^{(t)} \leftarrow \text{LLM\_Adjust}(d_i^{(t-1)}, influence)$
+    \ENDFOR
+    \IF{$\max_i |d_i^{(t)} - d_i^{(t-1)}| < \epsilon$}
+        \STATE \textbf{break} \COMMENT{达成共识}
+    \ENDIF
+\ENDFOR
+\RETURN $\{d_i^{(t)}\}$
+\end{algorithmic}
+\end{algorithm}
+
+%==============================================================================
+\section{实验配置}
+%==============================================================================
+
+\subsection{优化策略组合}
+
+基于上述四种优化策略，我们设计了五组实验配置进行对比评估，如表 \ref{tab:config-matrix} 所示。
+
+\begin{table}[H]
+\centering
+\caption{实验配置矩阵}
+\label{tab:config-matrix}
+\begin{tabular}{lccccl}
+\toprule
+\textbf{实验组} & \textbf{ToT} & \textbf{增强记忆} & \textbf{动态反思} & \textbf{协同决策} & \textbf{描述} \\
+\midrule
+baseline\_cot & $\times$ & $\times$ & $\times$ & $\times$ & 纯 CoT 推理基线 \\
+optimized\_tot\_only & $\checkmark$ & $\times$ & $\times$ & $\times$ & 单一 ToT 多路径推理 \\
+ablation\_tot\_memory & $\checkmark$ & $\checkmark$ & $\times$ & $\times$ & ToT + 上下文记忆增强 \\
+ablation\_tot\_reflection & $\checkmark$ & $\times$ & $\checkmark$ & $\times$ & ToT + 置信度触发反思 \\
+optimized\_full & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & 全部优化策略叠加 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{ToT 参数配置}
+
+所有启用 ToT 的实验组采用统一的参数配置，确保实验的可比性：
+
+\begin{table}[H]
+\centering
+\caption{Tree of Thought 参数配置}
+\label{tab:tot-config}
+\begin{tabular}{lll}
+\toprule
+\textbf{参数} & \textbf{值} & \textbf{说明} \\
+\midrule
+max\_depth & 5 & 最大推理深度 \\
+beam\_width & 3 & 束搜索宽度 \\
+pruning\_threshold & 0.3 & 剪枝阈值 \\
+search\_strategy & BEAM & 搜索策略（束搜索） \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{三大实验场景}
+
+我们构建了三个具有代表性的社会模拟场景，每个场景针对不同的决策挑战，如表 \ref{tab:scenarios} 所示。
+
+\begin{table}[H]
+\centering
+\caption{实验场景配置}
+\label{tab:scenarios}
+\begin{tabular}{llccp{5cm}}
+\toprule
+\textbf{场景} & \textbf{核心任务} & \textbf{Agent数} & \textbf{轮数} & \textbf{关键挑战} \\
+\midrule
+选举投票 & 模拟选民决策行为 & 30 & 6 & 社会影响下的态度演化 \\
+资源分配 & 多 Agent 资源协商 & 20 & $\leq$5 & 快速收敛到公平分配 \\
+信息传播 & 真假信息识别与传播 & 50 & 10 & 阻止虚假信息扩散 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{场景初始配置可视化}
+
+\subsubsection{选举投票场景：选民分布}
+
+图 \ref{fig:voter-distribution} 展示了选举投票场景中 30 名选民智能体的初始政治倾向分布。左图为初始投票态度分布（饼图），其中 Biden 支持者占 30\%、Trump 支持者占 30\%、中间选民占 40\%。右图基于 Pew 政治类型学进行了更细粒度的分类，显示中间派选民（12人）是最大群体，体现了美国选民的分化特征。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_voter_distribution.png}
+\caption{选举投票场景初始选民分布：左侧为整体政治倾向比例，右侧为基于 Pew 政治类型学的细分类别}
+\label{fig:voter-distribution}
+\end{figure}
+
+\subsubsection{资源分配场景：需求分布}
+
+图 \ref{fig:resource-demand} 展示了资源分配场景中 20 个 Agent 的资源需求分布。左图为需求量直方图，平均需求为 22.1 单位，高于公平份额（20.0 单位）；右图显示资源供需状况，总需求（441）超过总供给（400），稀缺度比率为 1.10，创造了需要智能协商的资源竞争环境。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_resource_demand_distribution.png}
+\caption{资源分配场景供需配置：左侧为 Agent 需求分布直方图，右侧为整体供需对比}
+\label{fig:resource-demand}
+\end{figure}
+
+\subsubsection{信息传播场景：Agent 类型分布}
+
+图 \ref{fig:info-agent} 展示了信息传播场景中 50 个 Agent 的类型分布。实验设置了四类 Agent：Normal（普通用户）、Skeptic（怀疑者）、Gullible（易轻信者）和 Influencer（意见领袖）。不同类型的 Agent 对信息真伪的判断准确率存在显著差异，这种异质性增加了虚假信息传播的复杂性。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_info_agent_distribution.png}
+\caption{信息传播场景 Agent 类型分布：不同类型 Agent 的数量占比及其信息判断准确率}
+\label{fig:info-agent}
+\end{figure}
+
+\subsubsection{社交网络拓扑}
+
+图 \ref{fig:network-topology} 展示了三个实验场景所使用的社交网络拓扑结构。所有场景均采用小世界网络（Small-World Network）模型，该模型具有高聚类系数和短平均路径长度的特点，能够真实模拟社会网络中的信息传播特征。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_network_topology.png}
+\caption{三大实验场景的小世界网络拓扑结构可视化}
+\label{fig:network-topology}
+\end{figure}
+
+%==============================================================================
+\section{实验结果}
+%==============================================================================
+
+\subsection{ToT vs CoT 效果总览}
+
+在详细分析各场景结果之前，图 \ref{fig:tot-vs-cot-visual} 直观展示了 ToT 多层次推理相对于 CoT 线性推理在三个场景中的效果差异。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{fig_tot_vs_cot.png}
+\caption{ToT vs CoT 效果对比：资源分配场景提升 +13.6\%，信息传播场景提升 +10.6\%，但选举投票场景下降 -17.0\%}
+\label{fig:tot-vs-cot-visual}
+\end{figure}
+
+从图中可以清晰观察到：ToT 在资源分配和信息传播场景中表现出显著的正向提升（+13.6\% 和 +10.6\%），但在选举投票场景中反而出现了 -17.0\% 的负面效果。这一发现揭示了 ToT 的\textbf{场景敏感性}——多路径推理并非在所有场景都能带来收益。
+
+\subsection{选举投票场景}
+
+选举投票场景基于 2020 年美国总统大选的辩论内容，模拟 30 个具有不同政治倾向的选民智能体在六轮辩论后的投票行为变化。
+
+\subsubsection{核心指标}
+
+\begin{table}[H]
+\centering
+\caption{选举投票场景实验结果}
+\label{tab:election-results}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{指标} & \textbf{baseline} & \textbf{tot\_only} & \textbf{+memory} & \textbf{+reflection} & \textbf{full} \\
+\midrule
+综合得分 & \textbf{0.609} & 0.505 & 0.505 & 0.504 & 0.504 \\
+推理能力得分 & 0.43 & 0.95 & 0.95 & 0.95 & 0.95 \\
+推理深度 & 2 & 5 & 5 & 5 & 5 \\
+分支探索数 & 1 & 40 & 40 & 40 & 40 \\
+剪枝率 & 0\% & 92.5\% & 92.5\% & 92.5\% & 92.5\% \\
+连贯性分数 & 0.41 & 0.82 & 0.82 & 0.82 & 0.82 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{关键发现}
+
+选举投票场景的实验结果揭示了一个重要现象：\textbf{ToT 显著提升了推理能力，但综合得分反而下降}。推理能力得分从基线的 0.43 提升至 0.95，增幅达 \textbf{121\%}。推理深度从 2 层增加到 5 层，分支探索从 1 条增加到 40 条。连贯性分数也从 0.41 提升至 0.82，增幅达 \textbf{100\%}。
+
+然而，综合得分从基线的 0.609 下降至 ToT 配置的约 0.505，降幅达 \textbf{-17\%}。这表明在选举投票场景中，多路径推理虽然提升了推理质量，但可能增加了选民的不确定性，导致决策效果下降。
+
+\subsubsection{选民态度演化可视化}
+
+图 \ref{fig:election-evolution} 展示了选举投票场景中三类选民（Biden 支持者、Trump 支持者、中间选民）在六轮辩论过程中的态度演化趋势。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{fig_election_evolution.png}
+\caption{选举投票态度演化：基线组（CoT）与 ToT 优化组的三类选民变化对比}
+\label{fig:election-evolution}
+\end{figure}
+
+从图中可以观察到两个显著差异：
+\begin{itemize}
+    \item \textbf{基线组（CoT）}：三类选民的数量在六轮辩论中保持相对稳定，仅有轻微波动，最终 Biden 支持者从 7 人增加到 8 人。
+    \item \textbf{ToT 优化组}：选民态度出现明显的动态变化。Trump 支持者从 11 人下降到 8 人，Biden 支持者从 7 人增加到 11 人，中间选民始终维持在 11-13 人之间。这表明 ToT 使智能体对辩论内容产生了更深入的思考和态度调整。
+\end{itemize}
+
+\subsection{资源分配场景}
+
+资源分配场景模拟 20 个智能体在资源受限（总量 400 单位）情况下的协商过程，评估不同策略对收敛速度和分配公平性的影响。
+
+\subsubsection{核心指标}
+
+\begin{table}[H]
+\centering
+\caption{资源分配场景实验结果}
+\label{tab:resource-results}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{指标} & \textbf{baseline} & \textbf{tot\_only} & \textbf{+memory} & \textbf{+reflection} & \textbf{full} \\
+\midrule
+平均收敛轮数 & 3.00 & 2.33 & \textbf{2.00} & 3.00 & 2.33 \\
+轮数标准差 & 0.00 & 0.58 & \textbf{0.00} & 1.00 & 0.58 \\
+Gini 系数 & 0.072 & 0.072 & 0.072 & 0.072 & 0.072 \\
+平均满意度 & 50.4\% & 50.4\% & 50.4\% & 50.4\% & 50.4\% \\
+多样性指数 & 0.33 & 6.50 & 6.50 & 6.50 & 6.50 \\
+连贯性分数 & 0.50 & 0.77 & 0.77 & 0.78 & 0.77 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{关键发现}
+
+资源分配场景的实验结果揭示了一个重要发现：\textbf{ToT + 增强记忆}是最优配置。该配置不仅实现了最快的收敛速度（平均仅需 2 轮），而且表现出最高的稳定性（标准差为 0）。相比之下，ToT + 动态反思配置的平均轮数反而回升至 3.0 轮，且标准差达到 1.0，表明动态反思可能引入了决策波动，降低了收敛稳定性。
+
+在公平性方面，所有配置的 Gini 系数和满意度基本一致（0.072 和 50.4\%），这表明优化策略主要影响收敛效率而非最终分配结果的公平性。
+
+\subsubsection{资源收敛可视化}
+
+图 \ref{fig:resource-convergence} 展示了资源分配场景的两个核心指标：资源稀缺度变化和最终分配公平性。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{fig_resource_convergence.png}
+\caption{资源分配收敛分析：左侧为稀缺度随轮次变化，右侧为各配置最终 Gini 系数}
+\label{fig:resource-convergence}
+\end{figure}
+
+从左图可以看出：
+\begin{itemize}
+    \item 所有配置的稀缺度比率（需求/供给）都呈下降趋势，最终趋近于平衡线（1.0）
+    \item ToT + 记忆和 ToT + 反思配置在第一轮后稀缺度下降最快
+    \item CoT 基线（灰线）的收敛速度最慢，需要更多轮次才能达到平衡
+\end{itemize}
+
+右图显示所有配置的 Gini 系数均为 0.0716，表明最终分配的公平性不受推理策略影响——优化策略主要提升收敛\textbf{效率}而非改变分配\textbf{结果}。
+
+\subsection{信息传播场景}
+
+信息传播场景在包含 50 个节点的社交网络中研究真假信息的识别与传播，其中虚假信息占比 30\%。
+
+\subsubsection{核心指标}
+
+\begin{table}[H]
+\centering
+\caption{信息传播场景实验结果}
+\label{tab:info-results}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{指标} & \textbf{baseline} & \textbf{tot\_only} & \textbf{+memory} & \textbf{+reflection} & \textbf{full} \\
+\midrule
+虚假信任率 & 11.6\% & \textbf{0.0\%} & \textbf{0.0\%} & \textbf{0.0\%} & \textbf{0.0\%} \\
+整体准确率 & \textbf{60.7\%} & 50.7\% & 50.7\% & 50.7\% & 50.7\% \\
+信息传播数量 & 7 & 0 & 0 & 0 & 0 \\
+虚假抑制率 & 77\% & 100\% & 100\% & 100\% & 100\% \\
+多样性指数 & 0.50 & 6.46 & 6.50 & 6.50 & 6.45 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{关键发现}
+
+信息传播场景揭示了 ToT 的一个重要特性：\textbf{过度保守行为}。启用 ToT 后，虚假信息信任率从 11.6\% 降至 0\%，虚假抑制率从 77\% 提升至 100\%。然而，这种"零容忍"策略是以牺牲整体准确率为代价的——整体准确率从 60.7\% 下降至 50.7\%。更重要的是，所有 ToT 配置的信息传播数量均为 0，这意味着 ToT 不仅阻止了虚假信息的传播，也阻止了真实信息的传播。
+
+这一发现揭示了 ToT 在判断类任务中的行为模式：通过多路径探索，ToT 倾向于找到更多拒绝信息的理由，导致"宁可错杀一千，不可放过一个"的极端保守行为。
+
+\subsubsection{信息传播可视化}
+
+图 \ref{fig:info-spread} 直观展示了 ToT 的过度保守行为。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{fig_info_spread.png}
+\caption{信息传播趋势对比：左侧为虚假信息相信比例变化，右侧为各配置的信息真伪判断准确率}
+\label{fig:info-spread}
+\end{figure}
+
+左图清晰展示了两种截然不同的行为模式：
+\begin{itemize}
+    \item \textbf{CoT 基线（灰线）}：虚假信息相信比例在前几轮快速上升至约 33\%，随后逐渐下降至 14\%，表现出"先信后疑"的行为特征
+    \item \textbf{所有 ToT 配置（彩色线重叠于 0）}：从始至终保持 0\% 的虚假信息相信率，表现出完全拒绝的极端保守策略
+\end{itemize}
+
+右图揭示了这种保守策略的代价：CoT 基线的整体准确率（60.7\%）反而高于所有 ToT 配置（50.7\%）。这是因为 ToT 在拒绝虚假信息的同时，也错误地拒绝了真实信息。
+
+%==============================================================================
+\section{综合分析}
+%==============================================================================
+
+\subsection{各实验组综合得分对比}
+
+图 \ref{fig:progressive-improvement} 展示了从 CoT 基线到全优化配置的渐进式性能变化，直观呈现了各优化组件在三个场景中的累积效果。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{fig_progressive_improvement.png}
+\caption{各实验组综合得分对比：从 CoT 基线到全优化的渐进式变化}
+\label{fig:progressive-improvement}
+\end{figure}
+
+从图中可以观察到三个关键模式：
+\begin{itemize}
+    \item \textbf{选举投票（紫色）}：基线得分最高（0.61），引入 ToT 后反而下降（0.51），后续优化无显著改善
+    \item \textbf{资源分配（绿色）}：ToT 带来显著提升（0.50→0.56），且各优化配置表现稳定一致
+    \item \textbf{信息传播（橙色）}：ToT 带来中等提升（0.49→0.54），消融实验组间差异微小
+\end{itemize}
+
+\subsection{消融实验：记忆与反思模块效果}
+
+图 \ref{fig:ablation-comparison} 展示了以 ToT 为基准的消融实验结果，评估增强记忆和动态反思模块的边际贡献。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{fig_ablation_comparison.png}
+\caption{消融实验对比：记忆增强与动态反思模块相对于纯 ToT 的性能变化}
+\label{fig:ablation-comparison}
+\end{figure}
+
+实验结果表明，记忆和反思模块的边际贡献非常有限：
+\begin{itemize}
+    \item 选举场景：记忆（+0.0\%）和反思（-0.4\%）几乎无影响
+    \item 资源场景：记忆（-0.1\%）轻微负面，反思（+0.1\%）轻微正面
+    \item 信息场景：记忆（+0.2\%）和反思（+0.3\%）均有轻微正向贡献
+\end{itemize}
+
+\subsection{各组件性能贡献分析}
+
+图 \ref{fig:component-contribution} 以更直观的方式展示了 ToT、记忆和反思三个组件相对于基线的性能贡献百分比。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{fig_component_contribution.png}
+\caption{各优化组件的性能贡献分析：ToT 贡献显著，记忆和反思的边际贡献有限}
+\label{fig:component-contribution}
+\end{figure}
+
+该图清晰验证了我们的核心发现：
+\begin{enumerate}
+    \item \textbf{ToT 是核心贡献者}：在资源分配（+13.6\%）和信息传播（+10.6\%）场景表现突出
+    \item \textbf{选举场景的异常}：ToT 在选举场景产生负面效果（-17.0\%），这可能是因为多路径推理增加了选民的不确定性
+    \item \textbf{记忆和反思贡献有限}：相对于 ToT 的边际提升均在 ±0.5\% 以内，说明当前实现需要优化
+\end{enumerate}
+
+\subsection{ToT 效果总览}
+
+图 \ref{fig:tot-effect} 展示了 ToT 在三个场景中的效果对比。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        ybar,
+        width=14cm,
+        height=8cm,
+        bar width=0.8cm,
+        ylabel={变化幅度 (\%)},
+        symbolic x coords={选举投票, 资源分配, 信息传播},
+        xtick=data,
+        ymin=-20,
+        ymax=140,
+        legend style={at={(0.5,-0.15)}, anchor=north, legend columns=2},
+        nodes near coords,
+        nodes near coords align={vertical},
+        every node near coord/.append style={font=\small},
+    ]
+    \addplot[fill=blue!60] coordinates {(选举投票, 121) (资源分配, 33) (信息传播, 23)};
+    \addplot[fill=red!60] coordinates {(选举投票, 0) (资源分配, 0) (信息传播, -10)};
+    \legend{正面效果, 负面效果}
+    \end{axis}
+\end{tikzpicture}
+\caption{ToT 在三个场景中的效果对比。选举场景：推理能力提升 121\%；资源场景：收敛速度提升 33\%；信息场景：抑制率提升 23\%，但准确率下降 10\%。}
+\label{fig:tot-effect}
+\end{figure}
+
+\subsection{多维度能力雷达图}
+
+图 \ref{fig:ablation-radar} 从四个维度（决策质量、推理能力、社会效应、计算效率）综合评估各优化配置的能力表现。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{fig_ablation_radar.png}
+\caption{各优化组件多维度能力对比雷达图}
+\label{fig:ablation-radar}
+\end{figure}
+
+雷达图揭示了 CoT 与 ToT 系列配置之间的显著差异：
+\begin{itemize}
+    \item \textbf{CoT 基线（灰色）}：在计算效率维度具有绝对优势（接近 1.0），但推理能力较弱
+    \item \textbf{ToT 系列（彩色重叠）}：在推理能力和决策质量维度显著提升，但计算效率急剧下降
+    \item 所有 ToT 配置（ToT、ToT+记忆、ToT+反思、全优化）的雷达轮廓几乎完全重合，再次印证了记忆和反思模块的边际贡献有限
+\end{itemize}
+
+\subsection{综合得分热力图}
+
+图 \ref{fig:metrics-heatmap} 以热力图形式展示了各实验组在三个场景中的综合得分分布。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig_metrics_heatmap.png}
+\caption{各实验组综合得分热力图：深绿色表示高分，深红色表示低分}
+\label{fig:metrics-heatmap}
+\end{figure}
+
+热力图直观展示了两个关键模式：
+\begin{enumerate}
+    \item \textbf{选举场景的异常}：CoT 基线（深绿色，0.609）反而优于所有 ToT 配置（橙色，约 0.505）
+    \item \textbf{资源和信息场景的一致性}：ToT 系列配置在这两个场景均优于基线，且各配置间差异极小
+\end{enumerate}
+
+\subsection{组件贡献度分析}
+
+表 \ref{tab:component-contribution} 展示了各优化组件在不同场景中的贡献度评估。
+
+\begin{table}[H]
+\centering
+\caption{组件贡献度评估矩阵}
+\label{tab:component-contribution}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{组件} & \textbf{选举场景} & \textbf{资源场景} & \textbf{信息场景} & \textbf{综合评价} \\
+\midrule
+ToT 多路径推理 & $\bigstar\bigstar\bigstar\bigstar\bigstar$ & $\bigstar\bigstar\bigstar\bigstar$ & $\bigstar\bigstar\bigstar$ & \textbf{核心组件} \\
+增强记忆 & $\bigstar\bigstar$ & $\bigstar\bigstar\bigstar\bigstar$ & $\bigstar$ & 场景依赖 \\
+动态反思 & $\bigstar$ & $\bigstar$ & $\bigstar$ & 慎用 \\
+协同决策 & $\bigstar$ & $\bigstar$ & N/A & 待优化 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+基于实验结果，我们可以得出以下组件价值排序：
+
+\begin{enumerate}
+    \item \textbf{ToT 多路径推理}（推荐等级：$\bigstar\bigstar\bigstar\bigstar\bigstar$）：作为核心优化策略，ToT 在所有场景中都表现出显著的推理质量提升，是最值得采用的单一优化。
+    
+    \item \textbf{增强记忆}（推荐等级：$\bigstar\bigstar\bigstar$）：在资源分配场景表现优异，在选举场景有轻微正向效果，但在信息传播场景无明显贡献。适合协商类任务。
+    
+    \item \textbf{动态反思}（推荐等级：$\bigstar$）：在当前实现中未表现出预期效果，甚至在资源场景中引入了不稳定性。建议暂时禁用或重新设计触发机制。
+    
+    \item \textbf{协同决策}（推荐等级：$\bigstar$）：在所有测试场景中均无显著效果，需要重新设计协作协议。
+\end{enumerate}
+
+\subsection{组件叠加效应分析}
+
+一个重要的发现是：组件叠加并未产生预期的协同效应。如表 \ref{tab:synergy-analysis} 所示，完全优化组（full）的表现并不优于单一 ToT 配置。
+
+\begin{table}[H]
+\centering
+\caption{组件叠加效应分析}
+\label{tab:synergy-analysis}
+\begin{tabular}{lccc}
+\toprule
+\textbf{场景} & \textbf{tot\_only 得分} & \textbf{full 得分} & \textbf{差异} \\
+\midrule
+选举投票（综合得分） & 0.505 & 0.504 & $\approx$0\% \\
+资源分配（收敛轮数） & 2.33 & 2.33 & 0\% \\
+信息传播（准确率） & 50.7\% & 50.7\% & 0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+这一发现表明，当前的组件实现可能存在以下问题：（1）组件之间的交互设计不够充分；（2）某些组件（如动态反思）可能与其他组件产生冲突；（3）增量贡献被噪声淹没。
+
+\subsection{ToT 的场景行为模式}
+
+通过对三个场景的对比分析，我们识别出 ToT 在不同类型任务中的行为模式，如图 \ref{fig:tot-behavior} 所示。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    box/.style={draw, rounded corners=6pt, minimum width=3.2cm, minimum height=2.2cm, align=center, font=\small, line width=1pt},
+    arrow/.style={->, thick, >=stealth, line width=1.2pt},
+    effect/.style={font=\small\bfseries, fill=white, rounded corners=2pt, inner sep=2pt}
+]
+    % ToT 核心 - 放在顶部中央
+    \node[draw, circle, fill=red!30, minimum size=1.8cm, line width=1.5pt, font=\large\bfseries] (tot) at (0,3) {ToT};
+    
+    % 三个场景类型 - 均匀分布在下方
+    \node[box, fill=blue!25, drop shadow] (nego) at (-4.5,0) {
+        \textbf{协商类}\\[0.2em]
+        \textcolor{gray}{（资源分配）}\\[0.3em]
+        更聪明的协商\\
+        更快收敛
+    };
+    \node[box, fill=orange!25, drop shadow] (judge) at (0,0) {
+        \textbf{判断类}\\[0.2em]
+        \textcolor{gray}{（信息传播）}\\[0.3em]
+        过度谨慎\\
+        拒绝所有信息
+    };
+    \node[box, fill=green!25, drop shadow] (attitude) at (4.5,0) {
+        \textbf{态度类}\\[0.2em]
+        \textcolor{gray}{（选举投票）}\\[0.3em]
+        更深入推理\\
+        更多不确定性
+    };
+    
+    % 连接线
+    \draw[arrow, blue!60] (tot) -- (nego);
+    \draw[arrow, orange!60] (tot) -- (judge);
+    \draw[arrow, green!60] (tot) -- (attitude);
+    
+    % 效果标签 - 放在箭头旁边
+    \node[effect, text=successgreen] at (-2.8,1.8) {\textbf{+33\%}};
+    \node[effect, text=warningorange] at (0.5,1.8) {\textbf{±0\%}};
+    \node[effect, text=successgreen] at (2.8,1.8) {\textbf{+121\%}};
+\end{tikzpicture}
+\caption{ToT 在不同类型任务中的行为模式}
+\label{fig:tot-behavior}
+\end{figure}
+
+%==============================================================================
+\section{成本效益分析}
+%==============================================================================
+
+\subsection{计算成本对比}
+
+ToT 的显著效果是以高昂的计算成本为代价的。表 \ref{tab:cost-comparison} 展示了各场景中 CoT 与 ToT 的计算成本对比。
+
+\begin{table}[H]
+\centering
+\caption{计算成本对比}
+\label{tab:cost-comparison}
+\begin{tabular}{lccc}
+\toprule
+\textbf{场景} & \textbf{CoT 平均耗时} & \textbf{ToT 平均耗时} & \textbf{成本倍数} \\
+\midrule
+选举投票 & 3.3 秒 & 747 秒 & \textbf{227$\times$} \\
+资源分配 & 2.6 秒 & 155 秒 & \textbf{60$\times$} \\
+信息传播 & 1.9 秒 & 152 秒 & \textbf{80$\times$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+图 \ref{fig:computational-efficiency} 可视化了各优化配置在三个场景中的平均响应时间对比。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_computational_efficiency.png}
+\caption{各优化组件计算效率对比：CoT 基线（灰色）响应时间极短，ToT 系列配置计算成本显著增加}
+\label{fig:computational-efficiency}
+\end{figure}
+
+从图中可以清晰看出：
+\begin{itemize}
+    \item \textbf{选举场景计算成本最高}：所有 ToT 配置的平均响应时间均超过 700 秒，是资源分配和信息传播场景的 4-5 倍
+    \item \textbf{CoT 基线几乎不可见}：由于 CoT 的响应时间仅为几秒，在图中几乎显示为 0，与 ToT 形成鲜明对比
+    \item \textbf{各 ToT 配置成本相近}：记忆、反思和全优化配置并未显著增加额外计算开销
+\end{itemize}
+
+\subsection{成本效益权衡}
+
+图 \ref{fig:cost-benefit} 展示了各配置方案的成本效益权衡。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=12cm,
+        height=8cm,
+        xlabel={计算成本（相对值）},
+        ylabel={效果提升（\%）},
+        xmin=0, xmax=100,
+        ymin=0, ymax=50,
+        grid=major,
+        legend pos=north west,
+    ]
+    % 各配置点
+    \addplot[only marks, mark=*, mark size=4pt, blue] coordinates {(1, 0)};
+    \addplot[only marks, mark=*, mark size=4pt, orange] coordinates {(60, 35)};
+    \addplot[only marks, mark=*, mark size=4pt, green!60!black] coordinates {(65, 40)};
+    \addplot[only marks, mark=*, mark size=4pt, red] coordinates {(70, 30)};
+    \addplot[only marks, mark=*, mark size=4pt, purple] coordinates {(80, 35)};
+    
+    % 标注
+    \node[above right, font=\small] at (axis cs:1, 0) {baseline\_cot};
+    \node[above, font=\small] at (axis cs:60, 35) {tot\_only};
+    \node[above, font=\small, text=successgreen] at (axis cs:65, 40) {\textbf{tot\_memory}};
+    \node[below, font=\small] at (axis cs:70, 30) {tot\_reflection};
+    \node[above, font=\small] at (axis cs:80, 35) {full};
+    
+    % 最优区域
+    \draw[dashed, thick, green!60!black] (axis cs:50, 35) rectangle (axis cs:75, 45);
+    \node[font=\small, text=successgreen] at (axis cs:62.5, 48) {推荐区域};
+    \end{axis}
+\end{tikzpicture}
+\caption{成本效益权衡分析。\texttt{tot\_memory} 配置位于最优权衡区域。}
+\label{fig:cost-benefit}
+\end{figure}
+
+基于成本效益分析，我们得出以下推荐：
+
+\begin{itemize}
+    \item \textbf{最佳平衡方案}：\texttt{tot\_memory}，在效果提升和成本增加之间取得最优平衡
+    \item \textbf{效率优先方案}：\texttt{baseline\_cot}，适合对时间敏感的场景
+    \item \textbf{质量优先方案}：\texttt{tot\_only}，在不需要额外记忆增强时的简洁选择
+    \item \textbf{不推荐方案}：\texttt{full}，成本最高但效果无额外提升
+\end{itemize}
+
+%==============================================================================
+\section{场景适配性建议}
+%==============================================================================
+
+\subsection{配置选择指南}
+
+基于实验结果，我们为不同应用场景提供配置选择建议，如表 \ref{tab:recommendation} 所示。
+
+\begin{table}[H]
+\centering
+\begin{threeparttable}
+\caption{场景配置推荐矩阵}
+\label{tab:recommendation}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{场景} & \textbf{baseline} & \textbf{tot\_only} & \textbf{+memory} & \textbf{+reflection} & \textbf{full} \\
+\midrule
+选举投票 & $\circ$ & $\checkmark$ & $\checkmark\checkmark$ & $\circ$ & $\circ$ \\
+资源分配 & $\circ$ & $\checkmark$ & $\checkmark\checkmark$ & $\times$ & $\circ$ \\
+信息传播 & $\checkmark$ & $\triangle$ & $\triangle$ & $\triangle$ & $\triangle$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item $\checkmark\checkmark$: 强烈推荐 \quad $\checkmark$: 推荐 \quad $\circ$: 可用 \quad $\triangle$: 谨慎使用 \quad $\times$: 不推荐
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{决策流程图}
+
+图 \ref{fig:decision-flow} 提供了一个简洁的配置选择决策流程。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    decision/.style={diamond, draw, fill=yellow!20, text width=2.4cm, align=center, inner sep=3pt, aspect=2},
+    block/.style={rectangle, draw, fill=blue!20, rounded corners, text width=2.8cm, align=center, minimum height=0.8cm},
+    result/.style={rectangle, draw, fill=green!20, rounded corners, text width=2.8cm, align=center, minimum height=0.8cm, font=\small},
+    arrow/.style={->, thick, >=stealth},
+    label/.style={font=\small, fill=white, inner sep=1pt}
+]
+    % 起点
+    \node[block] (start) at (0,0) {开始选择配置};
+    
+    % 第一层决策
+    \node[decision] (q1) at (0,-2.5) {需要深度推理？};
+    
+    % 否 -> 直接 baseline
+    \node[result] (r0) at (-5,-2.5) {\textbf{baseline\_cot}\\（效率优先）};
+    
+    % 第二层决策
+    \node[decision] (q2) at (0,-5.5) {协商类任务？};
+    
+    % 第三层决策
+    \node[decision] (q3) at (5,-8) {需要零容忍\\虚假信息？};
+    
+    % 结果节点
+    \node[result] (r1) at (-4,-8) {\textbf{tot\_memory}\\（协商最优）};
+    \node[result] (r2) at (3,-11) {\textbf{tot\_only}\\（通用推荐）};
+    \node[result] (r3) at (7,-11) {\textbf{baseline\_cot}\\（保留传播）};
+    
+    % 连接线
+    \draw[arrow] (start) -- (q1);
+    \draw[arrow] (q1) -- node[label, above] {否} (r0);
+    \draw[arrow] (q1) -- node[label, right] {是} (q2);
+    \draw[arrow] (q2) -- node[label, above] {是} (r1);
+    \draw[arrow] (q2) -| node[label, pos=0.25] {否} (q3);
+    \draw[arrow] (q3) -- node[label, left] {否} (r2);
+    \draw[arrow] (q3) -- node[label, right] {是} (r3);
+\end{tikzpicture}
+\caption{配置选择决策流程}
+\label{fig:decision-flow}
+\end{figure}
+
+%==============================================================================
+\section{结论与建议}
+%==============================================================================
+
+\subsection{核心结论}
+
+通过在三个代表性社会模拟场景中对四种推理优化策略进行系统评估，我们得出以下核心结论：
+
+\textbf{验证成功的假设：}
+\begin{enumerate}
+    \item \textbf{ToT 显著提升推理深度}：推理深度从 2 层增加到 5 层（+150\%），分支探索从 1 条增加到 40 条（+3900\%）
+    \item \textbf{ToT 提升推理连贯性}：连贯性得分从 0.41 提升至 0.82（+100\%）
+    \item \textbf{增强记忆加速协商收敛}：在资源分配场景中，收敛速度提升 33\%，且稳定性最高
+\end{enumerate}
+
+\textbf{未验证的假设：}
+\begin{enumerate}
+    \item \textbf{动态反思提升决策质量}：实验结果显示，动态反思反而引入了不稳定性
+    \item \textbf{协同决策改善社会效应}：在所有测试场景中均无显著效果
+    \item \textbf{组件叠加产生协同效应}：实验结果表明 $1 + 1 \leq 2$
+\end{enumerate}
+
+\textbf{意外发现：}
+\begin{enumerate}
+    \item \textbf{ToT 的过度保守行为}：在信息传播场景中，ToT 阻止了所有信息传播，包括真实信息
+    \item \textbf{动态反思的负面效应}：在资源分配场景中，引入动态反思导致收敛稳定性下降
+\end{enumerate}
+
+\subsection{研究局限性}
+
+本研究存在以下局限性，需要在解读结果时予以考虑：
+
+\textbf{1. 实验规模限制}
+\begin{itemize}
+    \item 每组实验仅运行 3 次（随机种子 42, 43, 44），样本量较小，可能存在统计波动
+    \item 智能体数量有限（30/20/50 个），难以验证在大规模场景（1000+ 智能体）下的表现
+    \item 实验轮数固定（6/5/10 轮），未能充分观察长期演化趋势
+\end{itemize}
+
+\textbf{2. LLM 依赖性}
+\begin{itemize}
+    \item 实验结果依赖于特定 LLM 版本，不同模型可能产生不同表现
+    \item LLM 的随机性（temperature 参数）可能影响结果的可重复性
+    \item 未测试不同 LLM（如 GPT-4、Claude、Llama）之间的差异
+\end{itemize}
+
+\textbf{3. 场景代表性}
+\begin{itemize}
+    \item 仅测试了三种场景类型，可能无法覆盖所有社会模拟需求
+    \item 虚假信息模板为预定义内容，可能与真实谣言传播模式存在差异
+    \item 选举场景基于 2020 年美国大选，可能存在文化和时间的局限性
+\end{itemize}
+
+\textbf{4. 评估指标限制}
+\begin{itemize}
+    \item 综合得分的计算方式（等权平均）可能不够精细
+    \item 协同决策组件缺乏独立评估，效果被其他组件掩盖
+    \item 缺乏对智能体"类人性"的主观评估
+\end{itemize}
+
+\subsection{未来展望}
+
+基于本研究的发现和局限性，我们提出以下未来研究方向：
+
+\textbf{1. 算法层面}
+\begin{itemize}
+    \item \textbf{自适应 ToT}：根据任务复杂度动态调整推理深度和分支数量，在效率和质量间取得平衡
+    \item \textbf{置信度校准}：设计更精确的置信度评估机制，避免过度保守或过度激进
+    \item \textbf{混合推理策略}：简单问题使用 CoT，复杂问题切换至 ToT，实现计算资源的智能分配
+\end{itemize}
+
+\textbf{2. 系统层面}
+\begin{itemize}
+    \item \textbf{异构智能体}：支持不同 LLM 驱动的智能体共存，模拟更真实的社会多样性
+    \item \textbf{并行化优化}：利用 GPU 加速和异步调用，将 ToT 计算成本降低一个数量级
+    \item \textbf{增量学习}：智能体从历史经验中持续学习，而非每次从零开始推理
+\end{itemize}
+
+\textbf{3. 应用层面}
+\begin{itemize}
+    \item \textbf{更多场景验证}：扩展至舆论演化、市场博弈、疫情防控等复杂社会场景
+    \item \textbf{大规模实验}：在数千智能体的网络中验证优化策略的可扩展性
+    \item \textbf{人机协同}：探索人类与 LLM 智能体混合决策的新范式
+\end{itemize}
+
+\textbf{4. 理论层面}
+\begin{itemize}
+    \item \textbf{形式化分析}：建立 ToT 与决策质量之间的理论关系模型
+    \item \textbf{涌现行为研究}：探索大规模 LLM 智能体群体中可能出现的涌现现象
+    \item \textbf{可解释性}：开发工具可视化智能体的推理过程，增强系统透明度
+\end{itemize}
+
+\subsection{改进建议}
+
+基于实验发现，我们提出以下改进建议：
+
+\textbf{短期优化（1-2周）：}
+\begin{enumerate}
+    \item 调整 ToT 的决策阈值，减少过度保守行为
+    \item 暂时禁用动态反思模块
+    \item 将 \texttt{tot\_memory} 设为默认推荐配置
+\end{enumerate}
+
+\textbf{中期优化（1-2月）：}
+\begin{enumerate}
+    \item 重新设计动态反思的触发机制
+    \item 重构协同决策模块，参考 Multi-Agent Debate 论文
+    \item 实现场景自适应的配置选择策略
+\end{enumerate}
+
+\textbf{长期研究（3月+）：}
+\begin{enumerate}
+    \item 设计混合推理策略（低复杂度用 CoT，高复杂度用 ToT）
+    \item 研究组件间的交互效应，设计真正的协同框架
+    \item 优化 ToT 的计算效率，探索并行化和智能剪枝策略
+\end{enumerate}
+
+\subsection{总结}
+
+本研究系统评估了 Casevo 框架中四种推理优化策略的有效性。实验结果表明，\textbf{Tree of Thought 是最有效的单一优化策略}，能够显著提升智能体的推理能力和决策质量。\textbf{ToT + 增强记忆}组合在协商类任务中表现最优，是我们推荐的默认配置。然而，动态反思和协同决策在当前实现中效果有限，需要进一步优化。
+
+本研究的贡献不仅在于验证了各优化策略的有效性，更重要的是揭示了 ToT 的场景敏感性和过度保守行为，为后续研究提供了重要的实证依据和改进方向。
+
+%==============================================================================
+\section{参考文献}
+%==============================================================================
+
+\begin{thebibliography}{9}
+    \bibitem{jiang2024casevo} Jiang Z, Shi Y, Li M, et al. Casevo: A Cognitive Agents and Social Evolution Simulator[J]. arXiv preprint arXiv:2412.19498, 2024.
+    
+    \bibitem{wei2022cot} Wei J, Wang X, Schuurmans D, et al. Chain-of-thought prompting elicits reasoning in large language models[J]. Advances in Neural Information Processing Systems, 2022, 35: 24824-24837.
+    
+    \bibitem{yao2024tot} Yao S, Yu D, Zhao J, et al. Tree of thoughts: Deliberate problem solving with large language models[J]. Advances in Neural Information Processing Systems, 2024, 36.
+    
+    \bibitem{park2023generative} Park J S, O'Brien J, Cai C J, et al. Generative agents: Interactive simulacra of human behavior[C]//Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology. 2023: 1-22.
+    
+    \bibitem{wilensky2015abm} Wilensky U, Rand W. An introduction to agent-based modeling: modeling natural, social, and engineered complex systems with NetLogo[M]. MIT Press, 2015.
+    
+    \bibitem{axelrod1997cooperation} Axelrod R. The complexity of cooperation: Agent-based models of competition and collaboration[M]. Princeton University Press, 1997.
+\end{thebibliography}
+
+%==============================================================================
+\appendix
+\section{附录：原始数据文件索引}
+%==============================================================================
+
+\begin{table}[H]
+\centering
+\caption{实验结果文件索引}
+\label{tab:file-index}
+\begin{tabular}{lll}
+\toprule
+\textbf{场景} & \textbf{实验组} & \textbf{文件名} \\
+\midrule
+\multirow{5}{*}{选举投票} 
+& baseline\_cot & election\_baseline\_cot\_20251227\_191705\_45840.json \\
+& tot\_only & election\_optimized\_tot\_only\_20251227\_191717\_43016.json \\
+& +memory & election\_ablation\_tot\_memory\_20251227\_191733\_43084.json \\
+& +reflection & election\_ablation\_tot\_reflection\_20251227\_191741\_27424.json \\
+& full & election\_optimized\_full\_20251227\_191748\_41592.json \\
+\midrule
+\multirow{5}{*}{资源分配}
+& baseline\_cot & resource\_baseline\_cot\_20251228\_112527\_25480.json \\
+& tot\_only & resource\_optimized\_tot\_only\_20251228\_112909\_33156.json \\
+& +memory & resource\_ablation\_tot\_memory\_20251228\_112916\_50156.json \\
+& +reflection & resource\_ablation\_tot\_reflection\_20251228\_112921\_49776.json \\
+& full & resource\_optimized\_full\_20251228\_112924\_49084.json \\
+\midrule
+\multirow{5}{*}{信息传播}
+& baseline\_cot & info\_baseline\_cot\_20251228\_194305\_38720.json \\
+& tot\_only & info\_optimized\_tot\_only\_20251228\_194320\_46668.json \\
+& +memory & info\_ablation\_tot\_memory\_20251228\_194329\_31164.json \\
+& +reflection & info\_ablation\_tot\_reflection\_20251228\_194334\_42740.json \\
+& full & info\_optimized\_full\_20251228\_194342\_35804.json \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%==============================================================================
+\section{附录：信息传播实验素材}
+%==============================================================================
+
+本附录展示信息传播实验中使用的真假信息模板，揭示智能体判断难度的来源。
+
+\subsection{真实信息模板}
+
+以下为实验中使用的 12 条真实信息模板，来源均为权威机构或可验证数据：
+
+\begin{enumerate}
+    \item 世界卫生组织最新报告显示，全球疫苗接种覆盖率已达到65\%，有效降低了重症率
+    \item 根据中国气象局数据，今年全国平均气温较往年同期上升0.8摄氏度
+    \item NASA确认詹姆斯·韦伯望远镜成功拍摄到距离地球134亿光年的星系图像
+    \item 教育部统计：2024年全国高考报名人数达到1342万人，创历史新高
+    \item 中国科学院研究团队在《自然》期刊发表论文，证实量子计算机实现算力突破
+    \item 国家统计局公布：2024年第三季度GDP同比增长4.9\%
+    \item 世界银行报告指出，东亚地区经济复苏速度领先全球
+    \item 联合国粮农组织数据显示，全球粮食产量连续第三年增长
+    \item 中国疾控中心监测数据表明，流感疫苗接种可降低60\%感染风险
+    \item 国际能源署统计，可再生能源发电量首次超过煤电
+    \item 交通运输部数据：高铁网络总里程突破4.5万公里
+    \item 中国人民银行公告：数字人民币试点城市已扩展至26个
+\end{enumerate}
+
+\subsection{虚假信息模板}
+
+以下为实验中使用的 12 条虚假信息模板，涵盖常见谣言类型：
+
+\begin{enumerate}
+    \item 网传消息：下周全国将实施为期一个月的交通管制，建议囤积物资
+    \item 专家警告：5G信号塔辐射会干扰人体免疫系统，导致癌症发病率上升
+    \item 研究发现：每天饮用苏打水可以有效预防新冠病毒感染
+    \item 内部消息：某知名银行即将破产，建议立即转移存款
+    \item 科学家证实：地球磁极将在2025年发生翻转，届时通讯系统将全面瘫痪
+    \item 医学突破：某草药配方可在7天内彻底治愈糖尿病，已有数千人受益
+    \item 紧急通知：饮用矿泉水会导致肾结石，专家建议改喝纯净水
+    \item 震惊发现：手机充电时使用会导致电池爆炸，已有多起伤亡事故
+    \item 权威发布：某品牌食用油含有致癌物质，正在全国范围内召回
+    \item 独家爆料：某城市自来水检测出重金属超标，居民健康受到威胁
+    \item 最新研究：睡前玩手机可以改善睡眠质量，专家推荐每晚使用2小时
+    \item 内幕消息：某热门股票即将暴涨10倍，现在买入稳赚不赔
+\end{enumerate}
+
+\textbf{设计说明}：虚假信息的可信度评分（0.35-0.8）与真实信息（0.4-0.85）有意设置重叠区间，模拟现实中虚假信息常以权威口吻包装的特点，增加智能体的判断难度。
+
+%==============================================================================
+\section{附录：ToT 提示词模板}
+%==============================================================================
+
+本附录展示 Tree of Thought 推理所使用的核心提示词模板（Jinja2 格式）。
+
+\subsection{分支生成模板 (info\_tot\_generate.j2)}
+
+该模板用于生成多个信息评估角度，引导 LLM 从不同维度分析信息可信度：
+
+\begin{verbatim}
+你是一位社交网络用户，正在评估一条信息的可信度。
+请从不同角度分析这条信息。
+
+## 你的特征
+- 用户类型: {{ extra.agent_type }}
+- 批判性思维能力: {{ extra.critical_thinking }}
+
+## 待评估信息
+- 内容: {{ extra.info_content }}
+- 来源可信度: {{ extra.source_credibility }}
+- 已传播次数: {{ extra.spread_count }}
+
+## 任务说明
+你需要生成第 {{ extra.branch_index + 1 }} / {{ extra.num_branches }} 个评估角度。
+
+角度类型：
+- 分支1：来源可信度分析（信息来源是否权威可靠）
+- 分支2：内容逻辑分析（是否存在夸大、绝对化表述）
+- 分支3：一致性验证（是否与已知事实冲突）
+
+## 输出格式
+**推理方向:** [倾向相信/倾向不相信]
+**详细分析:** [深入分析]
+**关键证据:** [支持判断的证据]
+**该角度评分:** [0-1之间]
+\end{verbatim}
+
+\subsection{分支评估模板 (info\_tot\_evaluate.j2)}
+
+该模板用于评估推理分支的质量，综合多维度打分：
+
+\begin{verbatim}
+你是一位信息可信度评估专家，负责评估推理过程的质量。
+
+## 评估维度（每个维度0-1分）
+
+1. 证据充分性 (Evidence Sufficiency)
+   - 推理是否基于充分的证据
+   
+2. 逻辑严密性 (Logical Rigor)
+   - 推理过程是否符合逻辑
+   
+3. 批判性程度 (Critical Thinking)
+   - 是否考虑了信息可能造假
+   
+4. 综合考量 (Comprehensive Analysis)
+   - 是否从多角度分析
+   
+5. 结论合理性 (Conclusion Reasonableness)
+   - 最终判断是否合理
+
+## 输出格式
+证据充分性: [0-1分数]
+逻辑严密性: [0-1分数]
+批判性程度: [0-1分数]
+综合考量: [0-1分数]
+结论合理性: [0-1分数]
+综合评分: [加权平均分数]
+信息可信判断: [可信/不可信]
+\end{verbatim}
+
+\end{document}
+

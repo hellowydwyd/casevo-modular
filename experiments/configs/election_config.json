@@ -1,26 +1,63 @@
 {
     "experiment_name": "election_voting_simulation",
-    "description": "2020年美国总统大选投票模拟实验",
+    "description": "2020年美国总统大选投票模拟实验（含消融实验）",
     
-    "baseline": {
-        "num_voters": 101,
-        "network_degree": 6,
+    "baseline_cot": {
+        "num_voters": 30,
+        "network_degree": 4,
         "network_rewire_prob": 0.3,
         "use_tot": false,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": false,
+        "use_collaborative": false,
         "num_rounds": 6,
         "llm_temperature": 0.7,
-        "memory_top_k": 5,
         "reflection_threshold": 0.6
     },
     
-    "optimized_tot": {
-        "num_voters": 101,
-        "network_degree": 6,
+    "optimized_tot_only": {
+        "num_voters": 30,
+        "network_degree": 4,
         "network_rewire_prob": 0.3,
         "use_tot": true,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": false,
+        "use_collaborative": false,
         "num_rounds": 6,
         "llm_temperature": 0.7,
-        "memory_top_k": 5,
+        "reflection_threshold": 0.6,
+        "tot_max_depth": 5,
+        "tot_beam_width": 3,
+        "tot_pruning_threshold": 0.3
+    },
+    
+    "ablation_tot_memory": {
+        "num_voters": 30,
+        "network_degree": 4,
+        "network_rewire_prob": 0.3,
+        "use_tot": true,
+        "use_enhanced_memory": true,
+        "use_dynamic_reflection": false,
+        "use_collaborative": false,
+        "num_rounds": 6,
+        "llm_temperature": 0.7,
+        "reflection_threshold": 0.6,
+        "tot_max_depth": 5,
+        "tot_beam_width": 3,
+        "tot_pruning_threshold": 0.3,
+        "memory_top_k": 5
+    },
+    
+    "ablation_tot_reflection": {
+        "num_voters": 30,
+        "network_degree": 4,
+        "network_rewire_prob": 0.3,
+        "use_tot": true,
+        "use_enhanced_memory": false,
+        "use_dynamic_reflection": true,
+        "use_collaborative": false,
+        "num_rounds": 6,
+        "llm_temperature": 0.7,
         "reflection_threshold": 0.6,
         "tot_max_depth": 5,
         "tot_beam_width": 3,
@@ -28,19 +65,20 @@
     },
     
     "optimized_full": {
-        "num_voters": 101,
-        "network_degree": 6,
+        "num_voters": 30,
+        "network_degree": 4,
         "network_rewire_prob": 0.3,
         "use_tot": true,
-        "use_advanced_memory": true,
+        "use_enhanced_memory": true,
         "use_dynamic_reflection": true,
+        "use_collaborative": true,
         "num_rounds": 6,
         "llm_temperature": 0.7,
         "memory_top_k": 5,
-        "reflection_threshold": 0.5,
-        "time_decay_factor": 0.01,
+        "reflection_threshold": 0.6,
         "tot_max_depth": 5,
-        "tot_beam_width": 3
+        "tot_beam_width": 3,
+        "tot_pruning_threshold": 0.3
     },
     
     "evaluation_metrics": [
@@ -65,8 +103,8 @@
     },
     
     "run_settings": {
-        "num_runs": 10,
-        "random_seeds": [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
+        "num_runs": 3,
+        "base_seed": 42,
+        "random_seeds": [42, 43, 44]
     }
 }
-

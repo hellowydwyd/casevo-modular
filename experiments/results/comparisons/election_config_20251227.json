@@ -1,0 +1,255 @@
+{
+  "experiment_info": {
+    "type": "election",
+    "date": "2024-12-27",
+    "num_runs_per_group": 3,
+    "num_voters": 30,
+    "num_rounds": 6,
+    "random_seeds": [42, 43, 44],
+    "llm_model": "gpt-4o-mini",
+    "api_endpoint": "https://api.whatai.cc"
+  },
+  "tot_config": {
+    "max_depth": 5,
+    "beam_width": 3,
+    "pruning_threshold": 0.3,
+    "search_strategy": "BEAM"
+  },
+  "experiment_groups": {
+    "baseline_cot": {
+      "use_tot": false,
+      "use_enhanced_memory": false,
+      "use_dynamic_reflection": false,
+      "use_collaborative": false,
+      "description": "基线组：原始 CoT 决策机制"
+    },
+    "optimized_tot_only": {
+      "use_tot": true,
+      "use_enhanced_memory": false,
+      "use_dynamic_reflection": false,
+      "use_collaborative": false,
+      "description": "优化组 A：仅 ToT 多层次推理"
+    },
+    "ablation_tot_memory": {
+      "use_tot": true,
+      "use_enhanced_memory": true,
+      "use_dynamic_reflection": false,
+      "use_collaborative": false,
+      "description": "消融组：ToT + 增强记忆"
+    },
+    "ablation_tot_reflection": {
+      "use_tot": true,
+      "use_enhanced_memory": false,
+      "use_dynamic_reflection": true,
+      "use_collaborative": false,
+      "description": "消融组：ToT + 动态反思"
+    },
+    "optimized_full": {
+      "use_tot": true,
+      "use_enhanced_memory": true,
+      "use_dynamic_reflection": true,
+      "use_collaborative": true,
+      "description": "优化组 B：全部优化"
+    }
+  },
+  "results_summary": {
+    "voting_results": {
+      "baseline_cot": {
+        "avg_biden": 9.33,
+        "avg_trump": 8.33,
+        "avg_undecided": 12.33,
+        "std_biden": 2.31,
+        "std_trump": 2.31,
+        "std_undecided": 2.31
+      },
+      "optimized_tot_only": {
+        "avg_biden": 10.00,
+        "avg_trump": 9.33,
+        "avg_undecided": 10.67,
+        "std_biden": 2.65,
+        "std_trump": 6.11,
+        "std_undecided": 3.51
+      },
+      "ablation_tot_memory": {
+        "avg_biden": 10.00,
+        "avg_trump": 9.33,
+        "avg_undecided": 10.67,
+        "std_biden": 2.65,
+        "std_trump": 6.11,
+        "std_undecided": 3.51
+      },
+      "ablation_tot_reflection": {
+        "avg_biden": 9.33,
+        "avg_trump": 7.67,
+        "avg_undecided": 13.00,
+        "std_biden": 2.52,
+        "std_trump": 3.06,
+        "std_undecided": 4.36
+      },
+      "optimized_full": {
+        "avg_biden": 8.33,
+        "avg_trump": 8.00,
+        "avg_undecided": 13.67,
+        "std_biden": 3.79,
+        "std_trump": 3.46,
+        "std_undecided": 6.51
+      }
+    },
+    "metrics_scores": {
+      "_note": "overall 不包含 computational_efficiency，overall_with_efficiency 包含",
+      "baseline_cot": {
+        "decision_quality": 0.50,
+        "reasoning_ability": 0.43,
+        "computational_efficiency": 0.92,
+        "social_effects": 0.57,
+        "overall": 0.500,
+        "overall_with_efficiency": 0.61,
+        "rank": 5
+      },
+      "optimized_tot_only": {
+        "decision_quality": 0.50,
+        "reasoning_ability": 0.95,
+        "computational_efficiency": 0.00,
+        "social_effects": 0.57,
+        "overall": 0.673,
+        "overall_with_efficiency": 0.51,
+        "rank": 2
+      },
+      "ablation_tot_memory": {
+        "decision_quality": 0.50,
+        "reasoning_ability": 0.95,
+        "computational_efficiency": 0.00,
+        "social_effects": 0.58,
+        "overall": 0.677,
+        "overall_with_efficiency": 0.51,
+        "rank": 1
+      },
+      "ablation_tot_reflection": {
+        "decision_quality": 0.50,
+        "reasoning_ability": 0.95,
+        "computational_efficiency": 0.00,
+        "social_effects": 0.56,
+        "overall": 0.670,
+        "overall_with_efficiency": 0.50,
+        "rank": 4
+      },
+      "optimized_full": {
+        "decision_quality": 0.50,
+        "reasoning_ability": 0.95,
+        "computational_efficiency": 0.00,
+        "social_effects": 0.57,
+        "overall": 0.673,
+        "overall_with_efficiency": 0.50,
+        "rank": 2
+      }
+    },
+    "reasoning_stats": {
+      "baseline_cot": {
+        "avg_depth": 2,
+        "avg_branches": 1,
+        "diversity_index": 0.5,
+        "pruning_rate": 0.0,
+        "coherence_score": 0.41
+      },
+      "optimized_tot_only": {
+        "avg_depth": 5,
+        "avg_branches": 40,
+        "diversity_index": 8.0,
+        "pruning_rate": 0.925,
+        "coherence_score": 0.82
+      },
+      "ablation_tot_memory": {
+        "avg_depth": 5,
+        "avg_branches": 40,
+        "diversity_index": 8.0,
+        "pruning_rate": 0.925,
+        "coherence_score": 0.82
+      },
+      "ablation_tot_reflection": {
+        "avg_depth": 5,
+        "avg_branches": 40,
+        "diversity_index": 8.0,
+        "pruning_rate": 0.925,
+        "coherence_score": 0.82
+      },
+      "optimized_full": {
+        "avg_depth": 5,
+        "avg_branches": 40,
+        "diversity_index": 8.0,
+        "pruning_rate": 0.925,
+        "coherence_score": 0.82
+      }
+    },
+    "thought_summary": {
+      "baseline_cot": {
+        "total_thoughts": 1150,
+        "reasoning_type": "100% CoT",
+        "reflection_rate": 0.93,
+        "avg_reasoning_steps": 2.9
+      },
+      "optimized_tot_only": {
+        "total_thoughts": 1152,
+        "reasoning_type": "100% ToT",
+        "reflection_rate": 0.81,
+        "avg_reasoning_steps": 9.6
+      },
+      "ablation_tot_memory": {
+        "total_thoughts": 1152,
+        "reasoning_type": "100% ToT",
+        "reflection_rate": 0.81,
+        "avg_reasoning_steps": 9.6
+      },
+      "ablation_tot_reflection": {
+        "total_thoughts": 1150,
+        "reasoning_type": "100% ToT",
+        "reflection_rate": 0.78,
+        "avg_reasoning_steps": 10.2
+      },
+      "optimized_full": {
+        "total_thoughts": 1173,
+        "reasoning_type": "100% ToT",
+        "reflection_rate": 0.62,
+        "avg_reasoning_steps": 11.5
+      }
+    }
+  },
+  "key_findings": {
+    "scoring_methodology": {
+      "formula": "overall = (decision_quality + reasoning_ability + social_effects) / 3",
+      "note": "不包含 computational_efficiency，因为 LLM 场景效率指标不适合作为质量评估依据"
+    },
+    "tot_effectiveness": {
+      "overall_score_improvement": "+35% (0.50 → 0.67)",
+      "reasoning_score_improvement": "+121% (0.43 → 0.95)",
+      "depth_improvement": "+150% (2 → 5)",
+      "branch_improvement": "+3900% (1 → 40)",
+      "coherence_improvement": "+100% (0.41 → 0.82)"
+    },
+    "best_configuration": {
+      "name": "ablation_tot_memory",
+      "score": 0.677,
+      "components": ["ToT", "增强记忆"]
+    },
+    "ranking": [
+      {"rank": 1, "group": "ablation_tot_memory", "score": 0.677},
+      {"rank": 2, "group": "optimized_tot_only", "score": 0.673},
+      {"rank": 2, "group": "optimized_full", "score": 0.673},
+      {"rank": 4, "group": "ablation_tot_reflection", "score": 0.670},
+      {"rank": 5, "group": "baseline_cot", "score": 0.500}
+    ],
+    "component_contributions": {
+      "ToT": {"overall_change": "+35%", "reasoning_change": "+121%", "effect": "核心优化，显著提升"},
+      "增强记忆": {"overall_change": "+0.6%", "social_change": "+1.8%", "effect": "轻微正向作用"},
+      "动态反思": {"overall_change": "-0.4%", "social_change": "-1.8%", "effect": "轻微负向作用"},
+      "协同决策": {"overall_change": "0%", "effect": "效果不明显"}
+    }
+  },
+  "result_files": {
+    "baseline_cot": "election_baseline_cot_20251227_191705_45840.json",
+    "optimized_tot_only": "election_optimized_tot_only_20251227_191717_43016.json",
+    "ablation_tot_memory": "election_ablation_tot_memory_20251227_191733_43084.json",
+    "ablation_tot_reflection": "election_ablation_tot_reflection_20251227_191741_27424.json",
+    "optimized_full": "election_optimized_full_20251227_191748_41592.json"
+  }
+}
+

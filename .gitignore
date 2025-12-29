@@ -141,9 +141,8 @@ memory/
 *.db
 *.sqlite
 
-# Academic and course proposal folders
+# Academic folders (keep course_proposal and report)
 academic/
-course_proposal/
 
 # LaTeX auxiliary files
 *.aux
@@ -161,3 +160,14 @@ experiments/results/*.log
 
 # ChromaDB
 chroma_db/
+
+# LaTeX build files (keep PDFs)
+report/**/figures/*.png
+!report/**/figures/*.pdf
+
+# Presentation auxiliary files
+report/presentation/*.aux
+report/presentation/*.nav
+report/presentation/*.snm
+report/presentation/*.toc
+report/presentation/*.xdv

@@ -196,8 +196,292 @@ class ConfidenceEstimator:
             return 0.7
 
 
+class ReflectionLevel(Enum):
+    """反思层次枚举（符合 Proposal 多层次反思设计）"""
+    SHALLOW = "shallow"     # 浅层反思：关注具体决策的对错
+    DEEP = "deep"           # 深层反思：关注决策背后的价值观和信念
+
+
+@dataclass
+class ReflectionResult:
+    """反思结果"""
+    level: ReflectionLevel
+    trigger_reason: str
+    original_decision: str
+    reflection_content: str
+    insights: List[str]
+    confidence_adjustment: float
+    belief_updates: Dict[str, Any] = field(default_factory=dict)
+    timestamp: int = 0
+
+
+class MultiLevelReflection:
+    """
+    多层次反思机制（符合 Proposal 要求）
+    
+    实现两个层次的反思：
+    - 浅层反思：关注具体决策的对错，快速调整
+    - 深层反思：关注决策背后的价值观和信念，形成稳定观点
+    """
+    
+    def __init__(self, 
+                 shallow_threshold: float = 0.5,
+                 deep_threshold: float = 0.3,
+                 deep_reflection_interval: int = 5):
+        """
+        初始化多层次反思
+        
+        Args:
+            shallow_threshold: 浅层反思触发阈值（置信度低于此值）
+            deep_threshold: 深层反思触发阈值（置信度低于此值）
+            deep_reflection_interval: 深层反思间隔（每 N 次决策触发一次）
+        """
+        self.shallow_threshold = shallow_threshold
+        self.deep_threshold = deep_threshold
+        self.deep_reflection_interval = deep_reflection_interval
+        
+        self.reflection_history: List[ReflectionResult] = []
+        self.decision_count = 0
+        self.core_beliefs: Dict[str, float] = {}  # 核心信念及其强度
+        self.value_priorities: List[str] = []      # 价值优先级
+    
+    def determine_reflection_level(self, confidence: float, 
+                                   decision: DecisionRecord) -> Optional[ReflectionLevel]:
+        """
+        确定需要的反思层次
+        
+        Args:
+            confidence: 当前决策置信度
+            decision: 决策记录
+            
+        Returns:
+            需要的反思层次，None 表示不需要反思
+        """
+        self.decision_count += 1
+        
+        # 深层反思条件：置信度极低 或 达到间隔
+        if confidence < self.deep_threshold:
+            return ReflectionLevel.DEEP
+        
+        if self.decision_count % self.deep_reflection_interval == 0:
+            return ReflectionLevel.DEEP
+        
+        # 浅层反思条件：置信度较低
+        if confidence < self.shallow_threshold:
+            return ReflectionLevel.SHALLOW
+        
+        return None
+    
+    def shallow_reflect(self, decision: DecisionRecord, 
+                       llm=None) -> ReflectionResult:
+        """
+        浅层反思：关注具体决策的对错
+        
+        快速评估决策是否正确，进行即时调整。
+        """
+        if llm is None:
+            # 无 LLM 时使用规则反思
+            return self._rule_based_shallow_reflect(decision)
+        
+        prompt = f"""请对以下决策进行快速反思，评估其正确性。
+
+## 决策内容
+{decision.decision_content}
+
+## 推理过程
+{decision.reasoning}
+
+## 当前置信度
+{decision.confidence:.2f}
+
+## 浅层反思任务
+请快速评估：
+1. 这个决策的逻辑是否正确？
+2. 是否有明显的错误或遗漏？
+3. 需要如何调整？
+
+请按格式回答：
+【逻辑评估】正确/有问题
+【问题点】（如有问题，说明具体问题）
+【调整建议】（1句话）
+【调整后置信度】0.0-1.0
+"""
+        
+        try:
+            response = llm.send_message(prompt)
+            
+            import re
+            match = re.search(r'【调整后置信度】\s*([0-9.]+)', response)
+            new_confidence = float(match.group(1)) if match else decision.confidence
+            
+            match = re.search(r'【调整建议】\s*(.+?)(?:\n|$)', response)
+            insight = match.group(1) if match else "保持当前决策"
+            
+            result = ReflectionResult(
+                level=ReflectionLevel.SHALLOW,
+                trigger_reason=f"置信度 {decision.confidence:.2f} 低于阈值",
+                original_decision=decision.decision_content,
+                reflection_content=response,
+                insights=[insight],
+                confidence_adjustment=new_confidence - decision.confidence,
+                timestamp=decision.timestamp
+            )
+            self.reflection_history.append(result)
+            return result
+            
+        except Exception as e:
+            return self._rule_based_shallow_reflect(decision)
+    
+    def deep_reflect(self, decision: DecisionRecord,
+                    recent_decisions: List[DecisionRecord],
+                    llm=None) -> ReflectionResult:
+        """
+        深层反思：关注决策背后的价值观和信念
+        
+        审视自身的核心信念和价值观，形成更稳定的长期观点。
+        """
+        if llm is None:
+            return self._rule_based_deep_reflect(decision, recent_decisions)
+        
+        # 构建决策历史摘要
+        history_summary = "\n".join([
+            f"- {d.decision_content} (置信度: {d.confidence:.2f})"
+            for d in recent_decisions[-5:]
+        ]) if recent_decisions else "无历史决策"
+        
+        # 当前核心信念
+        beliefs_summary = "\n".join([
+            f"- {belief}: 强度 {strength:.2f}"
+            for belief, strength in self.core_beliefs.items()
+        ]) if self.core_beliefs else "尚未形成明确信念"
+        
+        prompt = f"""请进行深层反思，审视决策背后的价值观和信念。
+
+## 当前决策
+{decision.decision_content}
+
+## 推理过程
+{decision.reasoning}
+
+## 最近决策历史
+{history_summary}
+
+## 当前核心信念
+{beliefs_summary}
+
+## 深层反思任务
+请深入思考：
+1. 这个决策反映了什么价值观？
+2. 与我的核心信念是否一致？
+3. 是否需要调整我的信念或价值优先级？
+
+请按格式回答：
+【价值观分析】（这个决策体现的价值观）
+【信念一致性】一致/存在冲突
+【信念更新建议】（如需更新，说明具体内容）
+【核心洞见】（1句话总结）
+【长期立场调整】保持/微调/重大调整
+"""
+        
+        try:
+            response = llm.send_message(prompt)
+            
+            # 提取洞见
+            import re
+            match = re.search(r'【核心洞见】\s*(.+?)(?:\n|$)', response)
+            core_insight = match.group(1) if match else "保持当前立场"
+            
+            match = re.search(r'【价值观分析】\s*(.+?)(?:\n|【)', response, re.DOTALL)
+            value_analysis = match.group(1).strip() if match else ""
+            
+            # 更新核心信念
+            belief_updates = {}
+            if '信念更新建议】' in response:
+                belief_section = response.split('【信念更新建议】')[-1].split('【')[0]
+                if belief_section.strip() and '无需更新' not in belief_section:
+                    # 简单提取关键词作为新信念
+                    keywords = [w for w in belief_section.split() if len(w) > 2][:3]
+                    for kw in keywords:
+                        self.core_beliefs[kw] = 0.6
+                        belief_updates[kw] = 0.6
+            
+            result = ReflectionResult(
+                level=ReflectionLevel.DEEP,
+                trigger_reason=f"深层反思（第 {self.decision_count} 次决策）",
+                original_decision=decision.decision_content,
+                reflection_content=response,
+                insights=[core_insight, value_analysis] if value_analysis else [core_insight],
+                confidence_adjustment=0.1,  # 深层反思通常略微提升置信度
+                belief_updates=belief_updates,
+                timestamp=decision.timestamp
+            )
+            self.reflection_history.append(result)
+            return result
+            
+        except Exception as e:
+            return self._rule_based_deep_reflect(decision, recent_decisions)
+    
+    def _rule_based_shallow_reflect(self, decision: DecisionRecord) -> ReflectionResult:
+        """基于规则的浅层反思"""
+        adjustment = 0.05 if decision.confidence < 0.4 else 0.0
+        
+        return ReflectionResult(
+            level=ReflectionLevel.SHALLOW,
+            trigger_reason="规则反思",
+            original_decision=decision.decision_content,
+            reflection_content="基于规则的快速评估",
+            insights=["保持当前决策方向"],
+            confidence_adjustment=adjustment,
+            timestamp=decision.timestamp
+        )
+    
+    def _rule_based_deep_reflect(self, decision: DecisionRecord,
+                                 recent_decisions: List[DecisionRecord]) -> ReflectionResult:
+        """基于规则的深层反思"""
+        # 分析决策一致性
+        consistency = 0.7
+        if recent_decisions:
+            same_direction = sum(
+                1 for d in recent_decisions[-3:]
+                if d.decision_content[:10] == decision.decision_content[:10]
+            )
+            consistency = same_direction / min(3, len(recent_decisions))
+        
+        insight = "决策方向稳定" if consistency > 0.5 else "决策方向波动，需要明确立场"
+        
+        return ReflectionResult(
+            level=ReflectionLevel.DEEP,
+            trigger_reason="周期性深层反思",
+            original_decision=decision.decision_content,
+            reflection_content=f"一致性分析: {consistency:.2f}",
+            insights=[insight],
+            confidence_adjustment=0.1 if consistency > 0.5 else -0.05,
+            timestamp=decision.timestamp
+        )
+    
+    def get_reflection_summary(self) -> Dict[str, Any]:
+        """获取反思摘要"""
+        shallow_count = sum(1 for r in self.reflection_history if r.level == ReflectionLevel.SHALLOW)
+        deep_count = sum(1 for r in self.reflection_history if r.level == ReflectionLevel.DEEP)
+        
+        return {
+            'total_reflections': len(self.reflection_history),
+            'shallow_reflections': shallow_count,
+            'deep_reflections': deep_count,
+            'core_beliefs': self.core_beliefs,
+            'value_priorities': self.value_priorities,
+            'recent_insights': [r.insights[0] for r in self.reflection_history[-3:]] if self.reflection_history else []
+        }
+
+
 class MetaCognitionModule(BaseAgentComponent):
-    """元认知模块"""
+    """
+    元认知模块
+    
+    支持多层次反思机制（符合 Proposal 要求）：
+    - 浅层反思：快速评估具体决策的对错
+    - 深层反思：审视决策背后的价值观和信念
+    """
     
     def __init__(self, agent,
                  reflection_threshold: float = 0.6,
@@ -211,6 +495,13 @@ class MetaCognitionModule(BaseAgentComponent):
         self.reflections_this_round = 0
         self.decision_history: List[DecisionRecord] = []
         self.confidence_history: List[Tuple[int, float]] = []
+        
+        # 多层次反思模块
+        self.multi_level_reflection = MultiLevelReflection(
+            shallow_threshold=reflection_threshold,
+            deep_threshold=reflection_threshold - 0.2,
+            deep_reflection_interval=5
+        )
     
     def evaluate_decision(self, decision: DecisionRecord) -> Dict[str, Any]:
         """评估决策并决定是否需要反思"""
@@ -224,11 +515,16 @@ class MetaCognitionModule(BaseAgentComponent):
         self.decision_history.append(decision)
         self.confidence_history.append((decision.timestamp, confidence))
         
-        needs_reflection = self._should_trigger_reflection(confidence)
+        # 确定反思层次
+        reflection_level = self.multi_level_reflection.determine_reflection_level(
+            confidence, decision
+        )
+        needs_reflection = reflection_level is not None
         
         return {
             'confidence': confidence,
             'needs_reflection': needs_reflection,
+            'reflection_level': reflection_level.value if reflection_level else None,
             'reflection_reason': self._get_reflection_reason(confidence) if needs_reflection else None,
             'decision_record': decision
         }
@@ -262,35 +558,80 @@ class MetaCognitionModule(BaseAgentComponent):
         
         return "; ".join(reasons) if reasons else "常规反思"
     
-    def trigger_reflection(self, reflection_chain) -> Optional[str]:
-        """触发反思过程"""
+    def trigger_reflection(self, reflection_chain=None, llm=None) -> Optional[str]:
+        """
+        触发反思过程
+        
+        支持多层次反思：自动判断需要浅层还是深层反思
+        """
         if self.reflections_this_round >= self.max_reflections:
             return None
         
         self.reflections_this_round += 1
         
-        recent_decisions = self.decision_history[-5:] if self.decision_history else []
+        if not self.decision_history:
+            return None
         
-        reflection_input = {
-            'recent_decisions': [
-                {
-                    'content': d.decision_content,
-                    'reasoning': d.reasoning,
-                    'confidence': d.confidence,
-                    'timestamp': d.timestamp
-                }
-                for d in recent_decisions
-            ],
-            'confidence_trend': self._analyze_confidence_trend(),
-            'trigger_reason': self._get_reflection_reason(
-                self.decision_history[-1].confidence if self.decision_history else 0.5
+        latest_decision = self.decision_history[-1]
+        confidence = latest_decision.confidence
+        
+        # 确定反思层次
+        reflection_level = self.multi_level_reflection.determine_reflection_level(
+            confidence, latest_decision
+        )
+        
+        if reflection_level is None:
+            return None
+        
+        # 执行对应层次的反思
+        if reflection_level == ReflectionLevel.SHALLOW:
+            result = self.multi_level_reflection.shallow_reflect(latest_decision, llm)
+        else:
+            result = self.multi_level_reflection.deep_reflect(
+                latest_decision, self.decision_history, llm
             )
-        }
         
-        reflection_chain.set_input(reflection_input)
-        reflection_chain.run_step()
+        # 应用置信度调整
+        if result.confidence_adjustment != 0:
+            new_confidence = max(0.1, min(1.0, confidence + result.confidence_adjustment))
+            latest_decision.confidence = new_confidence
+            self.confidence_history[-1] = (latest_decision.timestamp, new_confidence)
         
-        return reflection_chain.get_output().get('last_response', '')
+        return result.reflection_content
+    
+    def trigger_multi_level_reflection(self, llm=None) -> Optional[ReflectionResult]:
+        """
+        触发多层次反思并返回完整结果
+        
+        Args:
+            llm: LLM 接口
+            
+        Returns:
+            反思结果，包含层次、洞见和信念更新
+        """
+        if self.reflections_this_round >= self.max_reflections:
+            return None
+        
+        if not self.decision_history:
+            return None
+        
+        self.reflections_this_round += 1
+        latest_decision = self.decision_history[-1]
+        confidence = latest_decision.confidence
+        
+        reflection_level = self.multi_level_reflection.determine_reflection_level(
+            confidence, latest_decision
+        )
+        
+        if reflection_level is None:
+            return None
+        
+        if reflection_level == ReflectionLevel.SHALLOW:
+            return self.multi_level_reflection.shallow_reflect(latest_decision, llm)
+        else:
+            return self.multi_level_reflection.deep_reflect(
+                latest_decision, self.decision_history, llm
+            )
     
     def _analyze_confidence_trend(self) -> Dict[str, Any]:
         """分析置信度趋势"""
@@ -324,7 +665,7 @@ class MetaCognitionModule(BaseAgentComponent):
     
     def get_cognitive_summary(self) -> Dict[str, Any]:
         """获取认知状态摘要"""
-        return {
+        base_summary = {
             'total_decisions': len(self.decision_history),
             'reflections_this_round': self.reflections_this_round,
             'confidence_trend': self._analyze_confidence_trend(),
@@ -336,6 +677,11 @@ class MetaCognitionModule(BaseAgentComponent):
                 if d.confidence < self.reflection_threshold
             )
         }
+        
+        # 添加多层次反思摘要
+        base_summary['multi_level_reflection'] = self.multi_level_reflection.get_reflection_summary()
+        
+        return base_summary
 
 
 class DecisionEvaluator:

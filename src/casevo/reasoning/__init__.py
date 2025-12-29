@@ -37,6 +37,10 @@ from casevo.reasoning.evaluator import (
     ConfidenceEstimator,
     MetaCognitionModule,
     EvaluationDimension,
+    # 多层次反思机制（符合 Proposal 要求）
+    ReflectionLevel,
+    ReflectionResult,
+    MultiLevelReflection,
 )
 
 __all__ = [
@@ -73,5 +77,10 @@ __all__ = [
     "ConfidenceEstimator",
     "MetaCognitionModule",
     "EvaluationDimension",
+    
+    # 多层次反思
+    "ReflectionLevel",
+    "ReflectionResult",
+    "MultiLevelReflection",
 ]
 

@@ -1,0 +1,5427 @@
+{
+  "election": {
+    "baseline_cot": {
+      "num_runs": 1,
+      "avg_biden_support": 8,
+      "std_biden_support": 0,
+      "avg_trump_support": 9,
+      "std_trump_support": 0,
+      "avg_undecided": 13,
+      "std_undecided": 0,
+      "voting_history": [
+        [
+          {
+            "round": 0,
+            "biden": 7,
+            "trump": 11,
+            "undecided": 12
+          },
+          {
+            "round": 1,
+            "biden": 8,
+            "trump": 10,
+            "undecided": 12
+          },
+          {
+            "round": 2,
+            "biden": 8,
+            "trump": 10,
+            "undecided": 12
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 4,
+            "cot_count": 4,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 2,
+              "max_depth": 2,
+              "min_depth": 2,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.5,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5446771478180499
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 4,
+              "successful_calls": 4,
+              "failed_calls": 0,
+              "avg_duration_ms": 5645.929574966431,
+              "min_duration_ms": 2818.0742263793945,
+              "max_duration_ms": 13842.410326004028,
+              "std_duration_ms": 5465.652214483068,
+              "total_duration_ms": 22583.718299865723,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_decision_28_0",
+                "duration_ms": 2839.2844200134277,
+                "success": true
+              },
+              {
+                "call_id": "cot_decision_16_0",
+                "duration_ms": 3083.949327468872,
+                "success": true
+              },
+              {
+                "call_id": "cot_decision_23_2",
+                "duration_ms": 13842.410326004028,
+                "success": true
+              },
+              {
+                "call_id": "cot_decision_28_2",
+                "duration_ms": 2818.0742263793945,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {
+            "consensus_index": 0.8666666666666667,
+            "polarization_index": 0.08711111111111115,
+            "opinion_stability": 0.9888888888888889
+          }
+        }
+      ],
+      "raw_results": [
+        {
+          "voting_history": [
+            {
+              "round": 0,
+              "biden": 7,
+              "trump": 11,
+              "undecided": 12
+            },
+            {
+              "round": 1,
+              "biden": 8,
+              "trump": 10,
+              "undecided": 12
+            },
+            {
+              "round": 2,
+              "biden": 8,
+              "trump": 10,
+              "undecided": 12
+            }
+          ],
+          "final_results": {
+            "biden": 8,
+            "trump": 9,
+            "undecided": 13
+          },
+          "network_stats": {
+            "nodes": 30,
+            "edges": 90,
+            "avg_clustering": 0.2802910052910053
+          },
+          "agent_data": {
+            "Vote": [
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Biden",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Undecided"
+            ],
+            "Confidence": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.343540179682835,
+              0.395357703421787,
+              0.31370426654075845,
+              0.41578381150144217,
+              0.35215313912072654,
+              0.35312290250627076,
+              0.65,
+              0.3199962497849177,
+              0.3137582628120038,
+              0.4967706620502965,
+              0.48635120788721553,
+              0.4779425414011419,
+              0.36857605755865175,
+              0.3101597787325061,
+              0.49595959076576723,
+              0.4382039247511753,
+              0.4105050193489995,
+              0.48661760210413085,
+              0.4333866821271086,
+              0.4851527645139113,
+              0.3824588820707595,
+              0.43398142585763944,
+              0.30774492153315725,
+              0.3699316848891837,
+              0.3796931957129567,
+              0.4018811351056075,
+              0.4754076823151121,
+              0.36913742233596003,
+              0.40398406971331713,
+              0.48415417124360804,
+              0.43313226952568906,
+              0.44342575255219696,
+              0.41941895850280786,
+              0.5435029733827316,
+              0.4037015041966717,
+              0.37254109250004763,
+              0.27584215567098685,
+              0.7036978678000394,
+              0.3573734496405562,
+              0.5060695389421437,
+              0.4795275790189813,
+              0.4683363298147594,
+              0.45835900488812376,
+              0.5564531532002606,
+              0.3573434057317556,
+              0.4251678545929708,
+              0.300097816491801,
+              0.451329042721528,
+              0.5507298165132292,
+              0.3645333688474314,
+              0.4592554651927957,
+              0.46716140625169206,
+              0.4173297452555004,
+              0.2689426315531266,
+              0.43230539606845364,
+              0.4337810036549474,
+              0.4005437172088903,
+              0.2694529105314931,
+              0.23062281075501856,
+              0.4517215762657302
+            ],
+            "_index": [
+              "(0, 0)",
+              "(0, 1)",
+              "(0, 2)",
+              "(0, 3)",
+              "(0, 4)",
+              "(0, 5)",
+              "(0, 6)",
+              "(0, 7)",
+              "(0, 8)",
+              "(0, 9)",
+              "(0, 10)",
+              "(0, 11)",
+              "(0, 12)",
+              "(0, 13)",
+              "(0, 14)",
+              "(0, 15)",
+              "(0, 16)",
+              "(0, 17)",
+              "(0, 18)",
+              "(0, 19)",
+              "(0, 20)",
+              "(0, 21)",
+              "(0, 22)",
+              "(0, 23)",
+              "(0, 24)",
+              "(0, 25)",
+              "(0, 26)",
+              "(0, 27)",
+              "(0, 28)",
+              "(0, 29)",
+              "(1, 2)",
+              "(1, 6)",
+              "(1, 8)",
+              "(1, 13)",
+              "(1, 9)",
+              "(1, 17)",
+              "(1, 28)",
+              "(1, 12)",
+              "(1, 5)",
+              "(1, 14)",
+              "(1, 19)",
+              "(1, 24)",
+              "(1, 7)",
+              "(1, 18)",
+              "(1, 11)",
+              "(1, 15)",
+              "(1, 26)",
+              "(1, 27)",
+              "(1, 3)",
+              "(1, 29)",
+              "(1, 4)",
+              "(1, 25)",
+              "(1, 10)",
+              "(1, 0)",
+              "(1, 22)",
+              "(1, 16)",
+              "(1, 1)",
+              "(1, 23)",
+              "(1, 20)",
+              "(1, 21)",
+              "(2, 17)",
+              "(2, 20)",
+              "(2, 15)",
+              "(2, 19)",
+              "(2, 7)",
+              "(2, 13)",
+              "(2, 5)",
+              "(2, 28)",
+              "(2, 8)",
+              "(2, 25)",
+              "(2, 27)",
+              "(2, 1)",
+              "(2, 6)",
+              "(2, 21)",
+              "(2, 16)",
+              "(2, 4)",
+              "(2, 0)",
+              "(2, 29)",
+              "(2, 14)",
+              "(2, 23)",
+              "(2, 22)",
+              "(2, 3)",
+              "(2, 26)",
+              "(2, 9)",
+              "(2, 11)",
+              "(2, 2)",
+              "(2, 18)",
+              "(2, 12)",
+              "(2, 10)",
+              "(2, 24)"
+            ]
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 4,
+              "cot_count": 4,
+              "tot_count": 0,
+              "depth_stats": {
+                "avg_depth": 2,
+                "max_depth": 2,
+                "min_depth": 2,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 1,
+                "max_branches": 1,
+                "diversity_index": 0.5,
+                "pruning_rate": 0.0
+              },
+              "coherence_score": 0.5446771478180499
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 4,
+                "successful_calls": 4,
+                "failed_calls": 0,
+                "avg_duration_ms": 5645.929574966431,
+                "min_duration_ms": 2818.0742263793945,
+                "max_duration_ms": 13842.410326004028,
+                "std_duration_ms": 5465.652214483068,
+                "total_duration_ms": 22583.718299865723,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "cot_decision_28_0",
+                  "duration_ms": 2839.2844200134277,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_decision_16_0",
+                  "duration_ms": 3083.949327468872,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_decision_23_2",
+                  "duration_ms": 13842.410326004028,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_decision_28_2",
+                  "duration_ms": 2818.0742263793945,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {
+              "consensus_index": 0.01221875618807533,
+              "polarization_index": 0.08711111111111115,
+              "opinion_stability": 0.9888888888888889,
+              "consensus_index_old": 0.8666666666666667
+            }
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.473403144345415,
+            "computational_efficiency_score": 0.7721294015645981,
+            "social_effects_score": 0.5754208358085635,
+            "overall_score": 0.5802383454296441,
+            "computational_efficiency_score_old": 0,
+            "social_effects_score_old": 0.9172,
+            "overall_score_old": 0.47265078608635375
+          },
+          "config": {
+            "num_voters": 30,
+            "use_tot": false,
+            "num_rounds": 3,
+            "use_enhanced_memory": false,
+            "use_dynamic_reflection": false,
+            "use_collaborative": false,
+            "description": "基线组：原始 CoT 决策机制"
+          },
+          "tot_enabled": false,
+          "enhanced_memory_enabled": false,
+          "dynamic_reflection_enabled": false,
+          "collaborative_enabled": false
+        }
+      ]
+    },
+    "optimized_tot_only": {
+      "num_runs": 1,
+      "avg_biden_support": 10,
+      "std_biden_support": 0,
+      "avg_trump_support": 8,
+      "std_trump_support": 0,
+      "avg_undecided": 12,
+      "std_undecided": 0,
+      "voting_history": [
+        [
+          {
+            "round": 0,
+            "biden": 7,
+            "trump": 11,
+            "undecided": 12
+          },
+          {
+            "round": 1,
+            "biden": 8,
+            "trump": 9,
+            "undecided": 13
+          },
+          {
+            "round": 2,
+            "biden": 8,
+            "trump": 9,
+            "undecided": 13
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 5,
+            "cot_count": 0,
+            "tot_count": 5,
+            "depth_stats": {
+              "avg_depth": 5,
+              "max_depth": 5,
+              "min_depth": 5,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 40,
+              "max_branches": 40,
+              "diversity_index": 8.0,
+              "pruning_rate": 0.925
+            },
+            "coherence_score": 0.816
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 5,
+              "successful_calls": 5,
+              "failed_calls": 0,
+              "avg_duration_ms": 670568.5935974121,
+              "min_duration_ms": 617155.1609039307,
+              "max_duration_ms": 733180.3512573242,
+              "std_duration_ms": 51607.035539454344,
+              "total_duration_ms": 3352842.9679870605,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "tot_decision_28_0",
+                "duration_ms": 629692.2378540039,
+                "success": true
+              },
+              {
+                "call_id": "tot_decision_16_0",
+                "duration_ms": 617155.1609039307,
+                "success": true
+              },
+              {
+                "call_id": "tot_decision_13_2",
+                "duration_ms": 733180.3512573242,
+                "success": true
+              },
+              {
+                "call_id": "tot_decision_23_2",
+                "duration_ms": 715624.8316764832,
+                "success": true
+              },
+              {
+                "call_id": "tot_decision_15_2",
+                "duration_ms": 657190.3862953186,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {
+            "consensus_index": 0.8333333333333333,
+            "polarization_index": 0.11777777777777777,
+            "opinion_stability": 0.9777777777777777
+          }
+        }
+      ],
+      "raw_results": [
+        {
+          "voting_history": [
+            {
+              "round": 0,
+              "biden": 7,
+              "trump": 11,
+              "undecided": 12
+            },
+            {
+              "round": 1,
+              "biden": 8,
+              "trump": 9,
+              "undecided": 13
+            },
+            {
+              "round": 2,
+              "biden": 8,
+              "trump": 9,
+              "undecided": 13
+            }
+          ],
+          "final_results": {
+            "biden": 10,
+            "trump": 8,
+            "undecided": 12
+          },
+          "network_stats": {
+            "nodes": 30,
+            "edges": 90,
+            "avg_clustering": 0.2802910052910053
+          },
+          "agent_data": {
+            "Vote": [
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Biden",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Undecided"
+            ],
+            "Confidence": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.343540179682835,
+              0.395357703421787,
+              0.31370426654075845,
+              0.41578381150144217,
+              0.35215313912072654,
+              0.35312290250627076,
+              0.72,
+              0.3199962497849177,
+              0.3137582628120038,
+              0.4967706620502965,
+              0.48635120788721553,
+              0.4779425414011419,
+              0.36857605755865175,
+              0.3101597787325061,
+              0.49595959076576723,
+              0.4382039247511753,
+              0.4105050193489995,
+              0.48661760210413085,
+              0.4333866821271086,
+              0.4851527645139113,
+              0.3824588820707595,
+              0.43398142585763944,
+              0.30774492153315725,
+              0.3699316848891837,
+              0.3796931957129567,
+              0.72,
+              0.352243039278042,
+              0.45728563564073643,
+              0.4613021739400208,
+              0.4246310819892819,
+              0.35454740331332457,
+              0.47218466947337956,
+              0.5049489586119869,
+              0.5435029733827316,
+              0.3708108569335692,
+              0.4485545787624419,
+              0.27584215567098685,
+              0.7736978678000394,
+              0.3573734496405562,
+              0.5060695389421437,
+              0.4795275790189813,
+              0.34517168677768933,
+              0.45835900488812376,
+              0.49693006394593436,
+              0.675462270626148,
+              0.37043340072374004,
+              0.2860472164207174,
+              0.46812634369355494,
+              0.4746660245836848,
+              0.45268158215220783,
+              0.4592554651927957,
+              0.46716140625169206,
+              0.4173297452555004,
+              0.2689426315531266,
+              0.43230539606845364,
+              0.4337810036549474,
+              0.4005437172088903,
+              0.2694529105314931,
+              0.23062281075501856,
+              0.4517215762657302
+            ],
+            "_index": [
+              "(0, 0)",
+              "(0, 1)",
+              "(0, 2)",
+              "(0, 3)",
+              "(0, 4)",
+              "(0, 5)",
+              "(0, 6)",
+              "(0, 7)",
+              "(0, 8)",
+              "(0, 9)",
+              "(0, 10)",
+              "(0, 11)",
+              "(0, 12)",
+              "(0, 13)",
+              "(0, 14)",
+              "(0, 15)",
+              "(0, 16)",
+              "(0, 17)",
+              "(0, 18)",
+              "(0, 19)",
+              "(0, 20)",
+              "(0, 21)",
+              "(0, 22)",
+              "(0, 23)",
+              "(0, 24)",
+              "(0, 25)",
+              "(0, 26)",
+              "(0, 27)",
+              "(0, 28)",
+              "(0, 29)",
+              "(1, 2)",
+              "(1, 6)",
+              "(1, 8)",
+              "(1, 13)",
+              "(1, 9)",
+              "(1, 17)",
+              "(1, 28)",
+              "(1, 12)",
+              "(1, 5)",
+              "(1, 14)",
+              "(1, 19)",
+              "(1, 24)",
+              "(1, 7)",
+              "(1, 18)",
+              "(1, 11)",
+              "(1, 15)",
+              "(1, 26)",
+              "(1, 27)",
+              "(1, 3)",
+              "(1, 29)",
+              "(1, 4)",
+              "(1, 25)",
+              "(1, 10)",
+              "(1, 0)",
+              "(1, 22)",
+              "(1, 16)",
+              "(1, 1)",
+              "(1, 23)",
+              "(1, 20)",
+              "(1, 21)",
+              "(2, 17)",
+              "(2, 20)",
+              "(2, 15)",
+              "(2, 19)",
+              "(2, 7)",
+              "(2, 13)",
+              "(2, 5)",
+              "(2, 28)",
+              "(2, 8)",
+              "(2, 25)",
+              "(2, 27)",
+              "(2, 1)",
+              "(2, 6)",
+              "(2, 21)",
+              "(2, 16)",
+              "(2, 4)",
+              "(2, 0)",
+              "(2, 29)",
+              "(2, 14)",
+              "(2, 23)",
+              "(2, 22)",
+              "(2, 3)",
+              "(2, 26)",
+              "(2, 9)",
+              "(2, 11)",
+              "(2, 2)",
+              "(2, 18)",
+              "(2, 12)",
+              "(2, 10)",
+              "(2, 24)"
+            ]
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 5,
+              "cot_count": 0,
+              "tot_count": 5,
+              "depth_stats": {
+                "avg_depth": 5,
+                "max_depth": 5,
+                "min_depth": 5,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 40,
+                "max_branches": 40,
+                "diversity_index": 8.0,
+                "pruning_rate": 0.925
+              },
+              "coherence_score": 0.816
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 5,
+                "successful_calls": 5,
+                "failed_calls": 0,
+                "avg_duration_ms": 670568.5935974121,
+                "min_duration_ms": 617155.1609039307,
+                "max_duration_ms": 733180.3512573242,
+                "std_duration_ms": 51607.035539454344,
+                "total_duration_ms": 3352842.9679870605,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "tot_decision_28_0",
+                  "duration_ms": 629692.2378540039,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_decision_16_0",
+                  "duration_ms": 617155.1609039307,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_decision_13_2",
+                  "duration_ms": 733180.3512573242,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_decision_23_2",
+                  "duration_ms": 715624.8316764832,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_decision_15_2",
+                  "duration_ms": 657190.3862953186,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {
+              "consensus_index": 0.020551453672657982,
+              "polarization_index": 0.11777777777777777,
+              "opinion_stability": 0.9777777777777777,
+              "consensus_index_old": 0.8333333333333333
+            }
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.9447999999999999,
+            "computational_efficiency_score": 0.0,
+            "social_effects_score": 0.5662205814690632,
+            "overall_score": 0.5027551453672657,
+            "computational_efficiency_score_old": 0,
+            "social_effects_score_old": 0.8913333333333333,
+            "overall_score_old": 0.5840333333333333
+          },
+          "config": {
+            "num_voters": 30,
+            "use_tot": true,
+            "num_rounds": 3,
+            "use_enhanced_memory": false,
+            "use_dynamic_reflection": false,
+            "use_collaborative": false,
+            "description": "优化组 A：仅 ToT 多层次推理"
+          },
+          "tot_enabled": true,
+          "enhanced_memory_enabled": false,
+          "dynamic_reflection_enabled": false,
+          "collaborative_enabled": false
+        }
+      ]
+    },
+    "optimized_full": {
+      "num_runs": 1,
+      "avg_biden_support": 9,
+      "std_biden_support": 0,
+      "avg_trump_support": 8,
+      "std_trump_support": 0,
+      "avg_undecided": 13,
+      "std_undecided": 0,
+      "voting_history": [
+        [
+          {
+            "round": 0,
+            "biden": 7,
+            "trump": 11,
+            "undecided": 12
+          },
+          {
+            "round": 1,
+            "biden": 8,
+            "trump": 9,
+            "undecided": 13
+          },
+          {
+            "round": 2,
+            "biden": 8,
+            "trump": 9,
+            "undecided": 13
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 4,
+            "cot_count": 0,
+            "tot_count": 4,
+            "depth_stats": {
+              "avg_depth": 5,
+              "max_depth": 5,
+              "min_depth": 5,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 40,
+              "max_branches": 40,
+              "diversity_index": 8.0,
+              "pruning_rate": 0.925
+            },
+            "coherence_score": 0.825
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 4,
+              "successful_calls": 4,
+              "failed_calls": 0,
+              "avg_duration_ms": 683939.498603344,
+              "min_duration_ms": 665414.0093326569,
+              "max_duration_ms": 730123.8296031952,
+              "std_duration_ms": 30869.07977325814,
+              "total_duration_ms": 2735757.994413376,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "tot_decision_28_0",
+                "duration_ms": 665414.0093326569,
+                "success": true
+              },
+              {
+                "call_id": "tot_decision_16_0",
+                "duration_ms": 670045.6082820892,
+                "success": true
+              },
+              {
+                "call_id": "tot_decision_13_2",
+                "duration_ms": 670174.5471954346,
+                "success": true
+              },
+              {
+                "call_id": "tot_decision_23_2",
+                "duration_ms": 730123.8296031952,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {
+            "consensus_index": 0.8333333333333333,
+            "polarization_index": 0.11777777777777777,
+            "opinion_stability": 0.9777777777777777
+          }
+        }
+      ],
+      "raw_results": [
+        {
+          "voting_history": [
+            {
+              "round": 0,
+              "biden": 7,
+              "trump": 11,
+              "undecided": 12
+            },
+            {
+              "round": 1,
+              "biden": 8,
+              "trump": 9,
+              "undecided": 13
+            },
+            {
+              "round": 2,
+              "biden": 8,
+              "trump": 9,
+              "undecided": 13
+            }
+          ],
+          "final_results": {
+            "biden": 9,
+            "trump": 8,
+            "undecided": 13
+          },
+          "network_stats": {
+            "nodes": 30,
+            "edges": 90,
+            "avg_clustering": 0.2802910052910053
+          },
+          "agent_data": {
+            "Vote": [
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Biden",
+              "Trump",
+              "Biden",
+              "Trump",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Biden",
+              "Undecided",
+              "Trump",
+              "Undecided",
+              "Undecided",
+              "Biden",
+              "Trump",
+              "Trump",
+              "Trump",
+              "Trump",
+              "Undecided",
+              "Biden",
+              "Biden",
+              "Undecided",
+              "Biden",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Undecided",
+              "Undecided"
+            ],
+            "Confidence": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.35,
+              0.45,
+              0.45,
+              0.45,
+              0.35,
+              0.83,
+              0.3,
+              0.3,
+              0.4,
+              0.45,
+              0.45,
+              0.3,
+              0.35,
+              0.5,
+              0.54,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.35,
+              0.45,
+              0.5,
+              0.3,
+              0.35,
+              0.83,
+              0.55,
+              0.4,
+              0.45,
+              0.4,
+              0.3,
+              0.4,
+              0.6067450338608116,
+              0.45,
+              0.3,
+              0.55,
+              0.3,
+              0.8836978678000393,
+              0.45,
+              0.4,
+              0.35,
+              0.6,
+              0.3,
+              0.55,
+              0.785462270626148,
+              0.3,
+              0.3,
+              0.35,
+              0.3,
+              0.3,
+              0.45,
+              0.4,
+              0.5,
+              0.3,
+              0.35,
+              0.45,
+              0.5,
+              0.3,
+              0.3,
+              0.3
+            ],
+            "_index": [
+              "(0, 0)",
+              "(0, 1)",
+              "(0, 2)",
+              "(0, 3)",
+              "(0, 4)",
+              "(0, 5)",
+              "(0, 6)",
+              "(0, 7)",
+              "(0, 8)",
+              "(0, 9)",
+              "(0, 10)",
+              "(0, 11)",
+              "(0, 12)",
+              "(0, 13)",
+              "(0, 14)",
+              "(0, 15)",
+              "(0, 16)",
+              "(0, 17)",
+              "(0, 18)",
+              "(0, 19)",
+              "(0, 20)",
+              "(0, 21)",
+              "(0, 22)",
+              "(0, 23)",
+              "(0, 24)",
+              "(0, 25)",
+              "(0, 26)",
+              "(0, 27)",
+              "(0, 28)",
+              "(0, 29)",
+              "(1, 2)",
+              "(1, 6)",
+              "(1, 8)",
+              "(1, 13)",
+              "(1, 9)",
+              "(1, 17)",
+              "(1, 28)",
+              "(1, 12)",
+              "(1, 5)",
+              "(1, 14)",
+              "(1, 19)",
+              "(1, 24)",
+              "(1, 7)",
+              "(1, 18)",
+              "(1, 11)",
+              "(1, 15)",
+              "(1, 26)",
+              "(1, 27)",
+              "(1, 3)",
+              "(1, 29)",
+              "(1, 4)",
+              "(1, 25)",
+              "(1, 10)",
+              "(1, 0)",
+              "(1, 22)",
+              "(1, 16)",
+              "(1, 1)",
+              "(1, 23)",
+              "(1, 20)",
+              "(1, 21)",
+              "(2, 17)",
+              "(2, 20)",
+              "(2, 15)",
+              "(2, 19)",
+              "(2, 7)",
+              "(2, 13)",
+              "(2, 5)",
+              "(2, 28)",
+              "(2, 8)",
+              "(2, 25)",
+              "(2, 27)",
+              "(2, 1)",
+              "(2, 6)",
+              "(2, 21)",
+              "(2, 16)",
+              "(2, 4)",
+              "(2, 0)",
+              "(2, 29)",
+              "(2, 14)",
+              "(2, 23)",
+              "(2, 22)",
+              "(2, 3)",
+              "(2, 26)",
+              "(2, 9)",
+              "(2, 11)",
+              "(2, 2)",
+              "(2, 18)",
+              "(2, 12)",
+              "(2, 10)",
+              "(2, 24)"
+            ]
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 4,
+              "cot_count": 0,
+              "tot_count": 4,
+              "depth_stats": {
+                "avg_depth": 5,
+                "max_depth": 5,
+                "min_depth": 5,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 40,
+                "max_branches": 40,
+                "diversity_index": 8.0,
+                "pruning_rate": 0.925
+              },
+              "coherence_score": 0.825
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 4,
+                "successful_calls": 4,
+                "failed_calls": 0,
+                "avg_duration_ms": 683939.498603344,
+                "min_duration_ms": 665414.0093326569,
+                "max_duration_ms": 730123.8296031952,
+                "std_duration_ms": 30869.07977325814,
+                "total_duration_ms": 2735757.994413376,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "tot_decision_28_0",
+                  "duration_ms": 665414.0093326569,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_decision_16_0",
+                  "duration_ms": 670045.6082820892,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_decision_13_2",
+                  "duration_ms": 670174.5471954346,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_decision_23_2",
+                  "duration_ms": 730123.8296031952,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {
+              "consensus_index": 0.020551453672657982,
+              "polarization_index": 0.11777777777777777,
+              "opinion_stability": 0.9777777777777777,
+              "consensus_index_old": 0.8333333333333333
+            }
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.9474999999999999,
+            "computational_efficiency_score": 0.0,
+            "social_effects_score": 0.5662205814690632,
+            "overall_score": 0.5034301453672657,
+            "computational_efficiency_score_old": 0,
+            "social_effects_score_old": 0.8913333333333333,
+            "overall_score_old": 0.5847083333333333
+          },
+          "config": {
+            "num_voters": 30,
+            "use_tot": true,
+            "num_rounds": 3,
+            "use_enhanced_memory": true,
+            "use_dynamic_reflection": true,
+            "use_collaborative": true,
+            "description": "优化组 B：全部优化"
+          },
+          "tot_enabled": true,
+          "enhanced_memory_enabled": true,
+          "dynamic_reflection_enabled": true,
+          "collaborative_enabled": true
+        }
+      ]
+    }
+  },
+  "resource": {
+    "baseline_cot": {
+      "num_runs": 1,
+      "avg_rounds": 2,
+      "std_rounds": 0,
+      "avg_gini": 0.06906976744186033,
+      "std_gini": 0,
+      "avg_satisfaction": 0.6145932539682539,
+      "allocation_history": [
+        [
+          {
+            "round": 0,
+            "total_requests": 452,
+            "available": 500,
+            "scarcity_ratio": 0.904,
+            "change_ratio": 0.09418837675350701,
+            "converged": false
+          },
+          {
+            "round": 1,
+            "total_requests": 430,
+            "available": 500,
+            "scarcity_ratio": 0.86,
+            "change_ratio": 0.048672566371681415,
+            "converged": true
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 40,
+            "cot_count": 40,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 3,
+              "max_depth": 3,
+              "min_depth": 3,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.3333333333333333,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 40,
+              "successful_calls": 40,
+              "failed_calls": 0,
+              "avg_duration_ms": 2566.5227830410004,
+              "min_duration_ms": 1717.2644138336182,
+              "max_duration_ms": 3330.282688140869,
+              "std_duration_ms": 392.112670122373,
+              "total_duration_ms": 102660.91132164001,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_negotiation_agent_0_0",
+                "duration_ms": 2705.109119415283,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_0",
+                "duration_ms": 3195.446729660034,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_0",
+                "duration_ms": 2496.670722961426,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_0",
+                "duration_ms": 2340.5704498291016,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_0",
+                "duration_ms": 1981.3268184661865,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_0",
+                "duration_ms": 2602.7233600616455,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_0",
+                "duration_ms": 2054.5883178710938,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_0",
+                "duration_ms": 2300.4512786865234,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_0",
+                "duration_ms": 1957.549810409546,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_0",
+                "duration_ms": 2887.6256942749023,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_0",
+                "duration_ms": 2489.0146255493164,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_0",
+                "duration_ms": 2184.8695278167725,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_0",
+                "duration_ms": 2189.2433166503906,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_0",
+                "duration_ms": 2390.272617340088,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_0",
+                "duration_ms": 2935.7526302337646,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_0",
+                "duration_ms": 1717.2644138336182,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_0",
+                "duration_ms": 2708.0392837524414,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_0",
+                "duration_ms": 2359.564781188965,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_0",
+                "duration_ms": 3309.434652328491,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_0",
+                "duration_ms": 2729.161262512207,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_0_1",
+                "duration_ms": 2308.8297843933105,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_1_1",
+                "duration_ms": 2419.9509620666504,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_2_1",
+                "duration_ms": 2940.255641937256,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_3_1",
+                "duration_ms": 2343.54829788208,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_4_1",
+                "duration_ms": 2338.04988861084,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_5_1",
+                "duration_ms": 3326.3301849365234,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_6_1",
+                "duration_ms": 3330.282688140869,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_7_1",
+                "duration_ms": 2984.837770462036,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_8_1",
+                "duration_ms": 2141.791820526123,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_9_1",
+                "duration_ms": 3075.0482082366943,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_10_1",
+                "duration_ms": 2536.72194480896,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_11_1",
+                "duration_ms": 2810.62388420105,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_12_1",
+                "duration_ms": 2404.8666954040527,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_13_1",
+                "duration_ms": 2691.547632217407,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_14_1",
+                "duration_ms": 2626.8820762634277,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_15_1",
+                "duration_ms": 2704.91099357605,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_16_1",
+                "duration_ms": 2236.3057136535645,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_17_1",
+                "duration_ms": 2604.4812202453613,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_18_1",
+                "duration_ms": 2964.7128582000732,
+                "success": true
+              },
+              {
+                "call_id": "cot_negotiation_agent_19_1",
+                "duration_ms": 2336.2536430358887,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        }
+      ],
+      "raw_results": [
+        {
+          "negotiation_rounds": 2,
+          "converged": true,
+          "allocation_history": [
+            {
+              "round": 0,
+              "total_requests": 452,
+              "available": 500,
+              "scarcity_ratio": 0.904,
+              "change_ratio": 0.09418837675350701,
+              "converged": false
+            },
+            {
+              "round": 1,
+              "total_requests": 430,
+              "available": 500,
+              "scarcity_ratio": 0.86,
+              "change_ratio": 0.048672566371681415,
+              "converged": true
+            }
+          ],
+          "final_allocations": {
+            "agent_0": 25,
+            "agent_1": 25,
+            "agent_2": 16,
+            "agent_3": 25,
+            "agent_4": 22,
+            "agent_5": 22,
+            "agent_6": 24,
+            "agent_7": 22,
+            "agent_8": 19,
+            "agent_9": 24,
+            "agent_10": 17,
+            "agent_11": 22,
+            "agent_12": 22,
+            "agent_13": 19,
+            "agent_14": 23,
+            "agent_15": 18,
+            "agent_16": 20,
+            "agent_17": 21,
+            "agent_18": 24,
+            "agent_19": 20
+          },
+          "fairness_metrics": {
+            "gini_coefficient": 0.06906976744186033,
+            "average_satisfaction": 0.6145932539682539,
+            "minimum_satisfaction": 0.5,
+            "average_fulfillment_rate": 0.859902733337516,
+            "allocation_variance": 7.315789473684211,
+            "total_allocated": 430,
+            "utilization_rate": 0.86
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 40,
+              "cot_count": 40,
+              "tot_count": 0,
+              "depth_stats": {
+                "avg_depth": 3,
+                "max_depth": 3,
+                "min_depth": 3,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 1,
+                "max_branches": 1,
+                "diversity_index": 0.3333333333333333,
+                "pruning_rate": 0.0
+              },
+              "coherence_score": 0.5
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 40,
+                "successful_calls": 40,
+                "failed_calls": 0,
+                "avg_duration_ms": 2566.5227830410004,
+                "min_duration_ms": 1717.2644138336182,
+                "max_duration_ms": 3330.282688140869,
+                "std_duration_ms": 392.112670122373,
+                "total_duration_ms": 102660.91132164001,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "cot_negotiation_agent_0_0",
+                  "duration_ms": 2705.109119415283,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_1_0",
+                  "duration_ms": 3195.446729660034,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_2_0",
+                  "duration_ms": 2496.670722961426,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_3_0",
+                  "duration_ms": 2340.5704498291016,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_4_0",
+                  "duration_ms": 1981.3268184661865,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_5_0",
+                  "duration_ms": 2602.7233600616455,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_6_0",
+                  "duration_ms": 2054.5883178710938,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_7_0",
+                  "duration_ms": 2300.4512786865234,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_8_0",
+                  "duration_ms": 1957.549810409546,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_9_0",
+                  "duration_ms": 2887.6256942749023,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_10_0",
+                  "duration_ms": 2489.0146255493164,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_11_0",
+                  "duration_ms": 2184.8695278167725,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_12_0",
+                  "duration_ms": 2189.2433166503906,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_13_0",
+                  "duration_ms": 2390.272617340088,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_14_0",
+                  "duration_ms": 2935.7526302337646,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_15_0",
+                  "duration_ms": 1717.2644138336182,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_16_0",
+                  "duration_ms": 2708.0392837524414,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_17_0",
+                  "duration_ms": 2359.564781188965,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_18_0",
+                  "duration_ms": 3309.434652328491,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_19_0",
+                  "duration_ms": 2729.161262512207,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_0_1",
+                  "duration_ms": 2308.8297843933105,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_1_1",
+                  "duration_ms": 2419.9509620666504,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_2_1",
+                  "duration_ms": 2940.255641937256,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_3_1",
+                  "duration_ms": 2343.54829788208,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_4_1",
+                  "duration_ms": 2338.04988861084,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_5_1",
+                  "duration_ms": 3326.3301849365234,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_6_1",
+                  "duration_ms": 3330.282688140869,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_7_1",
+                  "duration_ms": 2984.837770462036,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_8_1",
+                  "duration_ms": 2141.791820526123,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_9_1",
+                  "duration_ms": 3075.0482082366943,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_10_1",
+                  "duration_ms": 2536.72194480896,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_11_1",
+                  "duration_ms": 2810.62388420105,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_12_1",
+                  "duration_ms": 2404.8666954040527,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_13_1",
+                  "duration_ms": 2691.547632217407,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_14_1",
+                  "duration_ms": 2626.8820762634277,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_15_1",
+                  "duration_ms": 2704.91099357605,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_16_1",
+                  "duration_ms": 2236.3057136535645,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_17_1",
+                  "duration_ms": 2604.4812202453613,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_18_1",
+                  "duration_ms": 2964.7128582000732,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_negotiation_agent_19_1",
+                  "duration_ms": 2336.2536430358887,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {}
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.49,
+            "computational_efficiency_score": 0.9645923260599375,
+            "social_effects_score": 0.5,
+            "overall_score": 0.6136480815149844,
+            "computational_efficiency_score_old": 0,
+            "overall_score_old": 0.3725
+          },
+          "config": {
+            "num_agents": 20,
+            "total_resources": 500,
+            "max_rounds": 5,
+            "use_collaborative": false,
+            "use_tot": false,
+            "use_enhanced_memory": false,
+            "use_dynamic_reflection": false,
+            "description": "基线组：原始 CoT 独立决策"
+          },
+          "tot_enabled": false,
+          "enhanced_memory_enabled": false,
+          "dynamic_reflection_enabled": false,
+          "collaborative_enabled": false
+        }
+      ]
+    },
+    "optimized_tot_only": {
+      "num_runs": 1,
+      "avg_rounds": 2,
+      "std_rounds": 0,
+      "avg_gini": 0.05868596881959909,
+      "std_gini": 0,
+      "avg_satisfaction": 0.7313492063492063,
+      "allocation_history": [
+        [
+          {
+            "round": 0,
+            "total_requests": 460,
+            "available": 500,
+            "scarcity_ratio": 0.92,
+            "change_ratio": 0.0781563126252505,
+            "converged": false
+          },
+          {
+            "round": 1,
+            "total_requests": 449,
+            "available": 500,
+            "scarcity_ratio": 0.898,
+            "change_ratio": 0.02391304347826087,
+            "converged": true
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 40,
+            "cot_count": 0,
+            "tot_count": 40,
+            "depth_stats": {
+              "avg_depth": 2,
+              "max_depth": 2,
+              "min_depth": 2,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 3,
+              "max_branches": 3,
+              "diversity_index": 1.5,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.7
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 40,
+              "successful_calls": 40,
+              "failed_calls": 0,
+              "avg_duration_ms": 5956.084978580475,
+              "min_duration_ms": 4387.07160949707,
+              "max_duration_ms": 10562.47353553772,
+              "std_duration_ms": 1164.1662745409628,
+              "total_duration_ms": 238243.399143219,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "tot_negotiation_agent_0_0",
+                "duration_ms": 5917.5379276275635,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_1_0",
+                "duration_ms": 4864.1626834869385,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_2_0",
+                "duration_ms": 7278.793811798096,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_3_0",
+                "duration_ms": 6333.243370056152,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_4_0",
+                "duration_ms": 6152.2376537323,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_5_0",
+                "duration_ms": 5563.812732696533,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_6_0",
+                "duration_ms": 5674.683094024658,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_7_0",
+                "duration_ms": 10562.47353553772,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_8_0",
+                "duration_ms": 5235.576152801514,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_9_0",
+                "duration_ms": 5564.371347427368,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_10_0",
+                "duration_ms": 5433.625936508179,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_11_0",
+                "duration_ms": 8594.489097595215,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_12_0",
+                "duration_ms": 5025.2134799957275,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_13_0",
+                "duration_ms": 4659.082889556885,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_14_0",
+                "duration_ms": 5302.002429962158,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_15_0",
+                "duration_ms": 7180.485963821411,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_16_0",
+                "duration_ms": 6950.047016143799,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_17_0",
+                "duration_ms": 6922.157764434814,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_18_0",
+                "duration_ms": 7647.934198379517,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_19_0",
+                "duration_ms": 5068.230867385864,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_0_1",
+                "duration_ms": 4860.067367553711,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_1_1",
+                "duration_ms": 5717.8635597229,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_2_1",
+                "duration_ms": 6230.02290725708,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_3_1",
+                "duration_ms": 5917.842864990234,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_4_1",
+                "duration_ms": 4687.9723072052,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_5_1",
+                "duration_ms": 5634.197235107422,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_6_1",
+                "duration_ms": 6813.427209854126,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_7_1",
+                "duration_ms": 5717.966794967651,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_8_1",
+                "duration_ms": 5897.776126861572,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_9_1",
+                "duration_ms": 4387.07160949707,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_10_1",
+                "duration_ms": 5523.538827896118,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_11_1",
+                "duration_ms": 6080.653667449951,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_12_1",
+                "duration_ms": 4858.649015426636,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_13_1",
+                "duration_ms": 6293.784856796265,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_14_1",
+                "duration_ms": 4934.197664260864,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_15_1",
+                "duration_ms": 6609.431743621826,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_16_1",
+                "duration_ms": 5639.864444732666,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_17_1",
+                "duration_ms": 5697.186708450317,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_18_1",
+                "duration_ms": 5046.729564666748,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_19_1",
+                "duration_ms": 5764.992713928223,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        }
+      ],
+      "raw_results": [
+        {
+          "negotiation_rounds": 2,
+          "converged": true,
+          "allocation_history": [
+            {
+              "round": 0,
+              "total_requests": 460,
+              "available": 500,
+              "scarcity_ratio": 0.92,
+              "change_ratio": 0.0781563126252505,
+              "converged": false
+            },
+            {
+              "round": 1,
+              "total_requests": 449,
+              "available": 500,
+              "scarcity_ratio": 0.898,
+              "change_ratio": 0.02391304347826087,
+              "converged": true
+            }
+          ],
+          "final_allocations": {
+            "agent_0": 26,
+            "agent_1": 25,
+            "agent_2": 19,
+            "agent_3": 25,
+            "agent_4": 22,
+            "agent_5": 23,
+            "agent_6": 22,
+            "agent_7": 21,
+            "agent_8": 21,
+            "agent_9": 25,
+            "agent_10": 17,
+            "agent_11": 22,
+            "agent_12": 25,
+            "agent_13": 20,
+            "agent_14": 24,
+            "agent_15": 20,
+            "agent_16": 22,
+            "agent_17": 24,
+            "agent_18": 25,
+            "agent_19": 21
+          },
+          "fairness_metrics": {
+            "gini_coefficient": 0.05868596881959909,
+            "average_satisfaction": 0.7313492063492063,
+            "minimum_satisfaction": 0.5,
+            "average_fulfillment_rate": 0.8989674645000731,
+            "allocation_variance": 5.839473684210526,
+            "total_allocated": 449,
+            "utilization_rate": 0.898
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 40,
+              "cot_count": 0,
+              "tot_count": 40,
+              "depth_stats": {
+                "avg_depth": 2,
+                "max_depth": 2,
+                "min_depth": 2,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 3,
+                "max_branches": 3,
+                "diversity_index": 1.5,
+                "pruning_rate": 0.0
+              },
+              "coherence_score": 0.7
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 40,
+                "successful_calls": 40,
+                "failed_calls": 0,
+                "avg_duration_ms": 5956.084978580475,
+                "min_duration_ms": 4387.07160949707,
+                "max_duration_ms": 10562.47353553772,
+                "std_duration_ms": 1164.1662745409628,
+                "total_duration_ms": 238243.399143219,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "tot_negotiation_agent_0_0",
+                  "duration_ms": 5917.5379276275635,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_1_0",
+                  "duration_ms": 4864.1626834869385,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_2_0",
+                  "duration_ms": 7278.793811798096,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_3_0",
+                  "duration_ms": 6333.243370056152,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_4_0",
+                  "duration_ms": 6152.2376537323,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_5_0",
+                  "duration_ms": 5563.812732696533,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_6_0",
+                  "duration_ms": 5674.683094024658,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_7_0",
+                  "duration_ms": 10562.47353553772,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_8_0",
+                  "duration_ms": 5235.576152801514,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_9_0",
+                  "duration_ms": 5564.371347427368,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_10_0",
+                  "duration_ms": 5433.625936508179,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_11_0",
+                  "duration_ms": 8594.489097595215,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_12_0",
+                  "duration_ms": 5025.2134799957275,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_13_0",
+                  "duration_ms": 4659.082889556885,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_14_0",
+                  "duration_ms": 5302.002429962158,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_15_0",
+                  "duration_ms": 7180.485963821411,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_16_0",
+                  "duration_ms": 6950.047016143799,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_17_0",
+                  "duration_ms": 6922.157764434814,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_18_0",
+                  "duration_ms": 7647.934198379517,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_19_0",
+                  "duration_ms": 5068.230867385864,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_0_1",
+                  "duration_ms": 4860.067367553711,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_1_1",
+                  "duration_ms": 5717.8635597229,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_2_1",
+                  "duration_ms": 6230.02290725708,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_3_1",
+                  "duration_ms": 5917.842864990234,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_4_1",
+                  "duration_ms": 4687.9723072052,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_5_1",
+                  "duration_ms": 5634.197235107422,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_6_1",
+                  "duration_ms": 6813.427209854126,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_7_1",
+                  "duration_ms": 5717.966794967651,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_8_1",
+                  "duration_ms": 5897.776126861572,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_9_1",
+                  "duration_ms": 4387.07160949707,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_10_1",
+                  "duration_ms": 5523.538827896118,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_11_1",
+                  "duration_ms": 6080.653667449951,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_12_1",
+                  "duration_ms": 4858.649015426636,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_13_1",
+                  "duration_ms": 6293.784856796265,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_14_1",
+                  "duration_ms": 4934.197664260864,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_15_1",
+                  "duration_ms": 6609.431743621826,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_16_1",
+                  "duration_ms": 5639.864444732666,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_17_1",
+                  "duration_ms": 5697.186708450317,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_18_1",
+                  "duration_ms": 5046.729564666748,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_19_1",
+                  "duration_ms": 5764.992713928223,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {}
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.67,
+            "computational_efficiency_score": 0.7527446888387204,
+            "social_effects_score": 0.5,
+            "overall_score": 0.60568617220968,
+            "computational_efficiency_score_old": 0,
+            "overall_score_old": 0.4175
+          },
+          "config": {
+            "num_agents": 20,
+            "total_resources": 500,
+            "max_rounds": 5,
+            "use_collaborative": false,
+            "use_tot": true,
+            "use_enhanced_memory": false,
+            "use_dynamic_reflection": false,
+            "description": "优化组 A：仅 ToT 多层次推理"
+          },
+          "tot_enabled": true,
+          "enhanced_memory_enabled": false,
+          "dynamic_reflection_enabled": false,
+          "collaborative_enabled": false
+        }
+      ]
+    },
+    "optimized_full": {
+      "num_runs": 1,
+      "avg_rounds": 2,
+      "std_rounds": 0,
+      "avg_gini": 0.05990990990990985,
+      "std_gini": 0,
+      "avg_satisfaction": 0.6949702380952381,
+      "allocation_history": [
+        [
+          {
+            "round": 0,
+            "total_requests": 453,
+            "available": 500,
+            "scarcity_ratio": 0.906,
+            "change_ratio": 0.09218436873747494,
+            "converged": false
+          },
+          {
+            "round": 1,
+            "total_requests": 444,
+            "available": 500,
+            "scarcity_ratio": 0.888,
+            "change_ratio": 0.019867549668874173,
+            "converged": true
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 40,
+            "cot_count": 0,
+            "tot_count": 40,
+            "depth_stats": {
+              "avg_depth": 2,
+              "max_depth": 2,
+              "min_depth": 2,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 3,
+              "max_branches": 3,
+              "diversity_index": 1.5,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.7
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 40,
+              "successful_calls": 40,
+              "failed_calls": 0,
+              "avg_duration_ms": 6082.944864034653,
+              "min_duration_ms": 4396.56400680542,
+              "max_duration_ms": 8731.297254562378,
+              "std_duration_ms": 818.1061139372348,
+              "total_duration_ms": 243317.7945613861,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "tot_negotiation_agent_0_0",
+                "duration_ms": 6158.360242843628,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_1_0",
+                "duration_ms": 6659.017562866211,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_2_0",
+                "duration_ms": 5995.846509933472,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_3_0",
+                "duration_ms": 6506.454706192017,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_4_0",
+                "duration_ms": 5016.964912414551,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_5_0",
+                "duration_ms": 6673.601388931274,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_6_0",
+                "duration_ms": 6529.469728469849,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_7_0",
+                "duration_ms": 7124.408721923828,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_8_0",
+                "duration_ms": 6383.369445800781,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_9_0",
+                "duration_ms": 6754.061222076416,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_10_0",
+                "duration_ms": 6494.267225265503,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_11_0",
+                "duration_ms": 6366.992473602295,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_12_0",
+                "duration_ms": 5188.76051902771,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_13_0",
+                "duration_ms": 8731.297254562378,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_14_0",
+                "duration_ms": 5846.862077713013,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_15_0",
+                "duration_ms": 6497.546911239624,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_16_0",
+                "duration_ms": 5594.284534454346,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_17_0",
+                "duration_ms": 6929.021120071411,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_18_0",
+                "duration_ms": 6434.128761291504,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_19_0",
+                "duration_ms": 6343.631029129028,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_0_1",
+                "duration_ms": 4396.56400680542,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_1_1",
+                "duration_ms": 5952.643632888794,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_2_1",
+                "duration_ms": 5636.894226074219,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_3_1",
+                "duration_ms": 6066.705703735352,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_4_1",
+                "duration_ms": 6179.819583892822,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_5_1",
+                "duration_ms": 5862.215280532837,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_6_1",
+                "duration_ms": 5213.537216186523,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_7_1",
+                "duration_ms": 5652.946472167969,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_8_1",
+                "duration_ms": 5558.89105796814,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_9_1",
+                "duration_ms": 4908.701658248901,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_10_1",
+                "duration_ms": 6066.694974899292,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_11_1",
+                "duration_ms": 5578.003406524658,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_12_1",
+                "duration_ms": 5678.854465484619,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_13_1",
+                "duration_ms": 4947.278261184692,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_14_1",
+                "duration_ms": 5329.742908477783,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_15_1",
+                "duration_ms": 7570.034980773926,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_16_1",
+                "duration_ms": 5101.5870571136475,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_17_1",
+                "duration_ms": 7370.245456695557,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_18_1",
+                "duration_ms": 6030.379772186279,
+                "success": true
+              },
+              {
+                "call_id": "tot_negotiation_agent_19_1",
+                "duration_ms": 5987.70809173584,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        }
+      ],
+      "raw_results": [
+        {
+          "negotiation_rounds": 2,
+          "converged": true,
+          "allocation_history": [
+            {
+              "round": 0,
+              "total_requests": 453,
+              "available": 500,
+              "scarcity_ratio": 0.906,
+              "change_ratio": 0.09218436873747494,
+              "converged": false
+            },
+            {
+              "round": 1,
+              "total_requests": 444,
+              "available": 500,
+              "scarcity_ratio": 0.888,
+              "change_ratio": 0.019867549668874173,
+              "converged": true
+            }
+          ],
+          "final_allocations": {
+            "agent_0": 26,
+            "agent_1": 25,
+            "agent_2": 18,
+            "agent_3": 25,
+            "agent_4": 22,
+            "agent_5": 23,
+            "agent_6": 25,
+            "agent_7": 21,
+            "agent_8": 21,
+            "agent_9": 24,
+            "agent_10": 17,
+            "agent_11": 22,
+            "agent_12": 25,
+            "agent_13": 20,
+            "agent_14": 24,
+            "agent_15": 20,
+            "agent_16": 21,
+            "agent_17": 22,
+            "agent_18": 22,
+            "agent_19": 21
+          },
+          "fairness_metrics": {
+            "gini_coefficient": 0.05990990990990985,
+            "average_satisfaction": 0.6949702380952381,
+            "minimum_satisfaction": 0.5,
+            "average_fulfillment_rate": 0.8888081017211452,
+            "allocation_variance": 5.957894736842105,
+            "total_allocated": 444,
+            "utilization_rate": 0.888
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 40,
+              "cot_count": 0,
+              "tot_count": 40,
+              "depth_stats": {
+                "avg_depth": 2,
+                "max_depth": 2,
+                "min_depth": 2,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 3,
+                "max_branches": 3,
+                "diversity_index": 1.5,
+                "pruning_rate": 0.0
+              },
+              "coherence_score": 0.7
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 40,
+                "successful_calls": 40,
+                "failed_calls": 0,
+                "avg_duration_ms": 6082.944864034653,
+                "min_duration_ms": 4396.56400680542,
+                "max_duration_ms": 8731.297254562378,
+                "std_duration_ms": 818.1061139372348,
+                "total_duration_ms": 243317.7945613861,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "tot_negotiation_agent_0_0",
+                  "duration_ms": 6158.360242843628,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_1_0",
+                  "duration_ms": 6659.017562866211,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_2_0",
+                  "duration_ms": 5995.846509933472,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_3_0",
+                  "duration_ms": 6506.454706192017,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_4_0",
+                  "duration_ms": 5016.964912414551,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_5_0",
+                  "duration_ms": 6673.601388931274,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_6_0",
+                  "duration_ms": 6529.469728469849,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_7_0",
+                  "duration_ms": 7124.408721923828,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_8_0",
+                  "duration_ms": 6383.369445800781,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_9_0",
+                  "duration_ms": 6754.061222076416,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_10_0",
+                  "duration_ms": 6494.267225265503,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_11_0",
+                  "duration_ms": 6366.992473602295,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_12_0",
+                  "duration_ms": 5188.76051902771,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_13_0",
+                  "duration_ms": 8731.297254562378,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_14_0",
+                  "duration_ms": 5846.862077713013,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_15_0",
+                  "duration_ms": 6497.546911239624,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_16_0",
+                  "duration_ms": 5594.284534454346,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_17_0",
+                  "duration_ms": 6929.021120071411,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_18_0",
+                  "duration_ms": 6434.128761291504,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_19_0",
+                  "duration_ms": 6343.631029129028,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_0_1",
+                  "duration_ms": 4396.56400680542,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_1_1",
+                  "duration_ms": 5952.643632888794,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_2_1",
+                  "duration_ms": 5636.894226074219,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_3_1",
+                  "duration_ms": 6066.705703735352,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_4_1",
+                  "duration_ms": 6179.819583892822,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_5_1",
+                  "duration_ms": 5862.215280532837,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_6_1",
+                  "duration_ms": 5213.537216186523,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_7_1",
+                  "duration_ms": 5652.946472167969,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_8_1",
+                  "duration_ms": 5558.89105796814,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_9_1",
+                  "duration_ms": 4908.701658248901,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_10_1",
+                  "duration_ms": 6066.694974899292,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_11_1",
+                  "duration_ms": 5578.003406524658,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_12_1",
+                  "duration_ms": 5678.854465484619,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_13_1",
+                  "duration_ms": 4947.278261184692,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_14_1",
+                  "duration_ms": 5329.742908477783,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_15_1",
+                  "duration_ms": 7570.034980773926,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_16_1",
+                  "duration_ms": 5101.5870571136475,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_17_1",
+                  "duration_ms": 7370.245456695557,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_18_1",
+                  "duration_ms": 6030.379772186279,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_negotiation_agent_19_1",
+                  "duration_ms": 5987.70809173584,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {}
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.67,
+            "computational_efficiency_score": 0.7448159459978342,
+            "social_effects_score": 0.5,
+            "overall_score": 0.6037039864994586,
+            "computational_efficiency_score_old": 0,
+            "overall_score_old": 0.4175
+          },
+          "config": {
+            "num_agents": 20,
+            "total_resources": 500,
+            "max_rounds": 5,
+            "use_collaborative": true,
+            "use_tot": true,
+            "use_enhanced_memory": true,
+            "use_dynamic_reflection": true,
+            "description": "优化组 B：全部优化"
+          },
+          "tot_enabled": true,
+          "enhanced_memory_enabled": true,
+          "dynamic_reflection_enabled": true,
+          "collaborative_enabled": true
+        }
+      ]
+    }
+  },
+  "info_spreading": {
+    "baseline_cot": {
+      "num_runs": 1,
+      "avg_false_belief_ratio": 0.05714285714285714,
+      "avg_accuracy": 0.74,
+      "spread_history": [
+        [
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 0
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 17,
+            "total_believed_true": 8,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 1
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 25,
+            "total_believed_true": 20,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 2
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 32,
+            "total_believed_true": 24,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 3
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 35,
+            "total_believed_true": 30,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 4
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 35,
+            "total_believed_true": 30,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 5
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 37,
+            "total_believed_true": 30,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 6
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 40,
+            "total_believed_true": 30,
+            "total_believed_false": 2,
+            "false_info_spread_count": 1,
+            "false_belief_ratio": 0.06060606060606061,
+            "round": 7
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 40,
+            "total_believed_true": 30,
+            "total_believed_false": 2,
+            "false_info_spread_count": 1,
+            "false_belief_ratio": 0.06060606060606061,
+            "round": 8
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 42,
+            "total_believed_true": 30,
+            "total_believed_false": 2,
+            "false_info_spread_count": 1,
+            "false_belief_ratio": 0.06060606060606061,
+            "round": 9
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 42,
+            "cot_count": 42,
+            "tot_count": 0,
+            "depth_stats": {
+              "avg_depth": 2,
+              "max_depth": 2,
+              "min_depth": 2,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 1,
+              "max_branches": 1,
+              "diversity_index": 0.5,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 42,
+              "successful_calls": 42,
+              "failed_calls": 0,
+              "avg_duration_ms": 1840.6113669985816,
+              "min_duration_ms": 1178.0381202697754,
+              "max_duration_ms": 4368.416309356689,
+              "std_duration_ms": 551.9938644811292,
+              "total_duration_ms": 77305.67741394043,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "cot_info_eval_5_info_1",
+                "duration_ms": 2116.96195602417,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_18_info_1",
+                "duration_ms": 1647.6142406463623,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_10_info_1",
+                "duration_ms": 1539.811611175537,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_3_info_1",
+                "duration_ms": 1228.2459735870361,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_46_info_1",
+                "duration_ms": 1876.6093254089355,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_0_info_1",
+                "duration_ms": 1408.8366031646729,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_2_info_1",
+                "duration_ms": 1717.1969413757324,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_47_info_1",
+                "duration_ms": 1623.8536834716797,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_42_info_1",
+                "duration_ms": 2511.154890060425,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_14_info_1",
+                "duration_ms": 1744.5275783538818,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_6_info_1",
+                "duration_ms": 2214.718818664551,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_13_info_1",
+                "duration_ms": 1581.5327167510986,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_4_info_1",
+                "duration_ms": 2302.5786876678467,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_29_info_1",
+                "duration_ms": 1988.6596202850342,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_34_info_1",
+                "duration_ms": 1843.2767391204834,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_12_info_1",
+                "duration_ms": 1276.4825820922852,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_16_info_1",
+                "duration_ms": 1622.6558685302734,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_41_info_1",
+                "duration_ms": 1910.7859134674072,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_19_info_1",
+                "duration_ms": 1661.806344985962,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_37_info_1",
+                "duration_ms": 2087.754726409912,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_27_info_1",
+                "duration_ms": 1709.6328735351562,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_11_info_1",
+                "duration_ms": 2196.464776992798,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_33_info_1",
+                "duration_ms": 1338.890552520752,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_20_info_1",
+                "duration_ms": 1638.4389400482178,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_25_info_1",
+                "duration_ms": 1670.1126098632812,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_7_info_1",
+                "duration_ms": 2052.4868965148926,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_30_info_1",
+                "duration_ms": 1509.1607570648193,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_2_info_3",
+                "duration_ms": 1371.7272281646729,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_39_info_3",
+                "duration_ms": 1790.290355682373,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_0_info_3",
+                "duration_ms": 1673.811912536621,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_6_info_3",
+                "duration_ms": 1657.8829288482666,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_21_info_1",
+                "duration_ms": 2473.4418392181396,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_36_info_1",
+                "duration_ms": 4368.416309356689,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_15_info_1",
+                "duration_ms": 1725.987195968628,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_41_info_3",
+                "duration_ms": 2366.4989471435547,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_10_info_4",
+                "duration_ms": 3009.597063064575,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_24_info_4",
+                "duration_ms": 1514.613151550293,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_48_info_4",
+                "duration_ms": 1607.811689376831,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_44_info_4",
+                "duration_ms": 1652.3659229278564,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_17_info_4",
+                "duration_ms": 1493.4661388397217,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_17_info_5",
+                "duration_ms": 1401.4763832092285,
+                "success": true
+              },
+              {
+                "call_id": "cot_info_eval_27_info_5",
+                "duration_ms": 1178.0381202697754,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        }
+      ],
+      "raw_results": [
+        {
+          "spread_history": [
+            {
+              "total_agents": 50,
+              "total_info_received": 5,
+              "total_believed_true": 0,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 0
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 17,
+              "total_believed_true": 8,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 1
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 25,
+              "total_believed_true": 20,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 2
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 32,
+              "total_believed_true": 24,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 3
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 35,
+              "total_believed_true": 30,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 4
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 35,
+              "total_believed_true": 30,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 5
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 37,
+              "total_believed_true": 30,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 6
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 40,
+              "total_believed_true": 30,
+              "total_believed_false": 2,
+              "false_info_spread_count": 1,
+              "false_belief_ratio": 0.06060606060606061,
+              "round": 7
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 40,
+              "total_believed_true": 30,
+              "total_believed_false": 2,
+              "false_info_spread_count": 1,
+              "false_belief_ratio": 0.06060606060606061,
+              "round": 8
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 42,
+              "total_believed_true": 30,
+              "total_believed_false": 2,
+              "false_info_spread_count": 1,
+              "false_belief_ratio": 0.06060606060606061,
+              "round": 9
+            }
+          ],
+          "final_statistics": {
+            "total_agents": 50,
+            "total_info_received": 44,
+            "total_believed_true": 32,
+            "total_believed_false": 2,
+            "false_info_spread_count": 1,
+            "false_belief_ratio": 0.05714285714285714
+          },
+          "accuracy_statistics": {
+            "overall_accuracy": 0.74,
+            "accuracy_by_type": {
+              "normal": 0.8275862068965517,
+              "skeptic": 0.35714285714285715,
+              "gullible": 0.7777777777777778,
+              "influencer": 0.7
+            },
+            "min_accuracy": 0.0,
+            "max_accuracy": 1.0
+          },
+          "network_stats": {
+            "nodes": 50,
+            "edges": 141,
+            "avg_degree": 5.64,
+            "avg_clustering": 0.28329557628474045
+          },
+          "information_pool": {
+            "info_1": {
+              "info_id": "info_1",
+              "content": "真实信息_1: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.8381206197318006,
+              "spread_count": 13
+            },
+            "info_2": {
+              "info_id": "info_2",
+              "content": "虚假信息_2: 这是未经证实的说法...",
+              "true_type": "false",
+              "source_credibility": 0.6839328014732144,
+              "spread_count": 0
+            },
+            "info_3": {
+              "info_id": "info_3",
+              "content": "真实信息_3: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.6598082047087599,
+              "spread_count": 2
+            },
+            "info_4": {
+              "info_id": "info_4",
+              "content": "虚假信息_4: 这是未经证实的说法...",
+              "true_type": "false",
+              "source_credibility": 0.5762457663731921,
+              "spread_count": 1
+            },
+            "info_5": {
+              "info_id": "info_5",
+              "content": "真实信息_5: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.8548726880998732,
+              "spread_count": 1
+            }
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 42,
+              "cot_count": 42,
+              "tot_count": 0,
+              "depth_stats": {
+                "avg_depth": 2,
+                "max_depth": 2,
+                "min_depth": 2,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 1,
+                "max_branches": 1,
+                "diversity_index": 0.5,
+                "pruning_rate": 0.0
+              },
+              "coherence_score": 0.5
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 42,
+                "successful_calls": 42,
+                "failed_calls": 0,
+                "avg_duration_ms": 1840.6113669985816,
+                "min_duration_ms": 1178.0381202697754,
+                "max_duration_ms": 4368.416309356689,
+                "std_duration_ms": 551.9938644811292,
+                "total_duration_ms": 77305.67741394043,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "cot_info_eval_5_info_1",
+                  "duration_ms": 2116.96195602417,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_18_info_1",
+                  "duration_ms": 1647.6142406463623,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_10_info_1",
+                  "duration_ms": 1539.811611175537,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_3_info_1",
+                  "duration_ms": 1228.2459735870361,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_46_info_1",
+                  "duration_ms": 1876.6093254089355,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_0_info_1",
+                  "duration_ms": 1408.8366031646729,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_2_info_1",
+                  "duration_ms": 1717.1969413757324,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_47_info_1",
+                  "duration_ms": 1623.8536834716797,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_42_info_1",
+                  "duration_ms": 2511.154890060425,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_14_info_1",
+                  "duration_ms": 1744.5275783538818,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_6_info_1",
+                  "duration_ms": 2214.718818664551,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_13_info_1",
+                  "duration_ms": 1581.5327167510986,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_4_info_1",
+                  "duration_ms": 2302.5786876678467,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_29_info_1",
+                  "duration_ms": 1988.6596202850342,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_34_info_1",
+                  "duration_ms": 1843.2767391204834,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_12_info_1",
+                  "duration_ms": 1276.4825820922852,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_16_info_1",
+                  "duration_ms": 1622.6558685302734,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_41_info_1",
+                  "duration_ms": 1910.7859134674072,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_19_info_1",
+                  "duration_ms": 1661.806344985962,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_37_info_1",
+                  "duration_ms": 2087.754726409912,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_27_info_1",
+                  "duration_ms": 1709.6328735351562,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_11_info_1",
+                  "duration_ms": 2196.464776992798,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_33_info_1",
+                  "duration_ms": 1338.890552520752,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_20_info_1",
+                  "duration_ms": 1638.4389400482178,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_25_info_1",
+                  "duration_ms": 1670.1126098632812,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_7_info_1",
+                  "duration_ms": 2052.4868965148926,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_30_info_1",
+                  "duration_ms": 1509.1607570648193,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_2_info_3",
+                  "duration_ms": 1371.7272281646729,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_39_info_3",
+                  "duration_ms": 1790.290355682373,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_0_info_3",
+                  "duration_ms": 1673.811912536621,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_6_info_3",
+                  "duration_ms": 1657.8829288482666,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_21_info_1",
+                  "duration_ms": 2473.4418392181396,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_36_info_1",
+                  "duration_ms": 4368.416309356689,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_15_info_1",
+                  "duration_ms": 1725.987195968628,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_41_info_3",
+                  "duration_ms": 2366.4989471435547,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_10_info_4",
+                  "duration_ms": 3009.597063064575,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_24_info_4",
+                  "duration_ms": 1514.613151550293,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_48_info_4",
+                  "duration_ms": 1607.811689376831,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_44_info_4",
+                  "duration_ms": 1652.3659229278564,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_17_info_4",
+                  "duration_ms": 1493.4661388397217,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_17_info_5",
+                  "duration_ms": 1401.4763832092285,
+                  "success": true
+                },
+                {
+                  "call_id": "cot_info_eval_27_info_5",
+                  "duration_ms": 1178.0381202697754,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {}
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.4600000000000001,
+            "computational_efficiency_score": 1.0,
+            "social_effects_score": 0.5,
+            "overall_score": 0.615,
+            "computational_efficiency_score_old": 0.0885492405563435,
+            "overall_score_old": 0.3871373101390859
+          },
+          "misinformation_resistance": 0.8333333333333334,
+          "config": {
+            "num_agents": 50,
+            "use_enhanced_evaluation": false,
+            "num_rounds": 10,
+            "false_info_ratio": 0.3,
+            "use_tot": false,
+            "use_enhanced_memory": false,
+            "use_dynamic_reflection": false,
+            "description": "基线组：规则评估"
+          },
+          "tot_enabled": false,
+          "enhanced_memory_enabled": false,
+          "dynamic_reflection_enabled": false
+        }
+      ]
+    },
+    "optimized_tot_only": {
+      "num_runs": 1,
+      "avg_false_belief_ratio": 0.0,
+      "avg_accuracy": 0.62,
+      "spread_history": [
+        [
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 0
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 16,
+            "total_believed_true": 7,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 1
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 17,
+            "total_believed_true": 13,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 2
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 19,
+            "total_believed_true": 14,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 3
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 19,
+            "total_believed_true": 14,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 4
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 19,
+            "total_believed_true": 14,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 5
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 21,
+            "total_believed_true": 14,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 6
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 21,
+            "total_believed_true": 14,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 7
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 21,
+            "total_believed_true": 14,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 8
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 23,
+            "total_believed_true": 14,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 9
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 27,
+            "cot_count": 0,
+            "tot_count": 27,
+            "depth_stats": {
+              "avg_depth": 3,
+              "max_depth": 3,
+              "min_depth": 3,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 3,
+              "max_branches": 3,
+              "diversity_index": 1.0,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 27,
+              "successful_calls": 27,
+              "failed_calls": 0,
+              "avg_duration_ms": 3867.466608683268,
+              "min_duration_ms": 2714.5917415618896,
+              "max_duration_ms": 10578.789472579956,
+              "std_duration_ms": 1442.6549842214765,
+              "total_duration_ms": 104421.59843444824,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "tot_info_eval_5_info_1",
+                "duration_ms": 3498.436450958252,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_18_info_1",
+                "duration_ms": 4303.516149520874,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_10_info_1",
+                "duration_ms": 3732.2750091552734,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_4_info_1",
+                "duration_ms": 3145.52903175354,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_48_info_1",
+                "duration_ms": 3446.5420246124268,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_7_info_1",
+                "duration_ms": 3612.1153831481934,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_0_info_1",
+                "duration_ms": 3583.568811416626,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_2_info_1",
+                "duration_ms": 3988.7382984161377,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_47_info_1",
+                "duration_ms": 3141.6985988616943,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_42_info_1",
+                "duration_ms": 3171.5004444122314,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_21_info_1",
+                "duration_ms": 3316.495895385742,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_23_info_1",
+                "duration_ms": 10578.789472579956,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_6_info_1",
+                "duration_ms": 4975.224733352661,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_1_info_1",
+                "duration_ms": 2714.5917415618896,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_24_info_1",
+                "duration_ms": 3798.499345779419,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_41_info_1",
+                "duration_ms": 4315.03963470459,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_49_info_1",
+                "duration_ms": 3110.9564304351807,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_13_info_3",
+                "duration_ms": 4442.618846893311,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_15_info_3",
+                "duration_ms": 3115.1444911956787,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_45_info_4",
+                "duration_ms": 3831.538200378418,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_43_info_4",
+                "duration_ms": 3279.630422592163,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_41_info_5",
+                "duration_ms": 3279.5071601867676,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_39_info_5",
+                "duration_ms": 3985.3129386901855,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_49_info_5",
+                "duration_ms": 3661.9386672973633,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_6_info_5",
+                "duration_ms": 3269.1473960876465,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_24_info_5",
+                "duration_ms": 4278.70512008667,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_35_info_5",
+                "duration_ms": 2844.5377349853516,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        }
+      ],
+      "raw_results": [
+        {
+          "spread_history": [
+            {
+              "total_agents": 50,
+              "total_info_received": 5,
+              "total_believed_true": 0,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 0
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 16,
+              "total_believed_true": 7,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 1
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 17,
+              "total_believed_true": 13,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 2
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 19,
+              "total_believed_true": 14,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 3
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 19,
+              "total_believed_true": 14,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 4
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 19,
+              "total_believed_true": 14,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 5
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 21,
+              "total_believed_true": 14,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 6
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 21,
+              "total_believed_true": 14,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 7
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 21,
+              "total_believed_true": 14,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 8
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 23,
+              "total_believed_true": 14,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 9
+            }
+          ],
+          "final_statistics": {
+            "total_agents": 50,
+            "total_info_received": 28,
+            "total_believed_true": 19,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0
+          },
+          "accuracy_statistics": {
+            "overall_accuracy": 0.62,
+            "accuracy_by_type": {
+              "normal": 0.5689655172413793,
+              "skeptic": 0.5,
+              "gullible": 0.8333333333333334,
+              "influencer": 0.7
+            },
+            "min_accuracy": 0.0,
+            "max_accuracy": 1.0
+          },
+          "network_stats": {
+            "nodes": 50,
+            "edges": 141,
+            "avg_degree": 5.64,
+            "avg_clustering": 0.28329557628474045
+          },
+          "information_pool": {
+            "info_1": {
+              "info_id": "info_1",
+              "content": "真实信息_1: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.8381206197318006,
+              "spread_count": 4
+            },
+            "info_2": {
+              "info_id": "info_2",
+              "content": "虚假信息_2: 这是未经证实的说法...",
+              "true_type": "false",
+              "source_credibility": 0.6839328014732144,
+              "spread_count": 0
+            },
+            "info_3": {
+              "info_id": "info_3",
+              "content": "真实信息_3: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.7880245310945344,
+              "spread_count": 0
+            },
+            "info_4": {
+              "info_id": "info_4",
+              "content": "虚假信息_4: 这是未经证实的说法...",
+              "true_type": "false",
+              "source_credibility": 0.414291260345261,
+              "spread_count": 0
+            },
+            "info_5": {
+              "info_id": "info_5",
+              "content": "真实信息_5: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.7620456667555369,
+              "spread_count": 2
+            }
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 27,
+              "cot_count": 0,
+              "tot_count": 27,
+              "depth_stats": {
+                "avg_depth": 3,
+                "max_depth": 3,
+                "min_depth": 3,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 3,
+                "max_branches": 3,
+                "diversity_index": 1.0,
+                "pruning_rate": 0.0
+              },
+              "coherence_score": 0.5
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 27,
+                "successful_calls": 27,
+                "failed_calls": 0,
+                "avg_duration_ms": 3867.466608683268,
+                "min_duration_ms": 2714.5917415618896,
+                "max_duration_ms": 10578.789472579956,
+                "std_duration_ms": 1442.6549842214765,
+                "total_duration_ms": 104421.59843444824,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "tot_info_eval_5_info_1",
+                  "duration_ms": 3498.436450958252,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_18_info_1",
+                  "duration_ms": 4303.516149520874,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_10_info_1",
+                  "duration_ms": 3732.2750091552734,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_4_info_1",
+                  "duration_ms": 3145.52903175354,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_48_info_1",
+                  "duration_ms": 3446.5420246124268,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_7_info_1",
+                  "duration_ms": 3612.1153831481934,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_0_info_1",
+                  "duration_ms": 3583.568811416626,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_2_info_1",
+                  "duration_ms": 3988.7382984161377,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_47_info_1",
+                  "duration_ms": 3141.6985988616943,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_42_info_1",
+                  "duration_ms": 3171.5004444122314,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_21_info_1",
+                  "duration_ms": 3316.495895385742,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_23_info_1",
+                  "duration_ms": 10578.789472579956,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_6_info_1",
+                  "duration_ms": 4975.224733352661,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_1_info_1",
+                  "duration_ms": 2714.5917415618896,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_24_info_1",
+                  "duration_ms": 3798.499345779419,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_41_info_1",
+                  "duration_ms": 4315.03963470459,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_49_info_1",
+                  "duration_ms": 3110.9564304351807,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_13_info_3",
+                  "duration_ms": 4442.618846893311,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_15_info_3",
+                  "duration_ms": 3115.1444911956787,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_45_info_4",
+                  "duration_ms": 3831.538200378418,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_43_info_4",
+                  "duration_ms": 3279.630422592163,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_41_info_5",
+                  "duration_ms": 3279.5071601867676,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_39_info_5",
+                  "duration_ms": 3985.3129386901855,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_49_info_5",
+                  "duration_ms": 3661.9386672973633,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_6_info_5",
+                  "duration_ms": 3269.1473960876465,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_24_info_5",
+                  "duration_ms": 4278.70512008667,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_35_info_5",
+                  "duration_ms": 2844.5377349853516,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {}
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.6900000000000001,
+            "computational_efficiency_score": 0.8832833369572958,
+            "social_effects_score": 0.5,
+            "overall_score": 0.643320834239324,
+            "computational_efficiency_score_old": 0,
+            "overall_score_old": 0.4225
+          },
+          "misinformation_resistance": 0.7777777777777778,
+          "config": {
+            "num_agents": 50,
+            "use_enhanced_evaluation": true,
+            "num_rounds": 10,
+            "false_info_ratio": 0.3,
+            "use_tot": true,
+            "use_enhanced_memory": false,
+            "use_dynamic_reflection": false,
+            "description": "优化组 A：ToT 评估"
+          },
+          "tot_enabled": true,
+          "enhanced_memory_enabled": false,
+          "dynamic_reflection_enabled": false
+        }
+      ]
+    },
+    "optimized_full": {
+      "num_runs": 1,
+      "avg_false_belief_ratio": 0.0,
+      "avg_accuracy": 0.5,
+      "spread_history": [
+        [
+          {
+            "total_agents": 50,
+            "total_info_received": 5,
+            "total_believed_true": 0,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 0
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 11,
+            "total_believed_true": 4,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 1
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 12,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 2
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 14,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 3
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 14,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 4
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 14,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 5
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 16,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 6
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 16,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 7
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 16,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 8
+          },
+          {
+            "total_agents": 50,
+            "total_info_received": 18,
+            "total_believed_true": 6,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0,
+            "round": 9
+          }
+        ]
+      ],
+      "evaluation_metrics": [
+        {
+          "decision_quality": {
+            "total_decisions": 0,
+            "unique_agents": 0,
+            "accuracy": 0.5,
+            "consistency": 1.0,
+            "confidence_calibration": 0.5,
+            "avg_confidence": 0,
+            "avg_reasoning_quality": 0
+          },
+          "reasoning_ability": {
+            "total_reasoning_episodes": 18,
+            "cot_count": 0,
+            "tot_count": 18,
+            "depth_stats": {
+              "avg_depth": 3,
+              "max_depth": 3,
+              "min_depth": 3,
+              "std_depth": 0.0
+            },
+            "diversity_stats": {
+              "avg_branches": 3,
+              "max_branches": 3,
+              "diversity_index": 1.0,
+              "pruning_rate": 0.0
+            },
+            "coherence_score": 0.5
+          },
+          "computational_efficiency": {
+            "call_statistics": {
+              "total_calls": 18,
+              "successful_calls": 18,
+              "failed_calls": 0,
+              "avg_duration_ms": 3984.570450252957,
+              "min_duration_ms": 2616.9207096099854,
+              "max_duration_ms": 7879.761457443237,
+              "std_duration_ms": 1166.7391138164282,
+              "total_duration_ms": 71722.26810455322,
+              "total_tokens_in": 0,
+              "total_tokens_out": 0
+            },
+            "memory_statistics": {
+              "snapshots": 0,
+              "avg_memory_mb": 0,
+              "peak_memory_mb": 0
+            },
+            "call_records": [
+              {
+                "call_id": "tot_info_eval_5_info_1",
+                "duration_ms": 4022.9787826538086,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_18_info_1",
+                "duration_ms": 4164.7515296936035,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_10_info_1",
+                "duration_ms": 3299.004077911377,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_4_info_1",
+                "duration_ms": 2853.5308837890625,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_48_info_1",
+                "duration_ms": 3749.4912147521973,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_7_info_1",
+                "duration_ms": 3396.5563774108887,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_0_info_1",
+                "duration_ms": 7879.761457443237,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_47_info_1",
+                "duration_ms": 3064.6350383758545,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_42_info_1",
+                "duration_ms": 4077.496290206909,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_23_info_1",
+                "duration_ms": 3390.3307914733887,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_24_info_1",
+                "duration_ms": 4227.846622467041,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_20_info_1",
+                "duration_ms": 4068.0906772613525,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_7_info_3",
+                "duration_ms": 2616.9207096099854,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_24_info_3",
+                "duration_ms": 3672.997236251831,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_44_info_4",
+                "duration_ms": 5313.311815261841,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_26_info_4",
+                "duration_ms": 4578.043699264526,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_2_info_5",
+                "duration_ms": 3332.890748977661,
+                "success": true
+              },
+              {
+                "call_id": "tot_info_eval_4_info_5",
+                "duration_ms": 4013.630151748657,
+                "success": true
+              }
+            ]
+          },
+          "social_effects": {}
+        }
+      ],
+      "raw_results": [
+        {
+          "spread_history": [
+            {
+              "total_agents": 50,
+              "total_info_received": 5,
+              "total_believed_true": 0,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 0
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 11,
+              "total_believed_true": 4,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 1
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 12,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 2
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 14,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 3
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 14,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 4
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 14,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 5
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 16,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 6
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 16,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 7
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 16,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 8
+            },
+            {
+              "total_agents": 50,
+              "total_info_received": 18,
+              "total_believed_true": 6,
+              "total_believed_false": 0,
+              "false_info_spread_count": 0,
+              "false_belief_ratio": 0.0,
+              "round": 9
+            }
+          ],
+          "final_statistics": {
+            "total_agents": 50,
+            "total_info_received": 18,
+            "total_believed_true": 7,
+            "total_believed_false": 0,
+            "false_info_spread_count": 0,
+            "false_belief_ratio": 0.0
+          },
+          "accuracy_statistics": {
+            "overall_accuracy": 0.5,
+            "accuracy_by_type": {
+              "normal": 0.5,
+              "skeptic": 0.2857142857142857,
+              "gullible": 0.7222222222222222,
+              "influencer": 0.4
+            },
+            "min_accuracy": 0.0,
+            "max_accuracy": 1.0
+          },
+          "network_stats": {
+            "nodes": 50,
+            "edges": 141,
+            "avg_degree": 5.64,
+            "avg_clustering": 0.28329557628474045
+          },
+          "information_pool": {
+            "info_1": {
+              "info_id": "info_1",
+              "content": "真实信息_1: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.8381206197318006,
+              "spread_count": 2
+            },
+            "info_2": {
+              "info_id": "info_2",
+              "content": "虚假信息_2: 这是未经证实的说法...",
+              "true_type": "false",
+              "source_credibility": 0.6839328014732144,
+              "spread_count": 0
+            },
+            "info_3": {
+              "info_id": "info_3",
+              "content": "虚假信息_3: 这是未经证实的说法...",
+              "true_type": "false",
+              "source_credibility": 0.4700584775770936,
+              "spread_count": 0
+            },
+            "info_4": {
+              "info_id": "info_4",
+              "content": "真实信息_4: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.6150655155421922,
+              "spread_count": 0
+            },
+            "info_5": {
+              "info_id": "info_5",
+              "content": "真实信息_5: 这是经过验证的事实...",
+              "true_type": "true",
+              "source_credibility": 0.8404249805166794,
+              "spread_count": 0
+            }
+          },
+          "evaluation_metrics": {
+            "decision_quality": {
+              "total_decisions": 0,
+              "unique_agents": 0,
+              "accuracy": 0.5,
+              "consistency": 1.0,
+              "confidence_calibration": 0.5,
+              "avg_confidence": 0,
+              "avg_reasoning_quality": 0
+            },
+            "reasoning_ability": {
+              "total_reasoning_episodes": 18,
+              "cot_count": 0,
+              "tot_count": 18,
+              "depth_stats": {
+                "avg_depth": 3,
+                "max_depth": 3,
+                "min_depth": 3,
+                "std_depth": 0.0
+              },
+              "diversity_stats": {
+                "avg_branches": 3,
+                "max_branches": 3,
+                "diversity_index": 1.0,
+                "pruning_rate": 0.0
+              },
+              "coherence_score": 0.5
+            },
+            "computational_efficiency": {
+              "call_statistics": {
+                "total_calls": 18,
+                "successful_calls": 18,
+                "failed_calls": 0,
+                "avg_duration_ms": 3984.570450252957,
+                "min_duration_ms": 2616.9207096099854,
+                "max_duration_ms": 7879.761457443237,
+                "std_duration_ms": 1166.7391138164282,
+                "total_duration_ms": 71722.26810455322,
+                "total_tokens_in": 0,
+                "total_tokens_out": 0
+              },
+              "memory_statistics": {
+                "snapshots": 0,
+                "avg_memory_mb": 0,
+                "peak_memory_mb": 0
+              },
+              "call_records": [
+                {
+                  "call_id": "tot_info_eval_5_info_1",
+                  "duration_ms": 4022.9787826538086,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_18_info_1",
+                  "duration_ms": 4164.7515296936035,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_10_info_1",
+                  "duration_ms": 3299.004077911377,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_4_info_1",
+                  "duration_ms": 2853.5308837890625,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_48_info_1",
+                  "duration_ms": 3749.4912147521973,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_7_info_1",
+                  "duration_ms": 3396.5563774108887,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_0_info_1",
+                  "duration_ms": 7879.761457443237,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_47_info_1",
+                  "duration_ms": 3064.6350383758545,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_42_info_1",
+                  "duration_ms": 4077.496290206909,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_23_info_1",
+                  "duration_ms": 3390.3307914733887,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_24_info_1",
+                  "duration_ms": 4227.846622467041,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_20_info_1",
+                  "duration_ms": 4068.0906772613525,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_7_info_3",
+                  "duration_ms": 2616.9207096099854,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_24_info_3",
+                  "duration_ms": 3672.997236251831,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_44_info_4",
+                  "duration_ms": 5313.311815261841,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_26_info_4",
+                  "duration_ms": 4578.043699264526,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_2_info_5",
+                  "duration_ms": 3332.890748977661,
+                  "success": true
+                },
+                {
+                  "call_id": "tot_info_eval_4_info_5",
+                  "duration_ms": 4013.630151748657,
+                  "success": true
+                }
+              ]
+            },
+            "social_effects": {}
+          },
+          "metrics_summary": {
+            "decision_quality_score": 0.5,
+            "reasoning_ability_score": 0.6900000000000001,
+            "computational_efficiency_score": 0.8759643468591902,
+            "social_effects_score": 0.5,
+            "overall_score": 0.6414910867147976,
+            "computational_efficiency_score_old": 0,
+            "overall_score_old": 0.4225
+          },
+          "misinformation_resistance": 0.5,
+          "config": {
+            "num_agents": 50,
+            "use_enhanced_evaluation": true,
+            "num_rounds": 10,
+            "false_info_ratio": 0.3,
+            "use_tot": true,
+            "use_enhanced_memory": true,
+            "use_dynamic_reflection": true,
+            "description": "优化组 B：全部优化"
+          },
+          "tot_enabled": true,
+          "enhanced_memory_enabled": true,
+          "dynamic_reflection_enabled": true
+        }
+      ]
+    }
+  }
+}

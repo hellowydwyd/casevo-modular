@@ -1,7 +1,7 @@
 """
 Model 基类测试
 
-测试 ModelBase, VariableNetwork, OrederTypeActivation
+测试 ModelBase, VariableNetwork, OrderTypeActivation
 """
 
 import pytest
@@ -11,7 +11,7 @@ import networkx as nx
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from casevo import ModelBase, AgentBase, VariableNetwork, OrederTypeActivation
+from casevo import ModelBase, AgentBase, VariableNetwork, OrderTypeActivation
 
 
 class SampleAgent(AgentBase):
@@ -121,7 +121,7 @@ class TestModelBase:
             type_schedule=True
         )
         
-        assert isinstance(model.schedule, OrederTypeActivation)
+        assert isinstance(model.schedule, OrderTypeActivation)
 
 
 class TestVariableNetwork:
@@ -152,8 +152,8 @@ class TestVariableNetwork:
         assert not network.G.has_edge(0, 1)
 
 
-class TestOrederTypeActivation:
-    """OrederTypeActivation 测试类"""
+class TestOrderTypeActivation:
+    """OrderTypeActivation 测试类"""
     
     def test_add_timestamp(self, mock_llm, simple_graph, prompt_dir):
         """测试时间戳增加"""
@@ -165,7 +165,7 @@ class TestOrederTypeActivation:
         )
         
         initial_time = model.schedule.time
-        model.schedule.add_timestemp()
+        model.schedule.add_timestamp()
         
         assert model.schedule.time == initial_time + 1
 

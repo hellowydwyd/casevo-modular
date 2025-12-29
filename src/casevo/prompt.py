@@ -23,15 +23,15 @@ class Prompt:
     def __get_prompt__(self, tar_dict):
         return self.template.render(**tar_dict)
     
-    def send_prompt(self, ertra=None, agent=None, model=None):
+    def send_prompt(self, extra=None, agent=None, model=None):
         """
         发送提示信息。
 
         这个方法用于根据提供的参数生成并发送一个提示信息。它支持通过代理(agent)和模型(model)
-        来定制提示信息的内容。额外参数(ertra)可以提供额外的信息来进一步定制提示。
+        来定制提示信息的内容。额外参数(extra)可以提供额外的信息来进一步定制提示。
 
         参数:
-        - ertra: 额外参数，用于提供额外的定制信息，默认为None。
+        - extra: 额外参数，用于提供额外的定制信息，默认为None。
         - agent: 代理对象，如果提供，将使用代理的描述和上下文来定制提示信息。
         - model: 模型对象，如果提供，将使用模型的上下文来定制提示信息。
 
@@ -49,12 +49,11 @@ class Prompt:
             tar_model = {
                 "context": model.context
             }
-             
 
         prompt_text = self.__get_prompt__({
             "agent": tar_agent,
             "model": tar_model,
-            "extra": ertra})
+            "extra": extra})
         #print(prompt_text)
         #return ""
         return self.factory.__send_message__(prompt_text)
