@@ -141,8 +141,10 @@ memory/
 *.db
 *.sqlite
 
-# Academic folders (keep course_proposal and report)
+# Academic folders
 academic/
+course_proposal/
+report/
 
 # LaTeX auxiliary files
 *.aux
